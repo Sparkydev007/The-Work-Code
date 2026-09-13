@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"on-secondary-fixed":"#00201d","outline":"#737686","on-primary-fixed-variant":"#003ea8","secondary-fixed":"#89f5e7","on-secondary":"#ffffff","error":"#ba1a1a","primary":"#004ac6","on-primary-container":"#eeefff","inverse-primary":"#b4c5ff","on-tertiary-fixed":"#0e1c2f","surface-dim":"#cbdbf5","on-tertiary":"#ffffff","surface-container":"#e5eeff","tertiary-fixed-dim":"#bac7e1","inverse-surface":"#213145","secondary-container":"#86f2e4","surface-container-high":"#dce9ff","on-tertiary-fixed-variant":"#3a475c","error-container":"#ffdad6","on-secondary-fixed-variant":"#005049","on-primary-fixed":"#00174b","primary-fixed":"#dbe1ff","surface-container-low":"#eff4ff","tertiary-container":"#616e85","secondary-fixed-dim":"#6bd8cb","on-primary":"#ffffff","surface-bright":"#f8f9ff","on-surface-variant":"#434655","on-tertiary-container":"#ebf1ff","on-background":"#0b1c30","tertiary-fixed":"#d6e3fe","tertiary":"#49566c","surface-tint":"#0053db","on-secondary-container":"#006f66","surface-container-lowest":"#ffffff","primary-fixed-dim":"#b4c5ff","surface-container-highest":"#d3e4fe","background":"#f8f9ff","primary-container":"#2563eb","outline-variant":"#c3c6d7","surface":"#f8f9ff","on-surface":"#0b1c30","on-error":"#ffffff","on-error-container":"#93000a","secondary":"#006a61","surface-variant":"#d3e4fe","inverse-on-surface":"#eaf1ff"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"space-xs":"0.25rem","margin-lg":"2rem","space-lg":"1rem","gutter":"1rem","space-md":"0.75rem","space-sm":"0.5rem","margin":"1rem","gutter-lg":"1.5rem","space-xl":"1.5rem","margin-md":"1.5rem"},"fontFamily":{"headline-sm":["Inter"],"display-lg-mobile":["Inter"],"headline-lg":["Inter"],"headline-md":["Inter"],"body-sm":["Inter"],"display-lg":["Inter"],"body-lg":["Inter"],"data-mono-md":["IBM Plex Sans"],"label-md":["IBM Plex Sans"],"label-sm":["IBM Plex Sans"],"data-mono-sm":["IBM Plex Sans"],"body-md":["Inter"]},"fontSize":{"headline-sm":["16px",{"lineHeight":"24px","letterSpacing":"-0.01em","fontWeight":"600"}],"display-lg-mobile":["28px",{"lineHeight":"36px","letterSpacing":"-0.02em","fontWeight":"600"}],"headline-lg":["24px",{"lineHeight":"32px","letterSpacing":"-0.02em","fontWeight":"600"}],"headline-md":["20px",{"lineHeight":"28px","letterSpacing":"-0.015em","fontWeight":"600"}],"body-sm":["12px",{"lineHeight":"16px","letterSpacing":"0.005em","fontWeight":"400"}],"display-lg":["36px",{"lineHeight":"44px","letterSpacing":"-0.025em","fontWeight":"600"}],"body-lg":["16px",{"lineHeight":"24px","letterSpacing":"-0.005em","fontWeight":"400"}],"data-mono-md":["13px",{"lineHeight":"18px","letterSpacing":"-0.01em","fontWeight":"500"}],"label-md":["13px",{"lineHeight":"18px","letterSpacing":"0.01em","fontWeight":"500"}],"label-sm":["11px",{"lineHeight":"14px","letterSpacing":"0.04em","fontWeight":"600"}],"data-mono-sm":["11px",{"lineHeight":"16px","letterSpacing":"0em","fontWeight":"500"}],"body-md":["14px",{"lineHeight":"20px","letterSpacing":"0em","fontWeight":"400"}]}}}}</script></head><body class="bg-background font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-screen w-72 bg-surface-container-lowest border-r border-outline-variant/50 z-50 flex flex-col justify-between select-none"><div class="flex flex-col h-full overflow-hidden"><div class="px-space-lg py-space-md border-b border-outline-variant/40 flex items-center justify-between"><div class="flex items-center gap-space-sm"><img alt="The Work Code Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1XGDMsVXqPxe-nL8-njVmB_WxV1XGloz0NAGX4QvV_fXr1RmO-sgUEUl9mqafztIxxGNVBx_07CorpFml3oURNU_xr4NhV_fCG9sKqjsOqb-fDTg-JWlVbNt5PqcRJ_nH9pQoCIMIcZe0o683R5jZByhcRgp8ocVbV4bjRpndYi2LuBn5uXJ5nytHN6dQ-B_2tBYOZLqM9600K4wLxTGgj1wW3v8-XL_-bX0xvCTaHmhf9I4u9pv_nFaA"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-on-surface leading-tight">The Work Code</span><span class="font-label-sm text-label-sm text-on-surface-variant">VERIFY INFRASTRUCTURE</span></div></div><div class="flex items-center gap-1.5 px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-data-mono-sm text-data-mono-sm border border-outline-variant/40"><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>PROD v2.4</div></div><div class="flex-1 overflow-y-auto px-space-md py-space-sm space-y-space-md"><nav class="space-y-space-xs" data-active-classes="bg-primary-container text-on-primary-container font-headline-sm"><div class="px-space-sm py-1 font-label-sm text-label-sm text-tertiary uppercase tracking-wider">Overview</div><a aria-current="page" class="flex items-center justify-between px-space-sm py-1.5 rounded transition-colors bg-primary-container text-on-primary-container font-headline-sm" data-path="dashboard" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">grid_view</span><span class="font-body-md text-body-md">Dashboard</span></div></a><div class="pt-space-xs px-space-sm py-1 font-label-sm text-label-sm text-tertiary uppercase tracking-wider">Verification</div><a class="flex items-center justify-between px-space-sm py-1.5 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="new-verification" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">add_task</span><span class="font-body-md text-body-md">New Verification</span></div><span class="px-1.5 py-0.2 rounded bg-surface-container-high text-primary font-label-sm text-label-sm">+</span></a><a class="flex items-center justify-between px-space-sm py-1.5 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="verification-requests" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">inbox</span><span class="font-body-md text-body-md">Verification Requests</span></div><span class="px-2 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-data-mono-sm text-data-mono-sm">12</span></a><a class="flex items-center justify-between px-space-sm py-1.5 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="employees-directory" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">badge</span><span class="font-body-md text-body-md">Employees Directory</span></div></a><a class="flex items-center justify-between px-space-sm py-1.5 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="employers-network" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">domain</span><span class="font-body-md text-body-md">Employers Network</span></div></a><div class="pt-space-xs px-space-sm py-1 font-label-sm text-label-sm text-tertiary uppercase tracking-wider">Data &amp; Reports</div><a class="flex items-center justify-between px-space-sm py-1.5 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="income-verification" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">payments</span><span class="font-body-md text-body-md">Income Verification</span></div></a><a class="flex items-center justify-between px-space-sm py-1.5 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="verification-reports" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">description</span><span class="font-body-md text-body-md">Verification Reports</span></div></a><div class="pt-space-xs px-space-sm py-1 font-label-sm text-label-sm text-tertiary uppercase tracking-wider">Risk &amp; Fraud</div><a class="flex items-center justify-between px-space-sm py-1.5 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="risk-fraud-analytics" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">shield</span><span class="font-body-md text-body-md">Risk &amp; Fraud Analytics</span></div><span class="w-2 h-2 rounded-full bg-error" title="Active risk alerts"></span></a><a class="flex items-center justify-between px-space-sm py-1.5 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="anomalies" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">warning</span><span class="font-body-md text-body-md">Anomalies</span></div></a><div class="pt-space-xs px-space-sm py-1 font-label-sm text-label-sm text-tertiary uppercase tracking-wider">Developer</div><a class="flex items-center justify-between px-space-sm py-1.5 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="api-keys-logs" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">key</span><span class="font-body-md text-body-md">API Keys &amp; Logs</span></div></a><a class="flex items-center justify-between px-space-sm py-1.5 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="webhooks" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">webhook</span><span class="font-body-md text-body-md">Webhooks</span></div></a><div class="pt-space-xs px-space-sm py-1 font-label-sm text-label-sm text-tertiary uppercase tracking-wider">Compliance</div><a class="flex items-center justify-between px-space-sm py-1.5 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="audit-logs" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">history_edu</span><span class="font-body-md text-body-md">Audit Logs</span></div><span class="px-1.5 py-0.5 rounded text-[10px] uppercase font-data-mono-sm tracking-widest bg-surface-container-high text-on-surface-variant border border-outline-variant/40">IMMUTABLE</span></a><a class="flex items-center justify-between px-space-sm py-1.5 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="security-center" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">verified_user</span><span class="font-body-md text-body-md">Security Center</span></div></a></nav></div><div class="border-t border-outline-variant/40 p-space-sm bg-surface-container-lowest space-y-space-xs"><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="documentation-support" href="#"><span class="material-symbols-outlined text-[18px]">help_outline</span><span>Documentation &amp; Support</span></a><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="organization-settings" href="#"><span class="material-symbols-outlined text-[18px]">settings</span><span>Organization Settings</span></a><div class="mt-space-xs p-space-sm rounded bg-surface-container-low border border-outline-variant/40 flex items-center justify-between"><div class="flex items-center gap-space-sm overflow-hidden"><img alt="Profile" class="w-8 h-8 rounded-full object-cover shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD78qhL42V3IVENEtRMaVlSoVdiVkyyIVL6pC0w2-TkZrTsiL7vtjOjMxmBfcTWxIq-KXQdxfZnX1AXt3MXDZY3AtLTUO6rOg882pVVt187aUCTSQaO6n4gzDPTdtUBy3hGDFIwBd8nBQiqh6W8_VfYpvYpkjTQwCEGT9V10XXzVENLn3VXNUQfGNBHxYW29Kpg7IRIBKg6aC-1B8VPq8oxbkjho_KQeobx_Cl3TdSlqeq6YIOvw3k"/><div class="truncate"><div class="font-headline-sm text-body-md text-on-surface leading-snug truncate">Alex Morgan</div><div class="font-label-sm text-label-sm text-on-surface-variant truncate">Chief Verification Officer</div><div class="font-data-mono-sm text-data-mono-sm text-tertiary truncate">ORG-8821</div></div></div><button class="text-outline hover:text-on-surface p-1 rounded hover:bg-surface-container-high"><span class="material-symbols-outlined text-[18px]">unfold_more</span></button></div></div></div></aside><div class="pl-72 flex flex-col min-h-screen"><header class="fixed top-0 left-72 right-0 h-16 bg-surface-container-lowest/95 backdrop-blur-md border-b border-outline-variant/40 z-40 px-gutter-lg flex items-center justify-between"><div class="flex items-center gap-space-lg flex-1 max-w-xl"><div class="relative w-full flex items-center"><span class="material-symbols-outlined absolute left-3 text-outline text-[18px]">search</span><input class="w-full h-9 pl-9 pr-12 rounded bg-surface-container-low border border-outline-variant/50 font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/20" placeholder="Search applicants, verification ID (VER-...), employers..." type="text"/><div class="absolute right-2 px-1.5 py-0.5 rounded bg-surface-container-high border border-outline-variant/40 font-data-mono-sm text-data-mono-sm text-on-surface-variant">⌘K</div></div></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-2 px-space-sm py-1 rounded-full bg-surface-container-low border border-outline-variant/40"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span></span><span class="font-data-mono-sm text-data-mono-sm text-on-surface">Status: 99.98% Operational</span></div><a audit="" class="p-2 rounded text-outline hover:text-on-surface hover:bg-surface-container-low transition-colors title=" data-path="audit-logs" href="#" quicklink"=""><span class="material-symbols-outlined text-[20px]">receipt_long</span></a><div class="relative"><button class="relative p-2 rounded text-outline hover:text-on-surface hover:bg-surface-container-low transition-colors"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1.5 right-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-error text-on-error font-data-mono-sm text-[10px]">3</span></button></div><a class="inline-flex items-center gap-1.5 px-space-md h-9 bg-primary text-on-primary rounded font-label-md text-label-md hover:bg-primary-container hover:text-on-primary-container transition-colors shadow-sm" data-path="new-verification" href="#"><span class="material-symbols-outlined text-[16px]">add</span><span>New Verification</span></a></div></header><main class="flex-1 pt-16 bg-background w-full px-gutter-lg py-margin-md"><div class="flex flex-col w-full">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-md mb-margin-lg">
+<div class="flex flex-col max-w-3xl">
+<div class="flex items-center gap-space-sm mb-1">
+<span class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Income Verification</span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-surface-container-high text-primary font-data-mono-sm text-data-mono-sm font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+          LEDGER ENGINE v4.12
+        </span>
+</div>
+<p class="font-body-md text-body-md text-tertiary leading-normal">
+        Real-time payroll income cross-stitching, W-2/1099 reconciliation, and compensation variance tracking across 14,200+ direct gateways.
+      </p>
+</div>
+<div class="flex items-center gap-space-sm shrink-0">
+<button class="inline-flex items-center gap-2 px-space-md h-9 bg-surface-container-lowest text-on-surface border border-outline-variant/60 rounded font-label-md text-label-md hover:bg-surface-container transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[18px] text-outline">tune</span>
+<span>Variance Rules</span>
+</button>
+<button class="inline-flex items-center gap-2 px-space-lg h-9 bg-primary-container text-on-primary-container rounded font-label-md text-label-md hover:bg-primary transition-all shadow-sm">
+<span class="material-symbols-outlined text-[18px]">add_circle</span>
+<span>New income check</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter mb-margin-lg">
+<div class="bg-surface-container-lowest rounded-xl p-space-lg border border-outline-variant/40 shadow-sm flex flex-col justify-between">
+<div class="flex items-start justify-between mb-space-sm">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-tertiary uppercase tracking-wider">Checks this month</span>
+<span class="font-display-lg text-display-lg text-on-surface font-semibold mt-1">642</span>
+</div>
+<div class="w-10 h-10 rounded bg-primary-fixed/40 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[22px]">swap_horizontal_circle</span>
+</div>
+</div>
+<div class="flex items-center gap-2 pt-space-xs border-t border-outline-variant/30">
+<span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-secondary-fixed/40 text-on-secondary-fixed-variant font-data-mono-sm text-data-mono-sm">
+<span class="material-symbols-outlined text-[14px]">arrow_upward</span>
+          +14.8%
+        </span>
+<span class="font-body-sm text-body-sm text-tertiary">vs previous cycle (559)</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-space-lg border border-outline-variant/40 shadow-sm flex flex-col justify-between">
+<div class="flex items-start justify-between mb-space-sm">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-tertiary uppercase tracking-wider">Match rate</span>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="font-display-lg text-display-lg text-on-surface font-semibold">88.6%</span>
+<span class="font-label-sm text-label-sm text-secondary font-medium">Auto-certified</span>
+</div>
+</div>
+<div class="w-10 h-10 rounded bg-secondary-container/40 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[22px]">verified</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-xs border-t border-outline-variant/30">
+<span class="font-body-sm text-body-sm text-tertiary">Within ±2.5% tolerance threshold</span>
+<div class="w-20 bg-surface-container-high h-2 rounded-full overflow-hidden">
+<div class="bg-secondary h-full rounded-full" style="width: 88.6%"></div>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-space-lg border border-outline-variant/40 shadow-sm flex flex-col justify-between">
+<div class="flex items-start justify-between mb-space-sm">
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="font-label-sm text-label-sm text-tertiary uppercase tracking-wider">Avg income delta</span>
+<span class="material-symbols-outlined text-[16px] text-outline cursor-help" title="Mean variance between applicant self-reported salary and direct automated payroll stream">info</span>
+</div>
+<span class="font-display-lg text-display-lg text-error font-semibold mt-1">-$412</span>
+</div>
+<div class="w-10 h-10 rounded bg-error-container/40 flex items-center justify-center text-error">
+<span class="material-symbols-outlined text-[22px]">trending_down</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-xs border-t border-outline-variant/30">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-amber-50 text-amber-800 border border-amber-200 font-data-mono-sm text-data-mono-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-600"></span>
+          28 flagged for review
+        </span>
+<span class="font-body-sm text-body-sm text-tertiary">4.3% audit load</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant/40 shadow-sm p-space-lg mb-margin-lg">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md mb-space-lg pb-space-md border-b border-outline-variant/30">
+<div>
+<div class="flex items-center gap-2">
+<h2 class="font-headline-md text-headline-md text-on-surface">Income verification by period</h2>
+<span class="px-2 py-0.5 rounded bg-surface-container font-data-mono-sm text-data-mono-sm text-tertiary">HISTORICAL AGGREGATES</span>
+</div>
+<p class="font-body-sm text-body-sm text-tertiary mt-0.5">
+          Aggregate verified compensation breakdown by base, overtime, and incentive bonuses across last 8 quarters (Q1 2024 – Q4 2025).
+        </p>
+</div>
+<div class="flex flex-wrap items-center gap-space-md">
+<div class="flex items-center gap-4 text-label-sm font-label-sm">
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-sm bg-primary-container"></span>
+<span class="text-on-surface-variant">Base Salary</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-sm bg-secondary"></span>
+<span class="text-on-surface-variant">Overtime Pay</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-sm bg-amber-600"></span>
+<span class="text-on-surface-variant">Bonus &amp; Incentives</span>
+</div>
+</div>
+<div class="flex items-center bg-surface-container-low p-0.5 rounded border border-outline-variant/40">
+<button class="px-3 py-1 rounded bg-surface-container-lowest text-primary font-label-sm text-label-sm shadow-xs flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">bar_chart</span>
+<span>Chart</span>
+</button>
+<button class="px-3 py-1 rounded text-tertiary hover:text-on-surface font-label-sm text-label-sm transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">table_chart</span>
+<span>Table</span>
+</button>
+</div>
+<div class="px-2.5 py-1 rounded bg-surface-container-low border border-outline-variant/40 font-data-mono-sm text-data-mono-sm text-on-surface-variant flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[14px]">calendar_today</span>
+          Trailing 8 Quarters
+        </div>
+</div>
+</div>
+<div class="relative w-full pt-4 pb-2">
+<div class="absolute inset-0 flex flex-col justify-between pointer-events-none pb-12 pt-2">
+<div class="flex items-center w-full border-b border-dashed border-outline-variant/20">
+<span class="font-data-mono-sm text-data-mono-sm text-outline w-12 text-right pr-3">$60M</span>
+<div class="flex-1"></div>
+</div>
+<div class="flex items-center w-full border-b border-dashed border-outline-variant/20">
+<span class="font-data-mono-sm text-data-mono-sm text-outline w-12 text-right pr-3">$50M</span>
+<div class="flex-1"></div>
+</div>
+<div class="flex items-center w-full border-b border-dashed border-outline-variant/20">
+<span class="font-data-mono-sm text-data-mono-sm text-outline w-12 text-right pr-3">$40M</span>
+<div class="flex-1"></div>
+</div>
+<div class="flex items-center w-full border-b border-dashed border-outline-variant/20">
+<span class="font-data-mono-sm text-data-mono-sm text-outline w-12 text-right pr-3">$30M</span>
+<div class="flex-1"></div>
+</div>
+<div class="flex items-center w-full border-b border-dashed border-outline-variant/20">
+<span class="font-data-mono-sm text-data-mono-sm text-outline w-12 text-right pr-3">$20M</span>
+<div class="flex-1"></div>
+</div>
+<div class="flex items-center w-full border-b border-dashed border-outline-variant/20">
+<span class="font-data-mono-sm text-data-mono-sm text-outline w-12 text-right pr-3">$10M</span>
+<div class="flex-1"></div>
+</div>
+<div class="flex items-center w-full border-b border-outline-variant/40">
+<span class="font-data-mono-sm text-data-mono-sm text-outline w-12 text-right pr-3">$0M</span>
+<div class="flex-1"></div>
+</div>
+</div>
+<div class="relative pl-14 pr-2 h-72 flex items-end justify-between gap-2 sm:gap-4 md:gap-6 z-10">
+<div class="group relative flex-1 flex flex-col items-center h-full justify-end cursor-pointer">
+<div class="absolute -top-12 opacity-0 group-hover:opacity-100 transition-opacity bg-inverse-surface text-inverse-on-surface px-2 py-1 rounded text-data-mono-sm font-data-mono-sm pointer-events-none z-30 whitespace-nowrap shadow-md">
+            Total: $38.2M (B: $28.5M | OT: $4.2M | Inc: $5.5M)
+          </div>
+<div class="w-full max-w-[48px] flex flex-col justify-end transition-transform group-hover:scale-y-[1.02] origin-bottom">
+<div class="w-full rounded-t-sm bg-amber-600 transition-colors group-hover:bg-amber-500" style="height: 26px;" title="Bonus $5.5M"></div>
+<div class="w-full bg-secondary transition-colors group-hover:bg-teal-600" style="height: 20px;" title="Overtime $4.2M"></div>
+<div class="w-full bg-primary-container rounded-b-sm transition-colors group-hover:bg-primary" style="height: 136px;" title="Base $28.5M"></div>
+</div>
+<div class="mt-3 text-center">
+<span class="font-data-mono-sm text-data-mono-sm text-on-surface font-semibold block">Q1 '24</span>
+<span class="font-data-mono-sm text-[10px] text-tertiary block">$38.2M</span>
+</div>
+</div>
+<div class="group relative flex-1 flex flex-col items-center h-full justify-end cursor-pointer">
+<div class="absolute -top-12 opacity-0 group-hover:opacity-100 transition-opacity bg-inverse-surface text-inverse-on-surface px-2 py-1 rounded text-data-mono-sm font-data-mono-sm pointer-events-none z-30 whitespace-nowrap shadow-md">
+            Total: $41.0M (B: $29.8M | OT: $4.8M | Inc: $6.4M)
+          </div>
+<div class="w-full max-w-[48px] flex flex-col justify-end transition-transform group-hover:scale-y-[1.02] origin-bottom">
+<div class="w-full rounded-t-sm bg-amber-600 transition-colors group-hover:bg-amber-500" style="height: 30px;" title="Bonus $6.4M"></div>
+<div class="w-full bg-secondary transition-colors group-hover:bg-teal-600" style="height: 23px;" title="Overtime $4.8M"></div>
+<div class="w-full bg-primary-container rounded-b-sm transition-colors group-hover:bg-primary" style="height: 142px;" title="Base $29.8M"></div>
+</div>
+<div class="mt-3 text-center">
+<span class="font-data-mono-sm text-data-mono-sm text-on-surface font-semibold block">Q2 '24</span>
+<span class="font-data-mono-sm text-[10px] text-tertiary block">$41.0M</span>
+</div>
+</div>
+<div class="group relative flex-1 flex flex-col items-center h-full justify-end cursor-pointer">
+<div class="absolute -top-12 opacity-0 group-hover:opacity-100 transition-opacity bg-inverse-surface text-inverse-on-surface px-2 py-1 rounded text-data-mono-sm font-data-mono-sm pointer-events-none z-30 whitespace-nowrap shadow-md">
+            Total: $39.6M (B: $30.1M | OT: $3.9M | Inc: $5.6M)
+          </div>
+<div class="w-full max-w-[48px] flex flex-col justify-end transition-transform group-hover:scale-y-[1.02] origin-bottom">
+<div class="w-full rounded-t-sm bg-amber-600 transition-colors group-hover:bg-amber-500" style="height: 27px;" title="Bonus $5.6M"></div>
+<div class="w-full bg-secondary transition-colors group-hover:bg-teal-600" style="height: 19px;" title="Overtime $3.9M"></div>
+<div class="w-full bg-primary-container rounded-b-sm transition-colors group-hover:bg-primary" style="height: 144px;" title="Base $30.1M"></div>
+</div>
+<div class="mt-3 text-center">
+<span class="font-data-mono-sm text-data-mono-sm text-on-surface font-semibold block">Q3 '24</span>
+<span class="font-data-mono-sm text-[10px] text-tertiary block">$39.6M</span>
+</div>
+</div>
+<div class="group relative flex-1 flex flex-col items-center h-full justify-end cursor-pointer">
+<div class="absolute -top-12 opacity-0 group-hover:opacity-100 transition-opacity bg-inverse-surface text-inverse-on-surface px-2 py-1 rounded text-data-mono-sm font-data-mono-sm pointer-events-none z-30 whitespace-nowrap shadow-md">
+            Total: $48.4M (B: $31.0M | OT: $5.1M | Inc: $12.3M - Bonus Surge)
+          </div>
+<div class="w-full max-w-[48px] flex flex-col justify-end transition-transform group-hover:scale-y-[1.02] origin-bottom">
+<div class="w-full rounded-t-sm bg-amber-600 transition-colors group-hover:bg-amber-500" style="height: 59px;" title="Bonus $12.3M"></div>
+<div class="w-full bg-secondary transition-colors group-hover:bg-teal-600" style="height: 24px;" title="Overtime $5.1M"></div>
+<div class="w-full bg-primary-container rounded-b-sm transition-colors group-hover:bg-primary" style="height: 148px;" title="Base $31.0M"></div>
+</div>
+<div class="mt-3 text-center">
+<span class="font-data-mono-sm text-data-mono-sm text-on-surface font-semibold block">Q4 '24</span>
+<span class="font-data-mono-sm text-[10px] text-tertiary block">$48.4M</span>
+</div>
+</div>
+<div class="group relative flex-1 flex flex-col items-center h-full justify-end cursor-pointer">
+<div class="absolute -top-12 opacity-0 group-hover:opacity-100 transition-opacity bg-inverse-surface text-inverse-on-surface px-2 py-1 rounded text-data-mono-sm font-data-mono-sm pointer-events-none z-30 whitespace-nowrap shadow-md">
+            Total: $42.8M (B: $32.4M | OT: $4.3M | Inc: $6.1M)
+          </div>
+<div class="w-full max-w-[48px] flex flex-col justify-end transition-transform group-hover:scale-y-[1.02] origin-bottom">
+<div class="w-full rounded-t-sm bg-amber-600 transition-colors group-hover:bg-amber-500" style="height: 29px;" title="Bonus $6.1M"></div>
+<div class="w-full bg-secondary transition-colors group-hover:bg-teal-600" style="height: 21px;" title="Overtime $4.3M"></div>
+<div class="w-full bg-primary-container rounded-b-sm transition-colors group-hover:bg-primary" style="height: 155px;" title="Base $32.4M"></div>
+</div>
+<div class="mt-3 text-center">
+<span class="font-data-mono-sm text-data-mono-sm text-on-surface font-semibold block">Q1 '25</span>
+<span class="font-data-mono-sm text-[10px] text-tertiary block">$42.8M</span>
+</div>
+</div>
+<div class="group relative flex-1 flex flex-col items-center h-full justify-end cursor-pointer">
+<div class="absolute -top-12 opacity-0 group-hover:opacity-100 transition-opacity bg-inverse-surface text-inverse-on-surface px-2 py-1 rounded text-data-mono-sm font-data-mono-sm pointer-events-none z-30 whitespace-nowrap shadow-md">
+            Total: $45.1M (B: $33.5M | OT: $4.6M | Inc: $7.0M)
+          </div>
+<div class="w-full max-w-[48px] flex flex-col justify-end transition-transform group-hover:scale-y-[1.02] origin-bottom">
+<div class="w-full rounded-t-sm bg-amber-600 transition-colors group-hover:bg-amber-500" style="height: 33px;" title="Bonus $7.0M"></div>
+<div class="w-full bg-secondary transition-colors group-hover:bg-teal-600" style="height: 22px;" title="Overtime $4.6M"></div>
+<div class="w-full bg-primary-container rounded-b-sm transition-colors group-hover:bg-primary" style="height: 160px;" title="Base $33.5M"></div>
+</div>
+<div class="mt-3 text-center">
+<span class="font-data-mono-sm text-data-mono-sm text-on-surface font-semibold block">Q2 '25</span>
+<span class="font-data-mono-sm text-[10px] text-tertiary block">$45.1M</span>
+</div>
+</div>
+<div class="group relative flex-1 flex flex-col items-center h-full justify-end cursor-pointer">
+<div class="absolute -top-12 opacity-0 group-hover:opacity-100 transition-opacity bg-inverse-surface text-inverse-on-surface px-2 py-1 rounded text-data-mono-sm font-data-mono-sm pointer-events-none z-30 whitespace-nowrap shadow-md">
+            Total: $44.9M (B: $34.0M | OT: $4.1M | Inc: $6.8M)
+          </div>
+<div class="w-full max-w-[48px] flex flex-col justify-end transition-transform group-hover:scale-y-[1.02] origin-bottom">
+<div class="w-full rounded-t-sm bg-amber-600 transition-colors group-hover:bg-amber-500" style="height: 32px;" title="Bonus $6.8M"></div>
+<div class="w-full bg-secondary transition-colors group-hover:bg-teal-600" style="height: 20px;" title="Overtime $4.1M"></div>
+<div class="w-full bg-primary-container rounded-b-sm transition-colors group-hover:bg-primary" style="height: 163px;" title="Base $34.0M"></div>
+</div>
+<div class="mt-3 text-center">
+<span class="font-data-mono-sm text-data-mono-sm text-on-surface font-semibold block">Q3 '25</span>
+<span class="font-data-mono-sm text-[10px] text-tertiary block">$44.9M</span>
+</div>
+</div>
+<div class="group relative flex-1 flex flex-col items-center h-full justify-end cursor-pointer">
+<div class="absolute -top-12 opacity-0 group-hover:opacity-100 transition-opacity bg-inverse-surface text-inverse-on-surface px-2 py-1 rounded text-data-mono-sm font-data-mono-sm pointer-events-none z-30 whitespace-nowrap shadow-md">
+            Total: $54.2M (B: $35.2M | OT: $5.4M | Inc: $13.6M - Year End)
+          </div>
+<div class="w-full max-w-[48px] flex flex-col justify-end transition-transform group-hover:scale-y-[1.02] origin-bottom">
+<div class="w-full rounded-t-sm bg-amber-600 transition-colors group-hover:bg-amber-500" style="height: 65px;" title="Bonus $13.6M"></div>
+<div class="w-full bg-secondary transition-colors group-hover:bg-teal-600" style="height: 26px;" title="Overtime $5.4M"></div>
+<div class="w-full bg-primary-container rounded-b-sm transition-colors group-hover:bg-primary" style="height: 169px;" title="Base $35.2M"></div>
+</div>
+<div class="mt-3 text-center">
+<span class="font-data-mono-sm text-data-mono-sm text-primary font-bold block">Q4 '25</span>
+<span class="font-data-mono-sm text-[10px] text-tertiary block">$54.2M</span>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-space-lg pt-space-sm border-t border-outline-variant/30 grid grid-cols-2 md:grid-cols-4 gap-space-md">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-tertiary">TRAILING 12M VERIFIED BASE</span>
+<span class="font-data-mono-md text-data-mono-md text-on-surface font-semibold">$135,100,000.00</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-tertiary">RECORDED OVERTIME VOLUME</span>
+<span class="font-data-mono-md text-data-mono-md text-secondary font-semibold">$18,400,000.00</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-tertiary">VARIABLE COMMISSIONS/BONUS</span>
+<span class="font-data-mono-md text-data-mono-md text-amber-700 font-semibold">$33,500,000.00</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-tertiary">GATEWAY AUDIT INTEGRITY</span>
+<span class="font-data-mono-md text-data-mono-md text-primary font-semibold">99.98% Cryptographic Proof</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant/40 shadow-sm overflow-hidden flex flex-col">
+<div class="p-space-lg flex flex-col md:flex-row md:items-center justify-between gap-space-md border-b border-outline-variant/30 bg-surface-container-lowest">
+<div class="flex items-center gap-space-sm">
+<h2 class="font-headline-md text-headline-md text-on-surface">Recent income verifications</h2>
+<span class="px-2 py-0.5 rounded-full bg-error-container/40 text-on-error-container font-data-mono-sm text-data-mono-sm font-semibold">
+          6 requiring underwriting
+        </span>
+<span class="hidden sm:inline-flex items-center gap-1 font-data-mono-sm text-data-mono-sm text-secondary">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+          Live Ingestion Stream
+        </span>
+</div>
+<div class="flex flex-wrap items-center gap-space-sm">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-2.5 top-2 text-outline text-[18px]">search</span>
+<input class="h-8 pl-8 pr-3 text-body-sm font-body-sm rounded bg-surface-container-low border border-outline-variant/50 placeholder:text-outline focus:outline-none focus:border-primary w-48 sm:w-64" placeholder="Filter by subject or FEIN..." type="text"/>
+</div>
+<button class="h-8 px-2.5 rounded bg-surface-container-low border border-outline-variant/40 text-tertiary hover:text-on-surface font-label-sm text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">filter_list</span>
+<span>Status: All</span>
+</button>
+<button class="h-8 px-2.5 rounded bg-surface-container-low border border-outline-variant/40 text-tertiary hover:text-on-surface font-label-sm text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">download</span>
+<span>Export CSV</span>
+</button>
+</div>
+</div>
+<div class="w-full overflow-x-auto">
+<table class="w-full border-collapse text-left">
+<thead>
+<tr class="bg-surface-container-low border-b border-outline-variant/40 text-tertiary font-label-sm text-label-sm tracking-wider uppercase">
+<th class="py-2.5 px-space-md">Request ID</th>
+<th class="py-2.5 px-space-md">Applicant</th>
+<th class="py-2.5 px-space-md">Employer &amp; FEIN</th>
+<th class="py-2.5 px-space-md">Verification Period</th>
+<th class="py-2.5 px-space-md text-right">Reported</th>
+<th class="py-2.5 px-space-md text-right">Verified API</th>
+<th class="py-2.5 px-space-md text-right">Variance (Delta)</th>
+<th class="py-2.5 px-space-md">Confidence</th>
+<th class="py-2.5 px-space-md text-center">Status</th>
+<th class="py-2.5 px-space-md text-right">Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/30 text-body-md font-body-md">
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-3 px-space-md font-data-mono-sm text-data-mono-sm text-primary font-medium whitespace-nowrap">
+              TWC-INC-2026-8901
+            </td>
+<td class="py-3 px-space-md whitespace-nowrap">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-full bg-primary-fixed text-on-primary-fixed flex items-center justify-center font-label-sm text-label-sm font-semibold">
+                  RS
+                </div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-body-md text-on-surface">Rahul Sharma</span>
+<span class="font-data-mono-sm text-[11px] text-outline">SSN: •••-••-4109</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap">
+<div class="flex flex-col">
+<span class="text-on-surface font-medium">Acme Technologies Inc.</span>
+<span class="font-data-mono-sm text-[11px] text-tertiary">FEIN: 12-9840192</span>
+</div>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap">
+<span class="px-2 py-0.5 rounded bg-surface-container font-data-mono-sm text-data-mono-sm text-on-surface-variant">YTD 2026 / 2025 W-2</span>
+</td>
+<td class="py-3 px-space-md text-right font-data-mono-md text-data-mono-md whitespace-nowrap">
+              $185,000.00
+            </td>
+<td class="py-3 px-space-md text-right font-data-mono-md text-data-mono-md font-semibold text-on-surface whitespace-nowrap">
+              $184,500.00
+            </td>
+<td class="py-3 px-space-md text-right whitespace-nowrap">
+<div class="flex flex-col items-end">
+<span class="font-data-mono-md text-data-mono-md text-secondary font-semibold">-$500.00</span>
+<span class="font-data-mono-sm text-[10px] text-secondary">-0.27% (Tol. pass)</span>
+</div>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap">
+<div class="flex items-center gap-2">
+<div class="w-16 bg-surface-container-high h-1.5 rounded-full overflow-hidden">
+<div class="bg-secondary h-full rounded-full" style="width: 98%"></div>
+</div>
+<span class="font-data-mono-sm text-data-mono-sm text-on-surface font-medium">98%</span>
+</div>
+</td>
+<td class="py-3 px-space-md text-center whitespace-nowrap">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200 font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+                Verified
+              </span>
+</td>
+<td class="py-3 px-space-md text-right whitespace-nowrap">
+<button class="p-1 rounded hover:bg-surface-container text-outline hover:text-primary transition-colors" title="Inspect Ledger Receipt">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+</td>
+</tr>
+<tr class="bg-error-container/10 hover:bg-error-container/20 transition-colors">
+<td class="py-3 px-space-md font-data-mono-sm text-data-mono-sm text-primary font-medium whitespace-nowrap">
+              TWC-INC-2026-8902
+            </td>
+<td class="py-3 px-space-md whitespace-nowrap">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-full bg-error-container text-on-error-container flex items-center justify-center font-label-sm text-label-sm font-semibold">
+                  ER
+                </div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-body-md text-on-surface font-medium">Elena Rostova</span>
+<span class="font-data-mono-sm text-[11px] text-outline">SSN: •••-••-9821</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap">
+<div class="flex flex-col">
+<span class="text-on-surface font-medium">Stripe Inc.</span>
+<span class="font-data-mono-sm text-[11px] text-tertiary">FEIN: 46-2819021</span>
+</div>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap">
+<span class="px-2 py-0.5 rounded bg-surface-container font-data-mono-sm text-data-mono-sm text-on-surface-variant">L12M Gross</span>
+</td>
+<td class="py-3 px-space-md text-right font-data-mono-md text-data-mono-md whitespace-nowrap">
+              $165,000.00
+            </td>
+<td class="py-3 px-space-md text-right font-data-mono-md text-data-mono-md font-semibold text-on-surface whitespace-nowrap">
+              $150,800.00
+            </td>
+<td class="py-3 px-space-md text-right whitespace-nowrap">
+<div class="flex flex-col items-end">
+<span class="font-data-mono-md text-data-mono-md text-error font-bold flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[14px]">warning</span>
+                  -$14,200.00
+                </span>
+<span class="font-data-mono-sm text-[10px] text-error font-semibold">-8.61% Critical Flag</span>
+</div>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap">
+<div class="flex items-center gap-2">
+<div class="w-16 bg-surface-container-high h-1.5 rounded-full overflow-hidden">
+<div class="bg-error h-full rounded-full" style="width: 74%"></div>
+</div>
+<span class="font-data-mono-sm text-data-mono-sm text-error font-semibold">74%</span>
+</div>
+</td>
+<td class="py-3 px-space-md text-center whitespace-nowrap">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-error-container text-on-error-container border border-error/30 font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+                Discrepancy
+              </span>
+</td>
+<td class="py-3 px-space-md text-right whitespace-nowrap">
+<button class="px-2 py-1 bg-error text-on-error rounded font-label-sm text-[11px] font-semibold hover:bg-error/90 transition-colors shadow-xs">
+                Audit Diff
+              </button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-3 px-space-md font-data-mono-sm text-data-mono-sm text-primary font-medium whitespace-nowrap">
+              TWC-INC-2026-8903
+            </td>
+<td class="py-3 px-space-md whitespace-nowrap">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-full bg-surface-container-highest text-on-surface-variant flex items-center justify-center font-label-sm text-label-sm font-semibold">
+                  DM
+                </div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-body-md text-on-surface">David K. Miller</span>
+<span class="font-data-mono-sm text-[11px] text-outline">SSN: •••-••-1124</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap">
+<div class="flex flex-col">
+<span class="text-on-surface font-medium">Datadog Inc.</span>
+<span class="font-data-mono-sm text-[11px] text-tertiary">FEIN: 27-4029184</span>
+</div>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap">
+<span class="px-2 py-0.5 rounded bg-surface-container font-data-mono-sm text-data-mono-sm text-on-surface-variant">Past 24 Months</span>
+</td>
+<td class="py-3 px-space-md text-right font-data-mono-md text-data-mono-md whitespace-nowrap">
+              $210,000.00
+            </td>
+<td class="py-3 px-space-md text-right font-data-mono-md text-data-mono-md font-semibold text-on-surface whitespace-nowrap">
+              $212,400.00
+            </td>
+<td class="py-3 px-space-md text-right whitespace-nowrap">
+<div class="flex flex-col items-end">
+<span class="font-data-mono-md text-data-mono-md text-secondary font-semibold">+$2,400.00</span>
+<span class="font-data-mono-sm text-[10px] text-secondary">+1.6% (Bonus incl.)</span>
+</div>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap">
+<div class="flex items-center gap-2">
+<div class="w-16 bg-surface-container-high h-1.5 rounded-full overflow-hidden">
+<div class="bg-secondary h-full rounded-full" style="width: 96%"></div>
+</div>
+<span class="font-data-mono-sm text-data-mono-sm text-on-surface font-medium">96%</span>
+</div>
+</td>
+<td class="py-3 px-space-md text-center whitespace-nowrap">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200 font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+                Verified
+              </span>
+</td>
+<td class="py-3 px-space-md text-right whitespace-nowrap">
+<button class="p-1 rounded hover:bg-surface-container text-outline hover:text-primary transition-colors" title="Inspect Ledger Receipt">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-3 px-space-md font-data-mono-sm text-data-mono-sm text-primary font-medium whitespace-nowrap">
+              TWC-INC-2026-8904
+            </td>
+<td class="py-3 px-space-md whitespace-nowrap">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-full bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center font-label-sm text-label-sm font-semibold">
+                  SJ
+                </div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-body-md text-on-surface">Sarah Jenkins</span>
+<span class="font-data-mono-sm text-[11px] text-outline">SSN: •••-••-7844</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap">
+<div class="flex flex-col">
+<span class="text-on-surface font-medium">Salesforce, Inc.</span>
+<span class="font-data-mono-sm text-[11px] text-tertiary">FEIN: 94-3320693</span>
+</div>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap">
+<span class="px-2 py-0.5 rounded bg-surface-container font-data-mono-sm text-data-mono-sm text-on-surface-variant">2025 W-2 + Stubs</span>
+</td>
+<td class="py-3 px-space-md text-right font-data-mono-md text-data-mono-md whitespace-nowrap">
+              $142,000.00
+            </td>
+<td class="py-3 px-space-md text-right font-data-mono-md text-data-mono-md font-semibold text-on-surface whitespace-nowrap">
+              $142,000.00
+            </td>
+<td class="py-3 px-space-md text-right whitespace-nowrap">
+<div class="flex flex-col items-end">
+<span class="font-data-mono-md text-data-mono-md text-secondary font-semibold">$0.00</span>
+<span class="font-data-mono-sm text-[10px] text-secondary">0.0% Exact Match</span>
+</div>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap">
+<div class="flex items-center gap-2">
+<div class="w-16 bg-surface-container-high h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 100%"></div>
+</div>
+<span class="font-data-mono-sm text-data-mono-sm text-primary font-bold">100%</span>
+</div>
+</td>
+<td class="py-3 px-space-md text-center whitespace-nowrap">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-blue-50 text-blue-700 border border-blue-200 font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[13px] text-primary">bolt</span>
+                Verified (Instant)
+              </span>
+</td>
+<td class="py-3 px-space-md text-right whitespace-nowrap">
+<button class="p-1 rounded hover:bg-surface-container text-outline hover:text-primary transition-colors" title="Inspect Ledger Receipt">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-3 px-space-md font-data-mono-sm text-data-mono-sm text-primary font-medium whitespace-nowrap">
+              TWC-INC-2026-8905
+            </td>
+<td class="py-3 px-space-md whitespace-nowrap">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-full bg-surface-container-high text-tertiary flex items-center justify-center font-label-sm text-label-sm font-semibold">
+                  MC
+                </div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-body-md text-on-surface">Michael Chang</span>
+<span class="font-data-mono-sm text-[11px] text-outline">SSN: •••-••-5390</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap">
+<div class="flex flex-col">
+<span class="text-on-surface font-medium">Cloudflare, Inc.</span>
+<span class="font-data-mono-sm text-[11px] text-tertiary">FEIN: 27-0128910</span>
+</div>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap">
+<span class="px-2 py-0.5 rounded bg-surface-container font-data-mono-sm text-data-mono-sm text-on-surface-variant">Q4 2025 Stubs</span>
+</td>
+<td class="py-3 px-space-md text-right font-data-mono-md text-data-mono-md whitespace-nowrap">
+              $195,000.00
+            </td>
+<td class="py-3 px-space-md text-right font-data-mono-md text-data-mono-md font-semibold text-on-surface whitespace-nowrap">
+              $186,050.00
+            </td>
+<td class="py-3 px-space-md text-right whitespace-nowrap">
+<div class="flex flex-col items-end">
+<span class="font-data-mono-md text-data-mono-md text-amber-700 font-semibold">-$8,950.00</span>
+<span class="font-data-mono-sm text-[10px] text-amber-700">-4.59% Equity Delta</span>
+</div>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap">
+<div class="flex items-center gap-2">
+<div class="w-16 bg-surface-container-high h-1.5 rounded-full overflow-hidden">
+<div class="bg-amber-500 h-full rounded-full" style="width: 82%"></div>
+</div>
+<span class="font-data-mono-sm text-data-mono-sm text-on-surface font-medium">82%</span>
+</div>
+</td>
+<td class="py-3 px-space-md text-center whitespace-nowrap">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-amber-50 text-amber-800 border border-amber-200 font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-600"></span>
+                Under Review
+              </span>
+</td>
+<td class="py-3 px-space-md text-right whitespace-nowrap">
+<button class="p-1 rounded hover:bg-surface-container text-outline hover:text-primary transition-colors" title="Inspect Ledger Receipt">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-3 px-space-md font-data-mono-sm text-data-mono-sm text-primary font-medium whitespace-nowrap">
+              TWC-INC-2026-8906
+            </td>
+<td class="py-3 px-space-md whitespace-nowrap">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-full bg-primary-fixed text-on-primary-fixed flex items-center justify-center font-label-sm text-label-sm font-semibold">
+                  AC
+                </div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-body-md text-on-surface">Amanda Chen</span>
+<span class="font-data-mono-sm text-[11px] text-outline">SSN: •••-••-6231</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap">
+<div class="flex flex-col">
+<span class="text-on-surface font-medium">Snowflake Inc.</span>
+<span class="font-data-mono-sm text-[11px] text-tertiary">FEIN: 46-1290312</span>
+</div>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap">
+<span class="px-2 py-0.5 rounded bg-surface-container font-data-mono-sm text-data-mono-sm text-on-surface-variant">Annualized 2026</span>
+</td>
+<td class="py-3 px-space-md text-right font-data-mono-md text-data-mono-md whitespace-nowrap">
+              $178,000.00
+            </td>
+<td class="py-3 px-space-md text-right font-data-mono-md text-data-mono-md font-semibold text-on-surface whitespace-nowrap">
+              $179,100.00
+            </td>
+<td class="py-3 px-space-md text-right whitespace-nowrap">
+<div class="flex flex-col items-end">
+<span class="font-data-mono-md text-data-mono-md text-secondary font-semibold">+$1,100.00</span>
+<span class="font-data-mono-sm text-[10px] text-secondary">+0.62% Verified</span>
+</div>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap">
+<div class="flex items-center gap-2">
+<div class="w-16 bg-surface-container-high h-1.5 rounded-full overflow-hidden">
+<div class="bg-secondary h-full rounded-full" style="width: 99%"></div>
+</div>
+<span class="font-data-mono-sm text-data-mono-sm text-on-surface font-medium">99%</span>
+</div>
+</td>
+<td class="py-3 px-space-md text-center whitespace-nowrap">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200 font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+                Verified
+              </span>
+</td>
+<td class="py-3 px-space-md text-right whitespace-nowrap">
+<button class="p-1 rounded hover:bg-surface-container text-outline hover:text-primary transition-colors" title="Inspect Ledger Receipt">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="px-space-lg py-3 bg-surface-container-low border-t border-outline-variant/30 flex flex-col sm:flex-row items-center justify-between gap-space-sm font-data-mono-sm text-data-mono-sm text-tertiary">
+<div class="flex items-center gap-2">
+<span>Showing 1 to 6 of 642 ledger operations</span>
+<span class="text-outline">|</span>
+<button class="text-primary hover:underline flex items-center gap-1 font-medium">
+<span class="material-symbols-outlined text-[14px]">history</span>
+          Download SHA-256 Ledger Proof
+        </button>
+</div>
+<div class="flex items-center gap-1">
+<button class="px-2 py-1 rounded bg-surface-container-lowest border border-outline-variant/40 text-outline hover:text-on-surface disabled:opacity-40" disabled="">
+<span class="material-symbols-outlined text-[14px] align-middle">chevron_left</span>
+</button>
+<span class="px-2 py-0.5 rounded bg-primary text-on-primary font-semibold">1</span>
+<button class="px-2 py-0.5 rounded hover:bg-surface-container-high text-on-surface">2</button>
+<button class="px-2 py-0.5 rounded hover:bg-surface-container-high text-on-surface">3</button>
+<span class="px-1 text-outline">...</span>
+<button class="px-2 py-0.5 rounded hover:bg-surface-container-high text-on-surface">107</button>
+<button class="px-2 py-1 rounded bg-surface-container-lowest border border-outline-variant/40 text-on-surface hover:bg-surface-container">
+<span class="material-symbols-outlined text-[14px] align-middle">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div></main></div></body></html>

@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"on-secondary-fixed":"#00201d","outline":"#737686","on-primary-fixed-variant":"#003ea8","secondary-fixed":"#89f5e7","on-secondary":"#ffffff","error":"#ba1a1a","primary":"#004ac6","on-primary-container":"#eeefff","inverse-primary":"#b4c5ff","on-tertiary-fixed":"#0e1c2f","surface-dim":"#cbdbf5","on-tertiary":"#ffffff","surface-container":"#e5eeff","tertiary-fixed-dim":"#bac7e1","inverse-surface":"#213145","secondary-container":"#86f2e4","surface-container-high":"#dce9ff","on-tertiary-fixed-variant":"#3a475c","error-container":"#ffdad6","on-secondary-fixed-variant":"#005049","on-primary-fixed":"#00174b","primary-fixed":"#dbe1ff","surface-container-low":"#eff4ff","tertiary-container":"#616e85","secondary-fixed-dim":"#6bd8cb","on-primary":"#ffffff","surface-bright":"#f8f9ff","on-surface-variant":"#434655","on-tertiary-container":"#ebf1ff","on-background":"#0b1c30","tertiary-fixed":"#d6e3fe","tertiary":"#49566c","surface-tint":"#0053db","on-secondary-container":"#006f66","surface-container-lowest":"#ffffff","primary-fixed-dim":"#b4c5ff","surface-container-highest":"#d3e4fe","background":"#f8f9ff","primary-container":"#2563eb","outline-variant":"#c3c6d7","surface":"#f8f9ff","on-surface":"#0b1c30","on-error":"#ffffff","on-error-container":"#93000a","secondary":"#006a61","surface-variant":"#d3e4fe","inverse-on-surface":"#eaf1ff"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"space-xs":"0.25rem","margin-lg":"2rem","space-lg":"1rem","gutter":"1rem","space-md":"0.75rem","space-sm":"0.5rem","margin":"1rem","gutter-lg":"1.5rem","space-xl":"1.5rem","margin-md":"1.5rem"},"fontFamily":{"headline-sm":["Inter"],"display-lg-mobile":["Inter"],"headline-lg":["Inter"],"headline-md":["Inter"],"body-sm":["Inter"],"display-lg":["Inter"],"body-lg":["Inter"],"data-mono-md":["IBM Plex Sans"],"label-md":["IBM Plex Sans"],"label-sm":["IBM Plex Sans"],"data-mono-sm":["IBM Plex Sans"],"body-md":["Inter"]},"fontSize":{"headline-sm":["16px",{"lineHeight":"24px","letterSpacing":"-0.01em","fontWeight":"600"}],"display-lg-mobile":["28px",{"lineHeight":"36px","letterSpacing":"-0.02em","fontWeight":"600"}],"headline-lg":["24px",{"lineHeight":"32px","letterSpacing":"-0.02em","fontWeight":"600"}],"headline-md":["20px",{"lineHeight":"28px","letterSpacing":"-0.015em","fontWeight":"600"}],"body-sm":["12px",{"lineHeight":"16px","letterSpacing":"0.005em","fontWeight":"400"}],"display-lg":["36px",{"lineHeight":"44px","letterSpacing":"-0.025em","fontWeight":"600"}],"body-lg":["16px",{"lineHeight":"24px","letterSpacing":"-0.005em","fontWeight":"400"}],"data-mono-md":["13px",{"lineHeight":"18px","letterSpacing":"-0.01em","fontWeight":"500"}],"label-md":["13px",{"lineHeight":"18px","letterSpacing":"0.01em","fontWeight":"500"}],"label-sm":["11px",{"lineHeight":"14px","letterSpacing":"0.04em","fontWeight":"600"}],"data-mono-sm":["11px",{"lineHeight":"16px","letterSpacing":"0em","fontWeight":"500"}],"body-md":["14px",{"lineHeight":"20px","letterSpacing":"0em","fontWeight":"400"}]}}}}</script></head><body class="bg-background font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-screen w-72 bg-surface-container-lowest border-r border-outline-variant/50 z-50 flex flex-col justify-between select-none"><div class="flex flex-col h-full overflow-hidden"><div class="px-space-lg py-space-md border-b border-outline-variant/40 flex items-center justify-between"><div class="flex items-center gap-space-sm"><img alt="The Work Code Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1XGDMsVXqPxe-nL8-njVmB_WxV1XGloz0NAGX4QvV_fXr1RmO-sgUEUl9mqafztIxxGNVBx_07CorpFml3oURNU_xr4NhV_fCG9sKqjsOqb-fDTg-JWlVbNt5PqcRJ_nH9pQoCIMIcZe0o683R5jZByhcRgp8ocVbV4bjRpndYi2LuBn5uXJ5nytHN6dQ-B_2tBYOZLqM9600K4wLxTGgj1wW3v8-XL_-bX0xvCTaHmhf9I4u9pv_nFaA"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-on-surface leading-tight">The Work Code</span><span class="font-label-sm text-label-sm text-on-surface-variant">VERIFY INFRASTRUCTURE</span></div></div><div class="flex items-center gap-1.5 px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-data-mono-sm text-data-mono-sm border border-outline-variant/40"><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>PROD v2.4</div></div><div class="flex-1 overflow-y-auto px-space-md py-space-sm space-y-space-md"><nav class="space-y-space-xs" data-active-classes="bg-primary-container text-on-primary-container font-headline-sm"><div class="px-space-sm py-1 font-label-sm text-label-sm text-tertiary uppercase tracking-wider">Overview</div><a aria-current="page" class="flex items-center justify-between px-space-sm py-1.5 rounded transition-colors bg-primary-container text-on-primary-container font-headline-sm" data-path="dashboard" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">grid_view</span><span class="font-body-md text-body-md">Dashboard</span></div></a><div class="pt-space-xs px-space-sm py-1 font-label-sm text-label-sm text-tertiary uppercase tracking-wider">Verification</div><a class="flex items-center justify-between px-space-sm py-1.5 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="new-verification" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">add_task</span><span class="font-body-md text-body-md">New Verification</span></div><span class="px-1.5 py-0.2 rounded bg-surface-container-high text-primary font-label-sm text-label-sm">+</span></a><a class="flex items-center justify-between px-space-sm py-1.5 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="verification-requests" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">inbox</span><span class="font-body-md text-body-md">Verification Requests</span></div><span class="px-2 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-data-mono-sm text-data-mono-sm">12</span></a><a class="flex items-center justify-between px-space-sm py-1.5 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="employees-directory" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">badge</span><span class="font-body-md text-body-md">Employees Directory</span></div></a><a class="flex items-center justify-between px-space-sm py-1.5 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="employers-network" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">domain</span><span class="font-body-md text-body-md">Employers Network</span></div></a><div class="pt-space-xs px-space-sm py-1 font-label-sm text-label-sm text-tertiary uppercase tracking-wider">Data &amp; Reports</div><a class="flex items-center justify-between px-space-sm py-1.5 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="income-verification" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">payments</span><span class="font-body-md text-body-md">Income Verification</span></div></a><a class="flex items-center justify-between px-space-sm py-1.5 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="verification-reports" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">description</span><span class="font-body-md text-body-md">Verification Reports</span></div></a><div class="pt-space-xs px-space-sm py-1 font-label-sm text-label-sm text-tertiary uppercase tracking-wider">Risk &amp; Fraud</div><a class="flex items-center justify-between px-space-sm py-1.5 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="risk-fraud-analytics" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">shield</span><span class="font-body-md text-body-md">Risk &amp; Fraud Analytics</span></div><span class="w-2 h-2 rounded-full bg-error" title="Active risk alerts"></span></a><a class="flex items-center justify-between px-space-sm py-1.5 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="anomalies" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">warning</span><span class="font-body-md text-body-md">Anomalies</span></div></a><div class="pt-space-xs px-space-sm py-1 font-label-sm text-label-sm text-tertiary uppercase tracking-wider">Developer</div><a class="flex items-center justify-between px-space-sm py-1.5 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="api-keys-logs" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">key</span><span class="font-body-md text-body-md">API Keys &amp; Logs</span></div></a><a class="flex items-center justify-between px-space-sm py-1.5 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="webhooks" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">webhook</span><span class="font-body-md text-body-md">Webhooks</span></div></a><div class="pt-space-xs px-space-sm py-1 font-label-sm text-label-sm text-tertiary uppercase tracking-wider">Compliance</div><a class="flex items-center justify-between px-space-sm py-1.5 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="audit-logs" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">history_edu</span><span class="font-body-md text-body-md">Audit Logs</span></div><span class="px-1.5 py-0.5 rounded text-[10px] uppercase font-data-mono-sm tracking-widest bg-surface-container-high text-on-surface-variant border border-outline-variant/40">IMMUTABLE</span></a><a class="flex items-center justify-between px-space-sm py-1.5 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="security-center" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">verified_user</span><span class="font-body-md text-body-md">Security Center</span></div></a></nav></div><div class="border-t border-outline-variant/40 p-space-sm bg-surface-container-lowest space-y-space-xs"><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="documentation-support" href="#"><span class="material-symbols-outlined text-[18px]">help_outline</span><span>Documentation &amp; Support</span></a><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="organization-settings" href="#"><span class="material-symbols-outlined text-[18px]">settings</span><span>Organization Settings</span></a><div class="mt-space-xs p-space-sm rounded bg-surface-container-low border border-outline-variant/40 flex items-center justify-between"><div class="flex items-center gap-space-sm overflow-hidden"><img alt="Profile" class="w-8 h-8 rounded-full object-cover shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD78qhL42V3IVENEtRMaVlSoVdiVkyyIVL6pC0w2-TkZrTsiL7vtjOjMxmBfcTWxIq-KXQdxfZnX1AXt3MXDZY3AtLTUO6rOg882pVVt187aUCTSQaO6n4gzDPTdtUBy3hGDFIwBd8nBQiqh6W8_VfYpvYpkjTQwCEGT9V10XXzVENLn3VXNUQfGNBHxYW29Kpg7IRIBKg6aC-1B8VPq8oxbkjho_KQeobx_Cl3TdSlqeq6YIOvw3k"/><div class="truncate"><div class="font-headline-sm text-body-md text-on-surface leading-snug truncate">Alex Morgan</div><div class="font-label-sm text-label-sm text-on-surface-variant truncate">Chief Verification Officer</div><div class="font-data-mono-sm text-data-mono-sm text-tertiary truncate">ORG-8821</div></div></div><button class="text-outline hover:text-on-surface p-1 rounded hover:bg-surface-container-high"><span class="material-symbols-outlined text-[18px]">unfold_more</span></button></div></div></div></aside><div class="pl-72 flex flex-col min-h-screen"><header class="fixed top-0 left-72 right-0 h-16 bg-surface-container-lowest/95 backdrop-blur-md border-b border-outline-variant/40 z-40 px-gutter-lg flex items-center justify-between"><div class="flex items-center gap-space-lg flex-1 max-w-xl"><div class="relative w-full flex items-center"><span class="material-symbols-outlined absolute left-3 text-outline text-[18px]">search</span><input class="w-full h-9 pl-9 pr-12 rounded bg-surface-container-low border border-outline-variant/50 font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/20" placeholder="Search applicants, verification ID (VER-...), employers..." type="text"/><div class="absolute right-2 px-1.5 py-0.5 rounded bg-surface-container-high border border-outline-variant/40 font-data-mono-sm text-data-mono-sm text-on-surface-variant">⌘K</div></div></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-2 px-space-sm py-1 rounded-full bg-surface-container-low border border-outline-variant/40"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span></span><span class="font-data-mono-sm text-data-mono-sm text-on-surface">Status: 99.98% Operational</span></div><a audit="" class="p-2 rounded text-outline hover:text-on-surface hover:bg-surface-container-low transition-colors title=" data-path="audit-logs" href="#" quicklink"=""><span class="material-symbols-outlined text-[20px]">receipt_long</span></a><div class="relative"><button class="relative p-2 rounded text-outline hover:text-on-surface hover:bg-surface-container-low transition-colors"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1.5 right-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-error text-on-error font-data-mono-sm text-[10px]">3</span></button></div><a class="inline-flex items-center gap-1.5 px-space-md h-9 bg-primary text-on-primary rounded font-label-md text-label-md hover:bg-primary-container hover:text-on-primary-container transition-colors shadow-sm" data-path="new-verification" href="#"><span class="material-symbols-outlined text-[16px]">add</span><span>New Verification</span></a></div></header><main class="flex-1 pt-16 bg-background w-full px-gutter-lg py-margin-md"><div class="flex flex-col w-full gap-y-space-lg pb-12">
+<!-- Top Page Header -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-md">
+<div class="flex flex-col gap-1 max-w-3xl">
+<div class="flex items-center gap-space-sm flex-wrap">
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Webhooks</h1>
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-surface-container text-primary font-data-mono-sm text-data-mono-sm font-semibold tracking-wider uppercase">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+          EVENT DISPATCHER v2.8
+        </span>
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-data-mono-sm text-data-mono-sm">
+          HMAC-SHA256 SIGNED
+        </span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+        Real-time webhook events, retry policies, cryptographic signing secrets, and delivery payloads for automated verification pipelines.
+      </p>
+</div>
+<div class="flex items-center gap-space-sm shrink-0">
+<button class="inline-flex items-center gap-1.5 px-space-md h-9 rounded bg-surface-container-lowest text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors font-label-md text-label-md shadow-sm">
+<span class="material-symbols-outlined text-[18px]">terminal</span>
+<span>Payload Simulator</span>
+</button>
+<button class="inline-flex items-center gap-1.5 px-space-md h-9 rounded bg-surface-container-lowest text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors font-label-md text-label-md shadow-sm">
+<span class="material-symbols-outlined text-[18px]">menu_book</span>
+<span>Documentation</span>
+</button>
+<button class="inline-flex items-center gap-1.5 px-space-md h-9 rounded bg-primary text-on-primary hover:bg-primary-container hover:text-on-primary-container transition-colors font-label-md text-label-md shadow-sm">
+<span class="material-symbols-outlined text-[18px]">add</span>
+<span>Add Endpoint</span>
+</button>
+</div>
+</div>
+<!-- KPI Metric Cards -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter-lg">
+<!-- Card 1 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between relative overflow-hidden group">
+<div class="flex items-start justify-between">
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-tertiary uppercase tracking-wider">Active Endpoints</span>
+<div class="flex items-baseline gap-space-sm mt-1">
+<span class="font-display-lg text-display-lg text-on-surface tracking-tight">6</span>
+<span class="font-body-sm text-body-sm text-secondary flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+              All routing active
+            </span>
+</div>
+</div>
+<div class="w-10 h-10 rounded-lg bg-surface-container-low text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[22px]">router</span>
+</div>
+</div>
+<div class="mt-4 pt-3 flex items-center justify-between text-on-surface-variant font-data-mono-sm text-data-mono-sm bg-surface-container-low/50 px-2.5 py-1.5 rounded">
+<span>Scope: 3 Environments</span>
+<span class="text-tertiary font-body-sm text-body-sm">US-East, EU-Central, Sandbox</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between relative overflow-hidden group">
+<div class="flex items-start justify-between">
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-tertiary uppercase tracking-wider">Events Delivered (24h)</span>
+<div class="flex items-baseline gap-space-sm mt-1">
+<span class="font-display-lg text-display-lg text-on-surface tracking-tight">2,841</span>
+<span class="inline-flex items-center font-data-mono-sm text-data-mono-sm text-secondary bg-secondary-container/30 px-1.5 py-0.5 rounded font-semibold">
+              +8.2%
+            </span>
+</div>
+</div>
+<div class="w-10 h-10 rounded-lg bg-surface-container-low text-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-[22px]">forward_to_inbox</span>
+</div>
+</div>
+<div class="mt-4 pt-3 flex items-center justify-between font-data-mono-sm text-data-mono-sm bg-surface-container-low/50 px-2.5 py-1.5 rounded">
+<span class="text-on-surface-variant">Throughput Peak</span>
+<span class="text-primary font-semibold">142 req/min @ 11:30 UTC</span>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between relative overflow-hidden group">
+<div class="flex items-start justify-between">
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-tertiary uppercase tracking-wider">Failure Rate (24h)</span>
+<div class="flex items-baseline gap-space-sm mt-1">
+<span class="font-display-lg text-display-lg text-on-surface tracking-tight">0.4%</span>
+<span class="inline-flex items-center gap-1 font-data-mono-sm text-data-mono-sm text-error bg-error-container/40 px-1.5 py-0.5 rounded font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+              3 timeouts
+            </span>
+</div>
+</div>
+<div class="w-10 h-10 rounded-lg bg-error-container/30 text-error flex items-center justify-center">
+<span class="material-symbols-outlined text-[22px]">sync_problem</span>
+</div>
+</div>
+<div class="mt-4 pt-3 flex items-center justify-between font-data-mono-sm text-data-mono-sm bg-surface-container-low/50 px-2.5 py-1.5 rounded">
+<span class="text-on-surface-variant">SLA Integrity</span>
+<span class="text-secondary font-medium">99.6% against 99.5% threshold</span>
+</div>
+</div>
+</div>
+<!-- Main Configured Endpoints Data Table Panel -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden">
+<!-- Controls Header -->
+<div class="p-space-lg bg-surface-container-lowest flex flex-col lg:flex-row lg:items-center justify-between gap-space-md">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Configured Webhook Endpoints</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Automated HTTP POST notifications dispatched upon state changes.</p>
+</div>
+<div class="flex items-center gap-space-sm flex-wrap">
+<div class="relative w-64">
+<span class="material-symbols-outlined absolute left-2.5 top-2.5 text-outline text-[18px]">search</span>
+<input class="w-full h-9 pl-9 pr-3 rounded bg-surface-container-low font-body-sm text-body-sm text-on-surface placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary shadow-inner" placeholder="Filter by endpoint host..." type="text"/>
+</div>
+<select class="h-9 px-3 rounded bg-surface-container-low font-label-md text-label-md text-on-surface focus:outline-none focus:ring-1 focus:ring-primary shadow-inner cursor-pointer">
+<option>All environments</option>
+<option>Production (Direct)</option>
+<option>Staging</option>
+<option>Sandbox</option>
+</select>
+<select class="h-9 px-3 rounded bg-surface-container-low font-label-md text-label-md text-on-surface focus:outline-none focus:ring-1 focus:ring-primary shadow-inner cursor-pointer">
+<option>Status: All</option>
+<option>Active</option>
+<option>Paused</option>
+<option>Failed</option>
+</select>
+<button class="h-9 px-3 rounded bg-surface-container-low text-on-surface-variant hover:text-on-surface hover:bg-surface-container font-label-md text-label-md flex items-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-[18px]">refresh</span>
+</button>
+</div>
+</div>
+<!-- Table -->
+<div class="overflow-x-auto">
+<table class="w-full text-left font-body-md text-body-md">
+<thead>
+<tr class="bg-surface-container-low text-tertiary font-label-sm text-label-sm uppercase tracking-wider">
+<th class="py-3 px-space-lg font-semibold">Endpoint URL &amp; Signing Secret</th>
+<th class="py-3 px-space-md font-semibold">Subscribed Events</th>
+<th class="py-3 px-space-md font-semibold">Status</th>
+<th class="py-3 px-space-md font-semibold">Last Delivery</th>
+<th class="py-3 px-space-md font-semibold text-right">Success Rate</th>
+<th class="py-3 px-space-lg font-semibold text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-none">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-low/40 transition-colors bg-surface-container-lowest group">
+<td class="py-3 px-space-lg align-middle max-w-sm">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2">
+<span class="font-data-mono-md text-data-mono-md text-on-surface font-semibold truncate" title="https://api.stripe-partners.com/hooks/verifications/sync">
+                    https://api.stripe-partners.com/hooks/verifications/sync
+                  </span>
+<button class="text-outline hover:text-primary transition-colors p-0.5 rounded" title="Copy endpoint URL">
+<span class="material-symbols-outlined text-[15px]">content_copy</span>
+</button>
+</div>
+<div class="flex items-center gap-2 font-data-mono-sm text-data-mono-sm text-tertiary">
+<span class="inline-flex items-center gap-1 bg-surface-container-high px-1.5 py-0.5 rounded font-mono text-[10px] text-on-surface-variant">
+<span class="material-symbols-outlined text-[12px] text-outline">key</span>
+                    whsec_••••9a3f
+                  </span>
+<span>TLS 1.3 Strict</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-space-md align-middle">
+<div class="flex flex-wrap gap-1.5 max-w-xs">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-primary-fixed/60 text-on-primary-fixed font-data-mono-sm text-data-mono-sm">
+                  request.created
+                </span>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-primary-fixed/60 text-on-primary-fixed font-data-mono-sm text-data-mono-sm">
+                  case.verified
+                </span>
+</div>
+</td>
+<td class="py-3 px-space-md align-middle">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-secondary-fixed-dim/30 text-on-secondary-fixed-variant font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                ACTIVE
+              </span>
+</td>
+<td class="py-3 px-space-md align-middle font-data-mono-sm text-data-mono-sm text-on-surface-variant">
+<span class="font-medium text-on-surface">18s ago</span>
+<div class="text-tertiary text-[10px]">Payload: 1.4KB</div>
+</td>
+<td class="py-3 px-space-md align-middle text-right">
+<div class="flex flex-col items-end gap-1">
+<span class="font-data-mono-md text-data-mono-md font-semibold text-on-surface">99.9%</span>
+<div class="w-20 bg-surface-container-high h-1.5 rounded-full overflow-hidden">
+<div class="bg-secondary h-full rounded-full" style="width: 99.9%"></div>
+</div>
+</div>
+</td>
+<td class="py-3 px-space-lg align-middle text-right">
+<div class="inline-flex items-center justify-end gap-1">
+<button class="p-1 rounded hover:bg-surface-container-high text-on-surface-variant transition-colors" title="Send test event">
+<span class="material-symbols-outlined text-[18px]">send</span>
+</button>
+<button class="p-1 rounded hover:bg-surface-container-high text-on-surface-variant transition-colors" title="More options">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-low/40 transition-colors bg-surface-container-lowest group">
+<td class="py-3 px-space-lg align-middle max-w-sm">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2">
+<span class="font-data-mono-md text-data-mono-md text-on-surface font-semibold truncate" title="https://gateway.datadoghq.com/audit/twc/event-stream">
+                    https://gateway.datadoghq.com/audit/twc/event-stream
+                  </span>
+<button class="text-outline hover:text-primary transition-colors p-0.5 rounded" title="Copy endpoint URL">
+<span class="material-symbols-outlined text-[15px]">content_copy</span>
+</button>
+</div>
+<div class="flex items-center gap-2 font-data-mono-sm text-data-mono-sm text-tertiary">
+<span class="inline-flex items-center gap-1 bg-surface-container-high px-1.5 py-0.5 rounded font-mono text-[10px] text-on-surface-variant">
+<span class="material-symbols-outlined text-[12px] text-outline">key</span>
+                    whsec_••••d4e1
+                  </span>
+<span>Gzip Enabled</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-space-md align-middle">
+<div class="flex flex-wrap gap-1.5 max-w-xs">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-primary-fixed/60 text-on-primary-fixed font-data-mono-sm text-data-mono-sm">
+                  case.verified
+                </span>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-primary-fixed/60 text-on-primary-fixed font-data-mono-sm text-data-mono-sm">
+                  income.calculated
+                </span>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-data-mono-sm text-data-mono-sm">
+                  dispute.opened
+                </span>
+</div>
+</td>
+<td class="py-3 px-space-md align-middle">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-secondary-fixed-dim/30 text-on-secondary-fixed-variant font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                ACTIVE
+              </span>
+</td>
+<td class="py-3 px-space-md align-middle font-data-mono-sm text-data-mono-sm text-on-surface-variant">
+<span class="font-medium text-on-surface">2m ago</span>
+<div class="text-tertiary text-[10px]">Payload: 3.8KB</div>
+</td>
+<td class="py-3 px-space-md align-middle text-right">
+<div class="flex flex-col items-end gap-1">
+<span class="font-data-mono-md text-data-mono-md font-semibold text-on-surface">100.0%</span>
+<div class="w-20 bg-surface-container-high h-1.5 rounded-full overflow-hidden">
+<div class="bg-secondary h-full rounded-full" style="width: 100%"></div>
+</div>
+</div>
+</td>
+<td class="py-3 px-space-lg align-middle text-right">
+<div class="inline-flex items-center justify-end gap-1">
+<button class="p-1 rounded hover:bg-surface-container-high text-on-surface-variant transition-colors" title="Send test event">
+<span class="material-symbols-outlined text-[18px]">send</span>
+</button>
+<button class="p-1 rounded hover:bg-surface-container-high text-on-surface-variant transition-colors" title="More options">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3 (Failed) -->
+<tr class="hover:bg-error-container/10 transition-colors bg-error-container/5 group">
+<td class="py-3 px-space-lg align-middle max-w-sm">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2">
+<span class="font-data-mono-md text-data-mono-md text-on-surface font-semibold truncate" title="https://payroll.adp-internal.cloud/listener/webhook">
+                    https://payroll.adp-internal.cloud/listener/webhook
+                  </span>
+<button class="text-outline hover:text-primary transition-colors p-0.5 rounded" title="Copy endpoint URL">
+<span class="material-symbols-outlined text-[15px]">content_copy</span>
+</button>
+</div>
+<div class="flex items-center gap-2 font-data-mono-sm text-data-mono-sm">
+<span class="inline-flex items-center gap-1 bg-surface-container-high px-1.5 py-0.5 rounded font-mono text-[10px] text-on-surface-variant">
+<span class="material-symbols-outlined text-[12px] text-outline">key</span>
+                    whsec_••••78cc
+                  </span>
+<span class="text-error font-body-sm text-body-sm font-medium">3 consecutive failures (HTTP 500 timeout)</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-space-md align-middle">
+<div class="flex flex-wrap gap-1.5 max-w-xs">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-primary-fixed/60 text-on-primary-fixed font-data-mono-sm text-data-mono-sm">
+                  request.created
+                </span>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-error-container text-on-error-container font-data-mono-sm text-data-mono-sm font-semibold">
+                  anomaly.flagged
+                </span>
+</div>
+</td>
+<td class="py-3 px-space-md align-middle">
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-error-container text-on-error-container font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+                  FAILED
+                </span>
+<button class="px-2 py-0.5 rounded bg-error text-on-error font-label-sm text-label-sm hover:opacity-90 transition-opacity font-medium">
+                  Retry
+                </button>
+</div>
+</td>
+<td class="py-3 px-space-md align-middle font-data-mono-sm text-data-mono-sm text-on-surface-variant">
+<span class="font-medium text-error">14m ago</span>
+<div class="text-error text-[10px]">Timed out @ 5002ms</div>
+</td>
+<td class="py-3 px-space-md align-middle text-right">
+<div class="flex flex-col items-end gap-1">
+<span class="font-data-mono-md text-data-mono-md font-semibold text-error">84.2%</span>
+<div class="w-20 bg-surface-container-high h-1.5 rounded-full overflow-hidden">
+<div class="bg-error h-full rounded-full" style="width: 84.2%"></div>
+</div>
+</div>
+</td>
+<td class="py-3 px-space-lg align-middle text-right">
+<div class="inline-flex items-center justify-end gap-1">
+<button class="p-1 rounded hover:bg-surface-container-high text-on-surface-variant transition-colors" title="Send test event">
+<span class="material-symbols-outlined text-[18px]">send</span>
+</button>
+<button class="p-1 rounded hover:bg-surface-container-high text-on-surface-variant transition-colors" title="More options">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 4 (Paused) -->
+<tr class="hover:bg-surface-container-low/40 transition-colors bg-surface-container-lowest group">
+<td class="py-3 px-space-lg align-middle max-w-sm">
+<div class="flex flex-col gap-1 opacity-75">
+<div class="flex items-center gap-2">
+<span class="font-data-mono-md text-data-mono-md text-on-surface font-semibold truncate" title="https://webhooks.salesforce.com/services/apexrest/VerificationReceiver">
+                    https://webhooks.salesforce.com/services/apexrest/VerificationReceiver
+                  </span>
+<button class="text-outline hover:text-primary transition-colors p-0.5 rounded" title="Copy endpoint URL">
+<span class="material-symbols-outlined text-[15px]">content_copy</span>
+</button>
+</div>
+<div class="flex items-center gap-2 font-data-mono-sm text-data-mono-sm text-tertiary">
+<span class="inline-flex items-center gap-1 bg-surface-container-high px-1.5 py-0.5 rounded font-mono text-[10px] text-on-surface-variant">
+<span class="material-symbols-outlined text-[12px] text-outline">key</span>
+                    whsec_••••110b
+                  </span>
+<span>Disabled by Admin</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-space-md align-middle">
+<div class="flex flex-wrap gap-1.5 max-w-xs opacity-75">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-data-mono-sm text-data-mono-sm">
+                  case.verified
+                </span>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-data-mono-sm text-data-mono-sm">
+                  dispute.opened
+                </span>
+</div>
+</td>
+<td class="py-3 px-space-md align-middle">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-surface-container-high text-tertiary font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+                PAUSED
+              </span>
+</td>
+<td class="py-3 px-space-md align-middle font-data-mono-sm text-data-mono-sm text-tertiary">
+<span>2d ago</span>
+<div class="text-[10px]">No pending events</div>
+</td>
+<td class="py-3 px-space-md align-middle text-right">
+<div class="flex flex-col items-end gap-1 opacity-75">
+<span class="font-data-mono-md text-data-mono-md font-semibold text-on-surface">98.7%</span>
+<div class="w-20 bg-surface-container-high h-1.5 rounded-full overflow-hidden">
+<div class="bg-outline h-full rounded-full" style="width: 98.7%"></div>
+</div>
+</div>
+</td>
+<td class="py-3 px-space-lg align-middle text-right">
+<div class="inline-flex items-center justify-end gap-1">
+<button class="p-1 rounded hover:bg-surface-container-high text-on-surface-variant transition-colors" title="Resume endpoint">
+<span class="material-symbols-outlined text-[18px]">play_arrow</span>
+</button>
+<button class="p-1 rounded hover:bg-surface-container-high text-on-surface-variant transition-colors" title="More options">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-space-md bg-surface-container-low/40 flex items-center justify-between text-on-surface-variant font-body-sm text-body-sm">
+<span>Showing 4 of 6 configured routing destinations</span>
+<div class="flex items-center gap-2">
+<button class="px-2 py-1 rounded hover:bg-surface-container-high text-tertiary hover:text-on-surface transition-colors disabled:opacity-40" disabled="">Previous</button>
+<span class="font-data-mono-sm text-data-mono-sm text-on-surface">1 / 2</span>
+<button class="px-2 py-1 rounded hover:bg-surface-container-high text-tertiary hover:text-on-surface transition-colors">Next</button>
+</div>
+</div>
+</div>
+<!-- Recent Delivery Log Panel (Live Stream) -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden flex flex-col">
+<!-- Log Header -->
+<div class="p-space-lg bg-surface-container-lowest flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm">
+<div class="flex items-center gap-3">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Delivery Log (Live Stream)</h3>
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-secondary-fixed/40 text-on-secondary-fixed font-data-mono-sm text-data-mono-sm">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span>
+</span>
+          Listening on 6 endpoints
+        </span>
+</div>
+<div class="flex items-center gap-2">
+<button class="px-2.5 py-1 rounded bg-surface-container-low text-on-surface font-label-sm text-label-sm hover:bg-surface-container transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">filter_list</span>
+<span>Filter by event</span>
+</button>
+<button class="px-2.5 py-1 rounded bg-surface-container-low text-on-surface font-label-sm text-label-sm hover:bg-surface-container transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">download</span>
+<span>Export JSONL</span>
+</button>
+</div>
+</div>
+<!-- Log Items -->
+<div class="flex flex-col">
+<!-- Log Row 1 -->
+<div class="px-space-lg py-3 hover:bg-surface-container-low/50 transition-colors flex flex-col lg:flex-row lg:items-center justify-between gap-2">
+<div class="flex items-center gap-3 flex-wrap">
+<span class="font-data-mono-sm text-data-mono-sm text-tertiary min-w-[140px]">
+            Today, 14:38:12.402
+          </span>
+<span class="px-2 py-0.5 rounded bg-primary-fixed/80 text-on-primary-fixed font-data-mono-sm text-data-mono-sm font-semibold">
+            case.verified
+          </span>
+<span class="font-data-mono-md text-data-mono-md text-on-surface truncate max-w-sm">
+            https://api.stripe-partners.com/hooks/...
+          </span>
+</div>
+<div class="flex items-center gap-4">
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-secondary-fixed-dim/30 text-on-secondary-fixed-variant font-data-mono-sm text-data-mono-sm font-semibold">
+            200 OK
+          </span>
+<span class="font-data-mono-sm text-data-mono-sm text-tertiary">
+            142ms
+          </span>
+<button class="text-primary hover:underline font-label-sm text-label-sm">
+            Payload
+          </button>
+</div>
+</div>
+<!-- Log Row 2 -->
+<div class="px-space-lg py-3 hover:bg-surface-container-low/50 transition-colors flex flex-col lg:flex-row lg:items-center justify-between gap-2 bg-surface-container-low/20">
+<div class="flex items-center gap-3 flex-wrap">
+<span class="font-data-mono-sm text-data-mono-sm text-tertiary min-w-[140px]">
+            Today, 14:36:05.118
+          </span>
+<span class="px-2 py-0.5 rounded bg-primary-fixed/80 text-on-primary-fixed font-data-mono-sm text-data-mono-sm font-semibold">
+            request.created
+          </span>
+<span class="font-data-mono-md text-data-mono-md text-on-surface truncate max-w-sm">
+            https://gateway.datadoghq.com/audit/...
+          </span>
+</div>
+<div class="flex items-center gap-4">
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-secondary-fixed-dim/30 text-on-secondary-fixed-variant font-data-mono-sm text-data-mono-sm font-semibold">
+            200 OK
+          </span>
+<span class="font-data-mono-sm text-data-mono-sm text-tertiary">
+            88ms
+          </span>
+<button class="text-primary hover:underline font-label-sm text-label-sm">
+            Payload
+          </button>
+</div>
+</div>
+<!-- Log Row 3 (Failed) -->
+<div class="px-space-lg py-3 hover:bg-error-container/20 transition-colors flex flex-col lg:flex-row lg:items-center justify-between gap-2 bg-error-container/10">
+<div class="flex items-center gap-3 flex-wrap">
+<span class="font-data-mono-sm text-data-mono-sm text-tertiary min-w-[140px]">
+            Today, 14:24:49.884
+          </span>
+<span class="px-2 py-0.5 rounded bg-error-container text-on-error-container font-data-mono-sm text-data-mono-sm font-semibold">
+            anomaly.flagged
+          </span>
+<span class="font-data-mono-md text-data-mono-md text-on-surface truncate max-w-sm">
+            https://payroll.adp-internal.cloud/listener/...
+          </span>
+</div>
+<div class="flex items-center gap-4">
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-error text-on-error font-data-mono-sm text-data-mono-sm font-semibold">
+            500 Server Error
+          </span>
+<span class="font-data-mono-sm text-data-mono-sm text-error font-medium">
+            5,002ms (Timeout)
+          </span>
+<button class="text-error hover:underline font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<span>View payload &amp; retry</span>
+<span class="material-symbols-outlined text-[14px]">refresh</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+  // Ensure Sidebar Webhooks link has active styling
+  (function() {
+    const webhooksLink = document.querySelector('a[data-path="webhooks"]');
+    if (webhooksLink) {
+      webhooksLink.classList.remove('text-on-surface-variant', 'hover:bg-surface-container');
+      webhooksLink.classList.add('bg-primary-container', 'text-on-primary-container', 'font-headline-sm');
+    }
+  })();
+</script></main></div></body></html>

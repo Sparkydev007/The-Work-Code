@@ -1,0 +1,42 @@
+# ---------- Node / frontend ----------
+node_modules/
+.next/
+dist/
+coverage/
+playwright-report/
+test-results/
+
+# ---------- Java ----------
+target/
+*.class
+*.jar
+!gradle-wrapper.jar
+*.war
+*.ear
+hs_err_pid*
+replay_pid*
+
+# ---------- Env & secrets ----------
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+application-local.yml
+application-local.yaml
+
+# ---------- IDE / OS ----------
+.idea/
+.vscode/
+*.iml
+.DS_Store
+Thumbs.db
+
+# ---------- Docker / db local volumes ----------
+.pgdata/
+pgdata/
+.docker/
+
+# ---------- Logs ----------
+logs/
+*.log

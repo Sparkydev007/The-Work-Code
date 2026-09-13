@@ -1,0 +1,1420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Work Code — Enterprise Verification Platform</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        primary: '#004ac6',
+        'primary-container': '#2563eb',
+        'on-primary': '#ffffff',
+        'on-primary-container': '#eeefff',
+        secondary: '#006a61',
+        'secondary-fixed': '#89f5e7',
+        'on-secondary-fixed': '#00201d',
+        surface: '#f8f9ff',
+        'surface-low': '#eff4ff',
+        'surface-card': '#ffffff',
+        'surface-high': '#dce9ff',
+        outline: '#737686',
+        'outline-border': '#c3c6d7',
+        error: '#ba1a1a',
+        'error-bg': '#ffdad6',
+        'on-surface': '#0b1c30',
+        'on-surface-variant': '#434655',
+        tertiary: '#49566c'
+      },
+      fontFamily: {
+        sans: ['Inter', 'sans-serif'],
+        mono: ['IBM Plex Sans', 'monospace']
+      }
+    }
+  }
+}
+</script>
+<style>
+  body { overscroll-behavior: none; font-family: 'Inter', sans-serif; }
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
+</style>
+</head>
+<body class="bg-[#f8f9ff] text-[#0b1c30] antialiased">
+
+<!-- Global Toast Container -->
+<div id="toastContainer" class="fixed bottom-6 right-6 z-[120] flex flex-col gap-2 pointer-events-none"></div>
+
+<!-- SIDEBAR -->
+<aside class="fixed left-0 top-0 h-screen w-64 bg-white border-r border-slate-200 z-30 flex flex-col justify-between select-none">
+  <div class="flex flex-col h-full overflow-hidden">
+    <!-- Brand Header -->
+    <div class="p-4 border-b border-slate-100 flex items-center justify-between">
+      <div class="flex items-center gap-2.5">
+        <div class="w-8 h-8 rounded-lg bg-slate-900 flex items-center justify-center text-emerald-400 font-bold">
+          <span class="material-symbols-outlined text-[20px]">verified</span>
+        </div>
+        <div>
+          <div class="font-bold text-sm leading-tight text-slate-900 tracking-tight">The Work Code</div>
+          <div class="text-[10px] font-mono uppercase text-slate-400 font-semibold tracking-wider">VERIFY PLATFORM</div>
+        </div>
+      </div>
+      <span class="px-1.5 py-0.5 rounded bg-slate-100 text-[10px] font-mono text-slate-600 border border-slate-200">v2.4</span>
+    </div>
+
+    <!-- Navigation List -->
+    <div class="flex-1 overflow-y-auto p-3 space-y-4 text-xs font-medium text-slate-600">
+      <div>
+        <div class="px-3 py-1 uppercase text-[10px] font-semibold text-slate-400 font-mono tracking-wider">Overview</div>
+        <a href="javascript:void(0)" onclick="switchNav('Dashboard', this)" class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-lg bg-blue-600 text-white font-semibold shadow-sm">
+          <span class="material-symbols-outlined text-[18px]">dashboard</span> Dashboard
+        </a>
+      </div>
+
+      <div>
+        <div class="px-3 py-1 uppercase text-[10px] font-semibold text-slate-400 font-mono tracking-wider">Verification</div>
+        <button onclick="openWizard()" class="w-full flex items-center justify-between px-3 py-2 rounded-lg hover:bg-slate-50 text-slate-700 transition-colors">
+          <div class="flex items-center gap-2.5"><span class="material-symbols-outlined text-[18px] text-blue-600">add_task</span> New Verification</div>
+          <span class="px-1.5 py-0.2 bg-blue-50 text-blue-600 rounded text-[11px] font-bold">+</span>
+        </button>
+        <a href="#tableSection" onclick="filterCategory('all')" class="nav-link flex items-center justify-between px-3 py-2 rounded-lg hover:bg-slate-50 text-slate-700 transition-colors">
+          <div class="flex items-center gap-2.5"><span class="material-symbols-outlined text-[18px]">inbox</span> Requests</div>
+          <span class="px-1.5 py-0.5 rounded-full bg-blue-100 text-blue-700 text-[10px] font-mono" id="sidebarBadgeCount">1,248</span>
+        </a>
+        <a href="javascript:void(0)" onclick="quickFilterStatus('VERIFIED')" class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-lg hover:bg-slate-50 text-slate-700 transition-colors">
+          <span class="material-symbols-outlined text-[18px] text-emerald-600">badge</span> Employees Directory
+        </a>
+        <a href="javascript:void(0)" onclick="showToast('Active connections to 14,200+ employer payroll nodes', 'info')" class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-lg hover:bg-slate-50 text-slate-700 transition-colors">
+          <span class="material-symbols-outlined text-[18px]">domain</span> Employers Network
+        </a>
+      </div>
+
+      <div>
+        <div class="px-3 py-1 uppercase text-[10px] font-semibold text-slate-400 font-mono tracking-wider">Data & Risk</div>
+        <a href="#tableSection" onclick="filterCategory('Income Only')" class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-lg hover:bg-slate-50 text-slate-700 transition-colors">
+          <span class="material-symbols-outlined text-[18px]">payments</span> Income Verification
+        </a>
+        <a href="#tableSection" onclick="filterCategory('High Risk')" class="nav-link flex items-center justify-between px-3 py-2 rounded-lg hover:bg-slate-50 text-slate-700 transition-colors">
+          <div class="flex items-center gap-2.5"><span class="material-symbols-outlined text-[18px] text-rose-600">shield</span> Risk & Fraud</div>
+          <span class="w-2 h-2 rounded-full bg-rose-500"></span>
+        </a>
+        <a href="javascript:void(0)" onclick="openAuditModal()" class="nav-link flex items-center justify-between px-3 py-2 rounded-lg hover:bg-slate-50 text-slate-700 transition-colors">
+          <div class="flex items-center gap-2.5"><span class="material-symbols-outlined text-[18px]">history_edu</span> Audit Logs</div>
+          <span class="px-1 text-[9px] font-mono bg-slate-100 text-slate-500 rounded border">FCRA</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- User Profile Footer -->
+    <div class="p-3 border-t border-slate-100 bg-slate-50 relative">
+      <div onclick="toggleProfileMenu()" class="p-2 rounded-lg bg-white border border-slate-200 flex items-center justify-between cursor-pointer hover:border-slate-300 transition-colors">
+        <div class="flex items-center gap-2.5 overflow-hidden">
+          <img src="https://lh3.googleusercontent.com/aida/AEtjO1UQftQ4IDuEM8vHYqbBW10a6TekcsB6-k-c5CqznTzxa1qHU7PUzk345hfIMp0ECziyxapNOlLYuWzeXGveOYk1zYTFcI98ha3-KitelBnx-58qumFh65RVXqxJC1M7no7Bn3U_DxWBSpBEpqbGfElMtYQOL_pFnqXGI0759DRxzGvnbFktEsPv64I5HGqn9vkJc7Cp8fuyw6OJMmffHkxXpWwq3nYbKP_qOi0CVp6vfix1CxlU6BSU1Q" alt="Alex Morgan" class="w-8 h-8 rounded-full object-cover shrink-0"/>
+          <div class="truncate leading-tight">
+            <div class="font-semibold text-xs text-slate-800 truncate">Alex Morgan</div>
+            <div class="text-[10px] text-slate-500 font-mono">ORG-8821 • Admin</div>
+          </div>
+        </div>
+        <span class="material-symbols-outlined text-[18px] text-slate-400">unfold_more</span>
+      </div>
+
+      <!-- Profile Dropdown Popup -->
+      <div id="profileDropdown" class="hidden absolute bottom-16 left-3 right-3 bg-white rounded-xl shadow-xl border border-slate-200 p-2 space-y-1 text-xs z-50">
+        <div class="px-2 py-1 font-semibold text-[10px] uppercase font-mono text-slate-400">Switch Workspace</div>
+        <button onclick="switchOrg('The Work Code Global (Primary)')" class="w-full text-left px-2.5 py-1.5 rounded-lg hover:bg-slate-50 flex items-center justify-between font-medium text-slate-700">
+          <span>Global Enterprise</span><span class="material-symbols-outlined text-[16px] text-emerald-600">check</span>
+        </button>
+        <button onclick="switchOrg('Stripe Partners Sandbox')" class="w-full text-left px-2.5 py-1.5 rounded-lg hover:bg-slate-50 flex items-center justify-between text-slate-600">
+          <span>FinTech Sandbox</span><span class="text-[10px] font-mono text-slate-400">US-EAST</span>
+        </button>
+        <div class="border-t border-slate-100 my-1"></div>
+        <button onclick="showToast('Session locked. Re-authenticate via SSO.', 'info'); toggleProfileMenu();" class="w-full text-left px-2.5 py-1.5 rounded-lg hover:bg-rose-50 text-rose-600 font-medium flex items-center gap-1.5">
+          <span class="material-symbols-outlined text-[16px]">lock</span> Lock Session
+        </button>
+      </div>
+    </div>
+  </div>
+</aside>
+
+<!-- MAIN APP CONTAINER -->
+<div class="pl-64 flex flex-col min-h-screen">
+
+  <!-- TOP HEADER -->
+  <header class="fixed top-0 left-64 right-0 h-16 bg-white/95 backdrop-blur-md border-b border-slate-200 z-20 px-8 flex items-center justify-between">
+    <!-- Command Search Trigger -->
+    <div class="flex items-center gap-4 flex-1 max-w-lg">
+      <div onclick="openCommandPalette()" class="w-full flex items-center justify-between px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200/70 border border-slate-200 text-slate-500 text-xs cursor-pointer transition-colors">
+        <div class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-[18px]">search</span>
+          <span>Search applicants, ID (VER-...), employers...</span>
+        </div>
+        <span class="px-1.5 py-0.5 rounded bg-white font-mono text-[10px] border border-slate-200 font-semibold">⌘K</span>
+      </div>
+    </div>
+
+    <!-- Right Header Actions -->
+    <div class="flex items-center gap-3">
+      <div onclick="showToast('All 14,200+ payroll nodes operating with zero packet loss (28ms avg)', 'success')" class="cursor-pointer flex items-center gap-2 px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 text-xs font-mono">
+        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+        <span class="font-semibold">99.98% Operational</span>
+      </div>
+
+      <!-- Notifications Bell -->
+      <div class="relative">
+        <button onclick="toggleNotifications()" class="relative p-2 rounded-lg text-slate-500 hover:text-slate-800 hover:bg-slate-100 transition-colors" title="Notifications">
+          <span class="material-symbols-outlined text-[20px]">notifications</span>
+          <span id="notifBadge" class="absolute top-1 right-1 w-4 h-4 rounded-full bg-rose-500 text-white text-[10px] font-bold flex items-center justify-center">3</span>
+        </button>
+
+        <!-- Notification Panel -->
+        <div id="notifPanel" class="hidden absolute right-0 mt-2 w-80 bg-white rounded-xl shadow-2xl border border-slate-200 z-50 overflow-hidden">
+          <div class="px-4 py-3 bg-slate-50 border-b border-slate-100 flex items-center justify-between">
+            <span class="font-bold text-xs text-slate-800">Operational Alerts</span>
+            <button onclick="markAllNotificationsRead()" class="text-[11px] text-blue-600 hover:underline font-medium">Mark all read</button>
+          </div>
+          <div id="notifList" class="divide-y divide-slate-100 max-h-72 overflow-y-auto text-xs">
+            <div onclick="openDrawer('VER-100291'); toggleNotifications();" class="p-3 hover:bg-slate-50 cursor-pointer flex items-start gap-2.5">
+              <span class="w-2 h-2 mt-1 rounded-full bg-amber-500 shrink-0"></span>
+              <div>
+                <p class="font-semibold text-slate-800">Income Variance Detected</p>
+                <p class="text-slate-500 text-[11px]">Vikram Malhotra has +18% variance against ADP records.</p>
+                <span class="text-[10px] font-mono text-slate-400">VER-100291 • 38m ago</span>
+              </div>
+            </div>
+            <div onclick="openDrawer('VER-100289'); toggleNotifications();" class="p-3 hover:bg-slate-50 cursor-pointer flex items-start gap-2.5">
+              <span class="w-2 h-2 mt-1 rounded-full bg-rose-500 shrink-0"></span>
+              <div>
+                <p class="font-semibold text-slate-800">Unverified Employer Domain</p>
+                <p class="text-slate-500 text-[11px]">Vertex Solutions flagged during domain WHOIS lookup.</p>
+                <span class="text-[10px] font-mono text-slate-400">VER-100289 • 2h ago</span>
+              </div>
+            </div>
+            <div onclick="showToast('OAuth token refreshed successfully for Gusto integration', 'success'); toggleNotifications();" class="p-3 hover:bg-slate-50 cursor-pointer flex items-start gap-2.5">
+              <span class="w-2 h-2 mt-1 rounded-full bg-blue-500 shrink-0"></span>
+              <div>
+                <p class="font-semibold text-slate-800">OAuth Webhook Synchronized</p>
+                <p class="text-slate-500 text-[11px]">Direct Gusto integration token renewed automatically.</p>
+                <span class="text-[10px] font-mono text-slate-400">Node US-EAST-1 • 3h ago</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- New Verification CTA -->
+      <button onclick="openWizard()" class="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold shadow-sm transition-colors">
+        <span class="material-symbols-outlined text-[16px]">add</span> New Verification
+      </button>
+    </div>
+  </header>
+
+  <!-- MAIN VIEWPORT -->
+  <main class="flex-1 pt-20 px-8 pb-12 space-y-6 max-w-[1600px] w-full">
+
+    <!-- Operational Telemetry Strip -->
+    <div class="p-3 bg-white rounded-xl border border-slate-200 flex flex-wrap items-center justify-between text-xs gap-3 shadow-sm">
+      <div class="flex items-center gap-2">
+        <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping"></span>
+        <span class="font-mono font-bold text-slate-800 tracking-wide">TELEMETRY SYNC ACTIVE</span>
+        <span class="text-slate-300">|</span>
+        <span class="text-slate-600">Connected to <strong class="text-slate-800 font-semibold">14,200+</strong> payroll gateways with real-time zero-trust validation</span>
+      </div>
+      <div class="flex items-center gap-3 font-mono text-[11px] text-slate-500">
+        <span>Node: AWS-US-EAST-1 (Cluster 4B)</span>
+        <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-700 font-semibold">Latency: 28ms</span>
+      </div>
+    </div>
+
+    <!-- Welcome & Timeframe Header -->
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+      <div>
+        <div class="flex items-center gap-2">
+          <h1 class="text-2xl font-bold text-slate-900 tracking-tight">Good morning, Alex</h1>
+          <span class="px-2 py-0.5 rounded bg-blue-50 text-blue-700 text-[11px] font-mono font-semibold uppercase">Enterprise Ops</span>
+        </div>
+        <p class="text-xs text-slate-500 mt-0.5">Here's what's happening across your workforce verification operations today.</p>
+      </div>
+
+      <!-- Timeframe Buttons & Quick Actions -->
+      <div class="flex flex-wrap items-center gap-2">
+        <div class="bg-slate-200/80 p-0.5 rounded-lg flex text-xs font-semibold text-slate-600">
+          <button onclick="setTimeframe('24h', this)" class="tf-btn px-2.5 py-1 rounded-md transition-colors hover:text-slate-900">Last 24H</button>
+          <button onclick="setTimeframe('7d', this)" class="tf-btn px-2.5 py-1 rounded-md transition-colors hover:text-slate-900">7D</button>
+          <button onclick="setTimeframe('30d', this)" class="tf-btn px-2.5 py-1 rounded-md bg-white text-slate-900 shadow-sm">30D</button>
+          <button onclick="setTimeframe('90d', this)" class="tf-btn px-2.5 py-1 rounded-md transition-colors hover:text-slate-900">90D</button>
+          <button onclick="setTimeframe('12m', this)" class="tf-btn px-2.5 py-1 rounded-md transition-colors hover:text-slate-900">12M</button>
+        </div>
+        <button onclick="exportTableData()" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-slate-200 hover:bg-slate-50 text-slate-700 text-xs font-semibold shadow-sm transition-colors">
+          <span class="material-symbols-outlined text-[16px] text-slate-400">download</span> Export CSV
+        </button>
+        <button onclick="openWizard()" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold shadow-sm transition-colors">
+          <span class="material-symbols-outlined text-[16px]">add</span> New Verification
+        </button>
+      </div>
+    </div>
+
+    <!-- Attention Required Operational Strip -->
+    <div class="p-4 bg-white rounded-xl border border-slate-200 shadow-sm flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-lg bg-amber-100 text-amber-800 flex items-center justify-center shrink-0 font-bold">
+          <span class="material-symbols-outlined text-[20px]">warning</span>
+        </div>
+        <div>
+          <div class="font-bold text-xs text-slate-900">Attention Required</div>
+          <div class="text-[11px] text-slate-500">13 operational items require underwriter inspection or automated review</div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs flex-1 max-w-2xl">
+        <div class="p-2 rounded-lg bg-slate-50 hover:bg-slate-100 flex items-center justify-between cursor-pointer" onclick="quickFilterStatus('MANUAL REVIEW')">
+          <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-amber-500"></span> 7 reviews</span>
+          <span class="text-blue-600 font-semibold text-[11px]">Queue →</span>
+        </div>
+        <div class="p-2 rounded-lg bg-slate-50 hover:bg-slate-100 flex items-center justify-between cursor-pointer" onclick="openDrawer('VER-100291')">
+          <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-rose-500"></span> 3 mismatches</span>
+          <span class="text-blue-600 font-semibold text-[11px]">Inspect →</span>
+        </div>
+        <div class="p-2 rounded-lg bg-slate-50 hover:bg-slate-100 flex items-center justify-between cursor-pointer" onclick="openDrawer('VER-100289')">
+          <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-rose-500"></span> 2 fraud flags</span>
+          <span class="text-blue-600 font-semibold text-[11px]">Flag Sec →</span>
+        </div>
+        <div class="p-2 rounded-lg bg-slate-50 hover:bg-slate-100 flex items-center justify-between cursor-pointer" onclick="showToast('Consent renewal dispatch link emailed to applicant', 'success')">
+          <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-slate-400"></span> 1 expired</span>
+          <span class="text-blue-600 font-semibold text-[11px]">Resend →</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4 KPI Metric Cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
+      <!-- Card 1 -->
+      <div class="p-4 bg-white rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between hover:border-slate-300 transition-colors">
+        <div class="flex items-center justify-between text-xs font-semibold text-slate-500 uppercase tracking-wider font-mono">
+          <span>Verification Requests</span>
+          <span class="text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded font-bold text-[11px]">+12.4%</span>
+        </div>
+        <div class="my-2">
+          <div class="text-3xl font-extrabold text-slate-900 tracking-tight" id="kpiTotal">1,248</div>
+          <div class="text-xs text-slate-500 font-medium"><strong class="text-slate-800" id="kpiToday">142</strong> requested today</div>
+        </div>
+        <div class="pt-2 border-t border-slate-100 text-[11px] text-slate-400 flex items-center justify-between">
+          <span>High volume peak (HR cycle)</span>
+          <span class="font-mono text-emerald-600 font-semibold">SLA: 100%</span>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="p-4 bg-white rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between hover:border-slate-300 transition-colors">
+        <div class="flex items-center justify-between text-xs font-semibold text-slate-500 uppercase tracking-wider font-mono">
+          <span>Completed & Verified</span>
+          <span class="text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded font-bold text-[11px]">88.3% Met</span>
+        </div>
+        <div class="my-2">
+          <div class="text-3xl font-extrabold text-slate-900 tracking-tight" id="kpiVerified">1,102</div>
+          <div class="text-xs text-slate-500 font-medium">Automated lookup: <strong class="text-slate-800">964 (87.5%)</strong></div>
+        </div>
+        <div class="pt-2 border-t border-slate-100 text-[11px] text-slate-400 flex items-center justify-between">
+          <span>Instant API validation</span>
+          <span class="font-mono text-emerald-600 font-semibold">↑ 3.1% MoM</span>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="p-4 bg-white rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between hover:border-slate-300 transition-colors">
+        <div class="flex items-center justify-between text-xs font-semibold text-slate-500 uppercase tracking-wider font-mono">
+          <span>In Processing</span>
+          <span class="text-amber-800 bg-amber-50 px-1.5 py-0.5 rounded font-bold text-[11px]">7.5%</span>
+        </div>
+        <div class="my-2">
+          <div class="text-3xl font-extrabold text-slate-900 tracking-tight" id="kpiPending">94</div>
+          <div class="text-xs text-slate-500 font-medium">Avg turnaround: <strong class="text-slate-800">42 seconds</strong></div>
+        </div>
+        <div class="pt-2 border-t border-slate-100 text-[11px] text-slate-400 flex items-center justify-between">
+          <span>38 awaiting webhook callback</span>
+          <span class="font-mono text-slate-500 font-medium">Active queue</span>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="p-4 bg-white rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between hover:border-slate-300 transition-colors">
+        <div class="flex items-center justify-between text-xs font-semibold text-slate-500 uppercase tracking-wider font-mono">
+          <span>Failed / Flagged Risk</span>
+          <span class="text-rose-700 bg-rose-50 px-1.5 py-0.5 rounded font-bold text-[11px]">4.2%</span>
+        </div>
+        <div class="my-2">
+          <div class="text-3xl font-extrabold text-slate-900 tracking-tight" id="kpiFailed">52</div>
+          <div class="text-xs text-slate-500 font-medium">Synthetic ID alerts: <strong class="text-slate-800">11 cases</strong></div>
+        </div>
+        <div class="pt-2 border-t border-slate-100 text-[11px] text-slate-400 flex items-center justify-between">
+          <span>18 anomaly reviews pending</span>
+          <span class="font-mono text-rose-600 font-semibold">↓ 0.8% Flagged</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Analytical Visualizations Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <!-- Line Chart -->
+      <div class="lg:col-span-2 p-5 bg-white rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between space-y-4">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+          <div>
+            <h2 class="font-bold text-sm text-slate-900">Verification Activity & Throughput</h2>
+            <p class="text-xs text-slate-500" id="chartSubtext">Daily volume across 30 days reaching peak of 180 verifications/day</p>
+          </div>
+          <div class="bg-slate-100 p-0.5 rounded-lg flex text-xs font-semibold text-slate-600">
+            <button onclick="filterChartLayer('all', this)" class="chart-btn px-2.5 py-1 rounded bg-white text-slate-900 shadow-sm">All Volumes</button>
+            <button onclick="filterChartLayer('income', this)" class="chart-btn px-2.5 py-1 rounded hover:text-slate-900">Income Only</button>
+            <button onclick="filterChartLayer('employment', this)" class="chart-btn px-2.5 py-1 rounded hover:text-slate-900">Employment Only</button>
+          </div>
+        </div>
+
+        <!-- Legend -->
+        <div class="flex items-center gap-4 text-xs font-medium text-slate-600">
+          <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded bg-emerald-600"></span> Completed (1,102)</span>
+          <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded bg-blue-600"></span> Automated Lookups (964)</span>
+          <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded bg-rose-600"></span> Anomalies (52)</span>
+        </div>
+
+        <!-- SVG Chart -->
+        <div class="relative w-full h-56 bg-slate-50 rounded-xl p-3 flex flex-col justify-between border border-slate-100">
+          <div class="relative h-44 w-full">
+            <svg class="w-full h-full" preserveAspectRatio="none" viewBox="0 0 600 160">
+              <defs>
+                <linearGradient id="gradEmerald" x1="0" x2="0" y1="0" y2="1">
+                  <stop offset="0%" stop-color="#059669" stop-opacity="0.25"/>
+                  <stop offset="100%" stop-color="#059669" stop-opacity="0"/>
+                </linearGradient>
+                <linearGradient id="gradCobalt" x1="0" x2="0" y1="0" y2="1">
+                  <stop offset="0%" stop-color="#2563eb" stop-opacity="0.2"/>
+                  <stop offset="100%" stop-color="#2563eb" stop-opacity="0"/>
+                </linearGradient>
+              </defs>
+              <polygon id="polyEmerald" fill="url(#gradEmerald)" points="0,130 50,110 100,120 150,85 200,90 250,60 300,75 350,35 400,50 450,25 500,40 550,15 600,28 600,160 0,160"></polygon>
+              <polyline id="lineEmerald" fill="none" stroke="#059669" stroke-width="2.5" points="0,130 50,110 100,120 150,85 200,90 250,60 300,75 350,35 400,50 450,25 500,40 550,15 600,28"></polyline>
+              <polyline id="lineCobalt" fill="none" stroke="#2563eb" stroke-width="2" points="0,140 50,125 100,135 150,105 200,110 250,80 300,95 350,55 400,70 450,45 500,60 550,35 600,48"></polyline>
+              <polyline fill="none" stroke="#e11d48" stroke-dasharray="3 3" stroke-width="1.5" points="0,152 100,150 200,148 300,145 400,142 500,140 600,141"></polyline>
+              <circle cx="550" cy="15" r="4" fill="#059669" stroke="#ffffff" stroke-width="2"></circle>
+            </svg>
+          </div>
+          <div class="flex justify-between text-[10px] font-mono text-slate-400 pt-1 border-t border-slate-200">
+            <span>Day 1</span><span>Day 7</span><span>Day 14</span><span>Day 21</span><span>Day 28 (Peak 182)</span><span>Today</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Donut Chart -->
+      <div class="p-5 bg-white rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between space-y-4">
+        <div>
+          <h2 class="font-bold text-sm text-slate-900">Clearance Distribution</h2>
+          <p class="text-xs text-slate-500">Outcome aggregate for selected window</p>
+        </div>
+
+        <div class="relative flex items-center justify-center">
+          <svg class="w-40 h-40 transform -rotate-90" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="38" fill="none" stroke="#f1f5f9" stroke-width="12"></circle>
+            <circle cx="50" cy="50" r="38" fill="none" stroke="#059669" stroke-width="12" stroke-dasharray="210.8 238.7" stroke-dashoffset="0"></circle>
+            <circle cx="50" cy="50" r="38" fill="none" stroke="#2563eb" stroke-width="12" stroke-dasharray="17.9 238.7" stroke-dashoffset="-210.8"></circle>
+            <circle cx="50" cy="50" r="38" fill="none" stroke="#e11d48" stroke-width="12" stroke-dasharray="10 238.7" stroke-dashoffset="-228.7"></circle>
+          </svg>
+          <div class="absolute inset-0 flex flex-col items-center justify-center text-center">
+            <span class="text-2xl font-extrabold text-slate-900 leading-none">88.3%</span>
+            <span class="text-[10px] font-mono uppercase font-semibold text-slate-400 mt-1">SUCCESS RATE</span>
+          </div>
+        </div>
+
+        <div class="space-y-1.5 text-xs bg-slate-50 p-2.5 rounded-lg">
+          <div class="flex items-center justify-between">
+            <span class="flex items-center gap-1.5 font-medium text-slate-700"><span class="w-2 h-2 rounded-full bg-emerald-600"></span> Verified</span>
+            <span class="font-mono font-semibold text-slate-900">1,102 (88.3%)</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <span class="flex items-center gap-1.5 font-medium text-slate-700"><span class="w-2 h-2 rounded-full bg-blue-600"></span> Pending Callback</span>
+            <span class="font-mono font-semibold text-slate-900">94 (7.5%)</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <span class="flex items-center gap-1.5 font-medium text-slate-700"><span class="w-2 h-2 rounded-full bg-rose-600"></span> Failed / High Risk</span>
+            <span class="font-mono font-semibold text-slate-900">52 (4.2%)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Master Verification Requests Table Section -->
+    <div id="tableSection" class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
+      <!-- Table Header & Controls -->
+      <div class="p-5 border-b border-slate-100 space-y-4">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-3">
+          <div>
+            <div class="flex items-center gap-2">
+              <h2 class="font-bold text-base text-slate-900">Recent Verification Requests</h2>
+              <span class="px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 text-[10px] font-mono font-semibold">LIVE STREAM</span>
+            </div>
+            <p class="text-xs text-slate-500">Direct real-time incoming queries across connected employer integrations</p>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-2">
+            <!-- Search in table -->
+            <div class="relative">
+              <span class="material-symbols-outlined absolute left-2.5 top-2 text-slate-400 text-[16px]">search</span>
+              <input type="text" id="tableSearchInput" oninput="handleTableSearch(this.value)" placeholder="Filter by name, employer, ID..." class="h-8 pl-8 pr-3 rounded-lg bg-slate-50 border border-slate-200 text-xs text-slate-800 placeholder:text-slate-400 focus:outline-none focus:border-blue-500 w-60"/>
+            </div>
+
+            <!-- Customize Columns -->
+            <div class="relative">
+              <button onclick="toggleColMenu()" class="h-8 px-2.5 rounded-lg bg-slate-100 hover:bg-slate-200/70 text-slate-700 text-xs font-medium flex items-center gap-1">
+                <span class="material-symbols-outlined text-[16px]">view_column</span> Columns
+              </button>
+              <div id="colMenu" class="hidden absolute right-0 mt-1 w-44 bg-white rounded-lg shadow-xl border border-slate-200 p-2 text-xs z-30 space-y-1">
+                <label class="flex items-center gap-2 px-1 py-0.5 hover:bg-slate-50 rounded cursor-pointer">
+                  <input type="checkbox" checked onchange="toggleTableCol(3, this.checked)" class="rounded text-blue-600"> Type
+                </label>
+                <label class="flex items-center gap-2 px-1 py-0.5 hover:bg-slate-50 rounded cursor-pointer">
+                  <input type="checkbox" checked onchange="toggleTableCol(4, this.checked)" class="rounded text-blue-600"> Timestamp
+                </label>
+                <label class="flex items-center gap-2 px-1 py-0.5 hover:bg-slate-50 rounded cursor-pointer">
+                  <input type="checkbox" checked onchange="toggleTableCol(6, this.checked)" class="rounded text-blue-600"> Risk Score
+                </label>
+              </div>
+            </div>
+
+            <button onclick="exportTableData()" class="h-8 px-3 rounded-lg bg-slate-100 hover:bg-slate-200/70 text-slate-700 text-xs font-medium flex items-center gap-1">
+              <span class="material-symbols-outlined text-[16px]">file_download</span> Export
+            </button>
+          </div>
+        </div>
+
+        <!-- Filter Category Tabs -->
+        <div class="flex flex-wrap items-center gap-1.5 pt-1">
+          <button onclick="filterCategory('all', this)" class="cat-pill px-3 py-1 rounded-md text-xs font-semibold bg-blue-600 text-white shadow-sm">All (1,248)</button>
+          <button onclick="filterCategory('Employment + Income', this)" class="cat-pill px-3 py-1 rounded-md text-xs font-medium bg-slate-100 text-slate-600 hover:bg-slate-200/60">Employment + Income</button>
+          <button onclick="filterCategory('Income Only', this)" class="cat-pill px-3 py-1 rounded-md text-xs font-medium bg-slate-100 text-slate-600 hover:bg-slate-200/60">Income Only</button>
+          <button onclick="filterCategory('High Risk', this)" class="cat-pill px-3 py-1 rounded-md text-xs font-medium bg-slate-100 text-slate-600 hover:bg-slate-200/60 flex items-center gap-1">
+            <span>High Risk</span><span class="w-1.5 h-1.5 rounded-full bg-rose-500"></span>
+          </button>
+          <button onclick="filterCategory('Attention Needed', this)" class="cat-pill px-3 py-1 rounded-md text-xs font-medium bg-slate-100 text-slate-600 hover:bg-slate-200/60">Attention Needed</button>
+        </div>
+      </div>
+
+      <!-- Master Table Element -->
+      <div class="w-full overflow-x-auto">
+        <table class="w-full text-left text-xs border-collapse">
+          <thead>
+            <tr class="bg-slate-50 text-slate-400 font-mono uppercase text-[10px] tracking-wider select-none border-b border-slate-200">
+              <th class="py-3 px-5 font-semibold cursor-pointer hover:text-slate-800" onclick="sortTable('id')">Request ID ↕</th>
+              <th class="py-3 px-4 font-semibold cursor-pointer hover:text-slate-800" onclick="sortTable('name')">Applicant Details ↕</th>
+              <th class="py-3 px-4 font-semibold cursor-pointer hover:text-slate-800" onclick="sortTable('employer')">Employer / Gateway ↕</th>
+              <th class="py-3 px-4 font-semibold col-3">Type</th>
+              <th class="py-3 px-4 font-semibold col-4">Timestamp</th>
+              <th class="py-3 px-4 font-semibold">Status</th>
+              <th class="py-3 px-4 font-semibold col-6">Risk & Integrity</th>
+              <th class="py-3 px-5 text-right font-semibold">Action</th>
+            </tr>
+          </thead>
+          <tbody id="tableBody" class="divide-y divide-slate-100 font-sans">
+            <!-- Populated via JavaScript dynamically -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Table Pagination Bar -->
+      <div class="px-5 py-3 bg-slate-50 border-t border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs text-slate-500">
+        <div id="tablePaginationText">Showing 1 to 6 of 1,248 entries</div>
+        <div class="flex items-center gap-1">
+          <button onclick="changePage(-1)" class="w-7 h-7 rounded border border-slate-200 bg-white hover:bg-slate-100 flex items-center justify-center text-slate-600 disabled:opacity-40" id="btnPrevPage">
+            <span class="material-symbols-outlined text-[16px]">chevron_left</span>
+          </button>
+          <div class="flex items-center gap-1 font-mono text-xs" id="pageBtnGroup">
+            <button class="w-7 h-7 rounded bg-blue-600 text-white font-bold">1</button>
+            <button onclick="goToPage(2)" class="w-7 h-7 rounded border border-slate-200 bg-white hover:bg-slate-100 text-slate-700">2</button>
+            <button onclick="goToPage(3)" class="w-7 h-7 rounded border border-slate-200 bg-white hover:bg-slate-100 text-slate-700">3</button>
+          </div>
+          <button onclick="changePage(1)" class="w-7 h-7 rounded border border-slate-200 bg-white hover:bg-slate-100 flex items-center justify-center text-slate-600" id="btnNextPage">
+            <span class="material-symbols-outlined text-[16px]">chevron_right</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Compliance & Security Standard Footer Banner -->
+    <div class="p-5 bg-white rounded-xl border border-slate-200 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div class="flex items-start gap-3.5">
+        <div class="w-10 h-10 rounded-lg bg-emerald-100 text-emerald-800 flex items-center justify-center shrink-0">
+          <span class="material-symbols-outlined text-[24px]">verified_user</span>
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <h3 class="font-bold text-xs text-slate-900 uppercase tracking-wider font-mono">Institutional Security & Compliance Standards</h3>
+            <span class="px-1.5 py-0.5 rounded bg-slate-100 text-slate-600 text-[10px] font-mono">ACTIVE ENFORCEMENT</span>
+          </div>
+          <p class="text-xs text-slate-500 mt-1 max-w-3xl">
+            Compliant with FCRA § 604 permissible purpose, SOC2 Type II, and ISO 27001. All queries are encrypted with AES-256 at rest and TLS 1.3 in transit. Underwriting actions are immutably logged.
+          </p>
+        </div>
+      </div>
+      <div class="flex items-center gap-2 shrink-0">
+        <button onclick="openSecurityReportsModal()" class="px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold transition-colors">Security Reports</button>
+        <button onclick="openAuditModal()" class="px-3.5 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold shadow-sm transition-colors">Audit Registry →</button>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<!-- ========================================================================= -->
+<!-- 1. MULTI-STEP NEW VERIFICATION WIZARD MODAL -->
+<!-- ========================================================================= -->
+<div id="wizardModal" class="fixed inset-0 z-50 bg-slate-900/50 backdrop-blur-sm hidden items-center justify-center p-4">
+  <div class="bg-white rounded-2xl shadow-2xl w-full max-w-xl overflow-hidden border border-slate-200 flex flex-col">
+    <!-- Header -->
+    <div class="p-4 bg-slate-50 border-b border-slate-100 flex items-center justify-between">
+      <div>
+        <h3 class="font-bold text-sm text-slate-900">Initiate Workforce Verification</h3>
+        <p class="text-xs text-slate-500">Direct-to-payroll identity, tenure, and wage verification</p>
+      </div>
+      <button onclick="closeWizard()" class="p-1 rounded-full text-slate-400 hover:text-slate-800 hover:bg-slate-200"><span class="material-symbols-outlined text-[18px]">close</span></button>
+    </div>
+
+    <!-- Stepper indicators -->
+    <div class="px-6 py-2.5 bg-slate-100/70 border-b border-slate-200 flex items-center justify-between text-xs font-mono font-semibold">
+      <div id="stepInd1" class="flex items-center gap-1 text-blue-600"><span class="w-5 h-5 rounded-full bg-blue-600 text-white flex items-center justify-center text-[10px]">1</span> <span>Type</span></div>
+      <div class="w-6 h-px bg-slate-300"></div>
+      <div id="stepInd2" class="flex items-center gap-1 text-slate-400"><span class="w-5 h-5 rounded-full bg-slate-200 flex items-center justify-center text-[10px]">2</span> <span>Applicant</span></div>
+      <div class="w-6 h-px bg-slate-300"></div>
+      <div id="stepInd3" class="flex items-center gap-1 text-slate-400"><span class="w-5 h-5 rounded-full bg-slate-200 flex items-center justify-center text-[10px]">3</span> <span>Consent</span></div>
+      <div class="w-6 h-px bg-slate-300"></div>
+      <div id="stepInd4" class="flex items-center gap-1 text-slate-400"><span class="w-5 h-5 rounded-full bg-slate-200 flex items-center justify-center text-[10px]">4</span> <span>Run</span></div>
+    </div>
+
+    <!-- Wizard Steps Body -->
+    <div class="p-6 space-y-4 flex-1">
+      <!-- Step 1 -->
+      <div id="wizStep1" class="space-y-3">
+        <label class="block text-xs font-semibold text-slate-700">Select Verification Package:</label>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs">
+          <label class="p-3 border-2 border-blue-600 bg-blue-50/50 rounded-xl cursor-pointer flex flex-col gap-1.5 pkg-option" onclick="selectPackage(this, 'Employment + Income')">
+            <span class="material-symbols-outlined text-blue-600 text-[24px]">account_balance_wallet</span>
+            <span class="font-bold text-slate-900">Employment + Income</span>
+            <span class="text-[11px] text-slate-500 leading-tight">Complete tenure, W-2 tax slips, and base salary.</span>
+          </label>
+          <label class="p-3 border border-slate-200 hover:bg-slate-50 rounded-xl cursor-pointer flex flex-col gap-1.5 pkg-option" onclick="selectPackage(this, 'Employment Only')">
+            <span class="material-symbols-outlined text-slate-600 text-[24px]">badge</span>
+            <span class="font-bold text-slate-900">Employment Only</span>
+            <span class="text-[11px] text-slate-500 leading-tight">Current job title, start date, and active status.</span>
+          </label>
+          <label class="p-3 border border-slate-200 hover:bg-slate-50 rounded-xl cursor-pointer flex flex-col gap-1.5 pkg-option" onclick="selectPackage(this, 'Income Only')">
+            <span class="material-symbols-outlined text-slate-600 text-[24px]">payments</span>
+            <span class="font-bold text-slate-900">Income Only</span>
+            <span class="text-[11px] text-slate-500 leading-tight">Net deposits, YTD earnings, and cash flow.</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div id="wizStep2" class="hidden space-y-3 text-xs">
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Full Legal Name *</label>
+            <input type="text" id="wizName" value="Maya Chen" class="w-full px-3 py-1.5 rounded-lg border border-slate-300 text-xs focus:ring-1 focus:ring-blue-500 focus:outline-none"/>
+          </div>
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Applicant Work Email *</label>
+            <input type="email" id="wizEmail" value="maya.chen@apex-labs.org" class="w-full px-3 py-1.5 rounded-lg border border-slate-300 text-xs focus:ring-1 focus:ring-blue-500 focus:outline-none"/>
+          </div>
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Target Employer *</label>
+            <input type="text" id="wizEmployer" value="Apex Innovations Lab" class="w-full px-3 py-1.5 rounded-lg border border-slate-300 text-xs focus:ring-1 focus:ring-blue-500 focus:outline-none"/>
+          </div>
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Employee ID</label>
+            <input type="text" id="wizEmpId" value="EMP-88402" class="w-full px-3 py-1.5 rounded-lg border border-slate-300 text-xs focus:ring-1 focus:ring-blue-500 focus:outline-none"/>
+          </div>
+        </div>
+        <div>
+          <label class="block font-semibold text-slate-700 mb-1">Integration Payroll Gateway</label>
+          <select id="wizGateway" class="w-full px-3 py-1.5 rounded-lg border border-slate-300 text-xs focus:ring-1 focus:ring-blue-500 focus:outline-none">
+            <option value="Direct Payroll API • Gusto">Gusto Direct API (Coverage: 99.8%)</option>
+            <option value="Workday API Sync">Workday Enterprise Gateway</option>
+            <option value="ADP Workforce Integration">ADP Workforce Now Direct Hook</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div id="wizStep3" class="hidden space-y-3 text-xs">
+        <div class="p-3 bg-slate-50 border border-slate-200 rounded-xl space-y-1">
+          <div class="font-bold text-slate-900 flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-blue-600 text-[18px]">verified_user</span> FCRA Authorization Attestation
+          </div>
+          <p class="text-slate-500 leading-relaxed text-[11px]">
+            The requester certifies permissible purpose under FCRA Section 604 for employment or credit underwriting verification.
+          </p>
+        </div>
+        <label class="flex items-start gap-2 pt-1 cursor-pointer">
+          <input type="checkbox" checked class="mt-0.5 rounded text-blue-600"/>
+          <span class="text-slate-700">Digital consent (E-SIGN ID #99281-AUTH) executed and verified in immutable registry.</span>
+        </label>
+      </div>
+
+      <!-- Step 4 -->
+      <div id="wizStep4" class="hidden space-y-3 text-xs">
+        <div id="wizSummaryBox" class="p-3 bg-slate-50 border border-slate-200 rounded-xl space-y-1.5">
+          <div class="flex justify-between"><span class="text-slate-500">Applicant:</span><span id="sumName" class="font-bold text-slate-800">Maya Chen</span></div>
+          <div class="flex justify-between"><span class="text-slate-500">Employer:</span><span id="sumEmployer" class="font-semibold text-slate-800">Apex Innovations Lab</span></div>
+          <div class="flex justify-between"><span class="text-slate-500">Package:</span><span id="sumPkg" class="font-mono text-blue-600 font-semibold">Employment + Income</span></div>
+        </div>
+
+        <!-- Live progress simulation -->
+        <div id="wizProgressBox" class="hidden p-3 bg-slate-50 border border-slate-200 rounded-xl space-y-2 font-mono text-[11px]">
+          <div class="font-sans font-bold text-slate-800 flex items-center gap-2">
+            <span class="material-symbols-outlined text-emerald-600 animate-spin text-[18px]">refresh</span>
+            <span>Running Real-time Verification...</span>
+          </div>
+          <div id="pStep1" class="text-emerald-700 flex items-center gap-1.5">✓ 1. Candidate FCRA token authenticated</div>
+          <div id="pStep2" class="text-blue-700 flex items-center gap-1.5">⟳ 2. Querying payroll provider gateway...</div>
+          <div id="pStep3" class="text-slate-400 flex items-center gap-1.5">○ 3. Parsing W-2 transcripts & tenure dates</div>
+          <div id="pStep4" class="text-slate-400 flex items-center gap-1.5">○ 4. Anomaly scoring & report seal</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Controls -->
+    <div class="p-4 bg-slate-50 border-t border-slate-100 flex items-center justify-between text-xs">
+      <button onclick="prevWizStep()" id="wizBackBtn" disabled class="px-3 py-1.5 rounded-lg bg-slate-200 text-slate-600 disabled:opacity-40">Back</button>
+      <div class="flex items-center gap-2">
+        <button onclick="closeWizard()" class="px-3 py-1.5 rounded-lg text-slate-500 hover:text-slate-800">Cancel</button>
+        <button onclick="nextWizStep()" id="wizNextBtn" class="px-4 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-semibold flex items-center gap-1 shadow-sm">
+          <span>Continue</span> <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========================================================================= -->
+<!-- 2. DETAIL SLIDE-OVER DRAWER -->
+<!-- ========================================================================= -->
+<div id="detailDrawerModal" class="fixed inset-0 z-50 bg-slate-900/40 backdrop-blur-sm hidden justify-end">
+  <div class="bg-white w-full max-w-xl h-full shadow-2xl border-l border-slate-200 flex flex-col">
+    <!-- Drawer Header -->
+    <div class="p-5 border-b border-slate-100 flex items-center justify-between bg-slate-50">
+      <div class="flex items-center gap-3">
+        <div id="dAvatar" class="w-10 h-10 rounded-full bg-blue-600 text-white font-bold flex items-center justify-center text-sm">RS</div>
+        <div>
+          <div class="flex items-center gap-2">
+            <h2 id="dName" class="font-bold text-base text-slate-900">Rahul Sharma</h2>
+            <span id="dId" class="font-mono text-xs text-blue-600 font-semibold">VER-100293</span>
+          </div>
+          <div id="dEmployerSub" class="text-xs text-slate-500">Acme Technologies • Senior Staff Engineer</div>
+        </div>
+      </div>
+      <button onclick="closeDrawer()" class="p-1 rounded-full text-slate-400 hover:text-slate-800 hover:bg-slate-200"><span class="material-symbols-outlined text-[20px]">close</span></button>
+    </div>
+
+    <!-- Drawer Tabs -->
+    <div class="flex items-center px-5 bg-white border-b border-slate-200 gap-4 text-xs font-semibold text-slate-500">
+      <button onclick="switchDrawerTab('overview', this)" class="d-tab py-2.5 text-blue-600 border-b-2 border-blue-600">Overview</button>
+      <button onclick="switchDrawerTab('income', this)" class="d-tab py-2.5 hover:text-slate-800 border-b-2 border-transparent">Income & W-2</button>
+      <button onclick="switchDrawerTab('risk', this)" class="d-tab py-2.5 hover:text-slate-800 border-b-2 border-transparent">Risk & Integrity</button>
+      <button onclick="switchDrawerTab('audit', this)" class="d-tab py-2.5 hover:text-slate-800 border-b-2 border-transparent">Audit Trail</button>
+    </div>
+
+    <!-- Drawer Body -->
+    <div class="p-6 overflow-y-auto flex-1 space-y-4 text-xs">
+      <!-- Tab: Overview -->
+      <div id="dTabOverview" class="space-y-4">
+        <div class="grid grid-cols-2 gap-3 bg-slate-50 p-3.5 rounded-xl border border-slate-200">
+          <div><span class="text-slate-400 font-mono text-[10px] uppercase">STATUS</span><div id="dStatus" class="font-bold text-emerald-700 mt-0.5">VERIFIED</div></div>
+          <div><span class="text-slate-400 font-mono text-[10px] uppercase">CONFIDENCE</span><div class="font-bold text-slate-800 mt-0.5">99.4% Match</div></div>
+          <div><span class="text-slate-400 font-mono text-[10px] uppercase">EMPLOYEE ID</span><div id="dEmpId" class="font-mono font-semibold text-slate-800 mt-0.5">EMP-48291</div></div>
+          <div><span class="text-slate-400 font-mono text-[10px] uppercase">DATA GATEWAY</span><div id="dGateway" class="text-slate-700 font-medium mt-0.5">Direct Payroll API • Gusto</div></div>
+        </div>
+
+        <div class="space-y-2">
+          <div class="font-bold text-slate-800">Employment Timeline (Verified)</div>
+          <div class="border-l-2 border-blue-500 pl-3.5 space-y-3 ml-1.5">
+            <div class="relative">
+              <span class="absolute -left-[19px] top-1 w-2.5 h-2.5 rounded-full bg-blue-600"></span>
+              <div class="font-bold text-slate-900">Current Position</div>
+              <div class="text-slate-600">Senior Staff Software Engineer • Full-Time Salaried</div>
+              <div class="text-[10px] font-mono text-slate-400">Oct 2021 — Present (3 yrs 7 mos)</div>
+            </div>
+            <div class="relative">
+              <span class="absolute -left-[19px] top-1 w-2.5 h-2.5 rounded-full bg-slate-300"></span>
+              <div class="font-bold text-slate-700">Prior Position</div>
+              <div class="text-slate-500">Systems Engineer II</div>
+              <div class="text-[10px] font-mono text-slate-400">Aug 2018 — Sep 2021</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab: Income -->
+      <div id="dTabIncome" class="hidden space-y-3">
+        <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="text-slate-500">Verified Annual Base</span>
+            <span id="dSalary" class="text-base font-bold text-emerald-700 font-mono">$172,500.00 / yr</span>
+          </div>
+          <div class="flex items-center justify-between border-t border-slate-200 pt-2">
+            <span class="text-slate-500">Monthly Net Deposit</span>
+            <span class="font-mono font-semibold text-slate-800">$10,480.22</span>
+          </div>
+          <div class="flex items-center justify-between border-t border-slate-200 pt-2">
+            <span class="text-slate-500">Pay Frequency</span>
+            <span class="text-slate-800 font-medium">Bi-Weekly (Every 2nd Friday)</span>
+          </div>
+        </div>
+        <div class="p-3 rounded-lg bg-emerald-50 text-emerald-800 text-[11px] flex items-center gap-2">
+          <span class="material-symbols-outlined text-[18px]">check_circle</span>
+          <span>W-2 tax transcripts & payroll direct deposit have 0.00% variance.</span>
+        </div>
+      </div>
+
+      <!-- Tab: Risk -->
+      <div id="dTabRisk" class="hidden space-y-3">
+        <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-200 flex items-center justify-between">
+          <div>
+            <div class="text-slate-400 font-mono text-[10px] uppercase">FRAUD SCORE INDEX</div>
+            <div id="dRiskScore" class="text-xl font-bold text-emerald-700">18 / 100 (LOW)</div>
+          </div>
+          <span class="material-symbols-outlined text-3xl text-emerald-600">verified_user</span>
+        </div>
+        <div class="space-y-1.5">
+          <div class="flex justify-between p-2 rounded bg-slate-50"><span>SSN Issuance & Range Match</span><span class="font-semibold text-emerald-600">✓ Verified Valid</span></div>
+          <div class="flex justify-between p-2 rounded bg-slate-50"><span>Synthetic ID Heuristics</span><span class="font-semibold text-emerald-600">✓ Negative (Pass)</span></div>
+          <div class="flex justify-between p-2 rounded bg-slate-50"><span>Corporate Domain & FEIN</span><span class="font-semibold text-emerald-600">✓ Active US Corporation</span></div>
+        </div>
+      </div>
+
+      <!-- Tab: Audit -->
+      <div id="dTabAudit" class="hidden space-y-2 font-mono text-[11px]">
+        <div class="p-2.5 rounded bg-slate-50 border border-slate-200">
+          <div class="text-slate-400 flex justify-between"><span>AUTH_DISPATCH</span><span>09:12:02 UTC</span></div>
+          <div class="text-slate-700 mt-1">E-SIGN digital consent waiver signed by applicant.</div>
+        </div>
+        <div class="p-2.5 rounded bg-slate-50 border border-slate-200">
+          <div class="text-slate-400 flex justify-between"><span>PAYROLL_PAYLOAD</span><span>09:12:05 UTC</span></div>
+          <div class="text-slate-700 mt-1">24 payroll records ingested with valid HMAC signature.</div>
+        </div>
+        <div class="p-2.5 rounded bg-slate-50 border border-slate-200">
+          <div class="text-slate-400 flex justify-between"><span>SEALED</span><span>09:12:06 UTC</span></div>
+          <div class="text-slate-700 mt-1">Report sealed into immutable audit ledger #991048.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Drawer Footer Actions -->
+    <div class="p-4 bg-slate-50 border-t border-slate-200 flex items-center justify-between text-xs">
+      <button onclick="rerunVerification()" class="px-3 py-1.5 rounded-lg bg-slate-200 hover:bg-slate-300 text-slate-800 font-semibold flex items-center gap-1">
+        <span class="material-symbols-outlined text-[16px]">refresh</span> Re-run
+      </button>
+      <button onclick="downloadOfficialReport()" class="px-4 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-semibold flex items-center gap-1 shadow-sm">
+        <span class="material-symbols-outlined text-[16px]">download</span> Download Official Report PDF
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ========================================================================= -->
+<!-- 3. COMMAND PALETTE MODAL (⌘K) -->
+<!-- ========================================================================= -->
+<div id="cmdPalette" class="fixed inset-0 z-50 bg-slate-900/50 backdrop-blur-sm hidden items-start justify-center pt-20 p-4">
+  <div class="bg-white rounded-2xl shadow-2xl w-full max-w-lg overflow-hidden border border-slate-200 flex flex-col text-xs">
+    <div class="p-3 border-b border-slate-100 flex items-center gap-2">
+      <span class="material-symbols-outlined text-slate-400 text-[20px]">search</span>
+      <input type="text" id="paletteInput" oninput="filterPalette(this.value)" placeholder="Search commands, applicant name, ID..." class="w-full bg-transparent text-slate-800 placeholder:text-slate-400 focus:outline-none"/>
+      <span class="px-1.5 py-0.5 rounded bg-slate-100 font-mono text-[10px] text-slate-400">ESC</span>
+    </div>
+    <div id="paletteResults" class="p-2 max-h-80 overflow-y-auto space-y-1 divide-y divide-slate-100">
+      <div class="pt-1">
+        <div class="px-3 py-1 font-mono text-[10px] uppercase text-slate-400 font-semibold">Quick Actions</div>
+        <button onclick="closePalette(); openWizard();" class="w-full text-left px-3 py-2 rounded-lg hover:bg-blue-50 flex items-center justify-between font-medium text-slate-800">
+          <span class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px] text-blue-600">add_circle</span> Start New Verification</span>
+          <span class="text-slate-400 font-mono text-[10px]">Action</span>
+        </button>
+        <button onclick="closePalette(); exportTableData();" class="w-full text-left px-3 py-2 rounded-lg hover:bg-blue-50 flex items-center justify-between font-medium text-slate-800">
+          <span class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px] text-emerald-600">download</span> Export Verification CSV</span>
+          <span class="text-slate-400 font-mono text-[10px]">Data</span>
+        </button>
+      </div>
+      <div class="pt-2">
+        <div class="px-3 py-1 font-mono text-[10px] uppercase text-slate-400 font-semibold">Candidates</div>
+        <button onclick="closePalette(); openDrawer('VER-100293');" class="w-full text-left px-3 py-1.5 rounded-lg hover:bg-slate-50 flex items-center justify-between text-slate-800">
+          <span>VER-100293 • Rahul Sharma (Acme)</span><span class="text-emerald-600 font-bold font-mono">VERIFIED</span>
+        </button>
+        <button onclick="closePalette(); openDrawer('VER-100291');" class="w-full text-left px-3 py-1.5 rounded-lg hover:bg-slate-50 flex items-center justify-between text-slate-800">
+          <span>VER-100291 • Vikram Malhotra (BluePeak)</span><span class="text-amber-600 font-bold font-mono">REVIEW</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========================================================================= -->
+<!-- 4. AUDIT REGISTRY / SECURITY MODAL -->
+<!-- ========================================================================= -->
+<div id="complianceModal" class="fixed inset-0 z-50 bg-slate-900/50 backdrop-blur-sm hidden items-center justify-center p-4">
+  <div class="bg-white rounded-2xl shadow-2xl w-full max-w-xl overflow-hidden border border-slate-200 flex flex-col text-xs">
+    <div class="p-4 bg-slate-50 border-b border-slate-100 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <span class="material-symbols-outlined text-emerald-600 text-[20px]">verified</span>
+        <h3 class="font-bold text-slate-900" id="complianceModalTitle">Cryptographic Audit Registry</h3>
+      </div>
+      <button onclick="closeComplianceModal()" class="p-1 rounded-full text-slate-400 hover:text-slate-800"><span class="material-symbols-outlined text-[18px]">close</span></button>
+    </div>
+    <div class="p-5 max-h-80 overflow-y-auto space-y-2 font-mono text-[11px]">
+      <div class="p-2.5 rounded bg-slate-50 border border-slate-200">
+        <div class="flex justify-between text-slate-400"><span>BLOCK #991048</span><span>12:04:12 UTC</span></div>
+        <div class="text-slate-800 font-sans mt-0.5">Verification VER-100293 sealed with HMAC SHA-256 integrity digest.</div>
+      </div>
+      <div class="p-2.5 rounded bg-slate-50 border border-slate-200">
+        <div class="flex justify-between text-slate-400"><span>BLOCK #991047</span><span>11:58:30 UTC</span></div>
+        <div class="text-slate-800 font-sans mt-0.5">SOC2 Type II continuous posture check passed with zero compliance drift.</div>
+      </div>
+      <div class="p-2.5 rounded bg-slate-50 border border-slate-200">
+        <div class="flex justify-between text-slate-400"><span>BLOCK #991046</span><span>11:42:15 UTC</span></div>
+        <div class="text-slate-800 font-sans mt-0.5">FCRA Permissible Purpose audit validated for organization ORG-8821.</div>
+      </div>
+    </div>
+    <div class="p-3 bg-slate-50 border-t border-slate-100 flex justify-end">
+      <button onclick="closeComplianceModal()" class="px-4 py-1.5 rounded-lg bg-blue-600 text-white font-semibold">Done</button>
+    </div>
+  </div>
+</div>
+
+<!-- ========================================================================= -->
+<!-- JAVASCRIPT MASTER INTERACTIVITY LOGIC -->
+<!-- ========================================================================= -->
+<script>
+  let tableData = [
+    {
+      id: "VER-100293",
+      name: "Rahul Sharma",
+      empId: "EMP-48291",
+      email: "rahul.sharma@acme.corp",
+      employer: "Acme Technologies",
+      gateway: "Direct Payroll API • Gusto",
+      type: "Employment + Income",
+      timestamp: "2 mins ago",
+      status: "VERIFIED",
+      statusBadge: "bg-emerald-50 text-emerald-700 border border-emerald-200",
+      dot: "bg-emerald-500",
+      riskLabel: "18 / 100 (LOW)",
+      riskColor: "bg-emerald-50 text-emerald-700",
+      salary: "$172,500.00 / yr",
+      avatar: "https://lh3.googleusercontent.com/aida-public/AB6AXuAHZYtgVn3JsDwv4ATX2tTA_fFwtCw3WSc2yQ13AQzRj5oOchjbvujC8WV6KEhVW4LvZjvAV7n2v1ldprz5Rehu2Vf-xhHHaKxMLH7GD3Ittu5g25ALU53KezXPpjFAF8UlXu3qjjcVupc7jzuj_PUg13aXGmWsvhjolsI2lrpkZ3fCM8skkhZ0CMUPj3G6IoP56UkdWU4P-WX61rSXXj1cUrI0t7-yQFFQXCPSnBPK2jS0yY5caJM"
+    },
+    {
+      id: "VER-100292",
+      name: "Priya Sundaram",
+      empId: "EMP-39102",
+      email: "priya.s@nova-sys.io",
+      employer: "Nova Systems",
+      gateway: "Workday API Sync",
+      type: "Employment Only",
+      timestamp: "14 mins ago",
+      status: "VERIFIED",
+      statusBadge: "bg-emerald-50 text-emerald-700 border border-emerald-200",
+      dot: "bg-emerald-500",
+      riskLabel: "12 / 100 (LOW)",
+      riskColor: "bg-emerald-50 text-emerald-700",
+      salary: "$145,000.00 / yr",
+      avatar: "https://lh3.googleusercontent.com/aida-public/AB6AXuDxxa8vIsUAn7AKQ2XC08Vxt8JP_PGZzgvPZoDkECL4xhqwbgCdBGzKT-KMM487JKtYmU5wqdv88ut7LUC9wsLMFtGFUUfMgBSjkFjGgGvL5ATXb5NuzyvDz1BLcCNVEiSmOZcrZhlfV0GCcC7q2qgk8kPtTtrqO6z1a0lu_qn3l7cfIp3QenANkgdGqDP9b_9NGc0nn-7RWWwMJ6otdC8y7RX_HXBXDzo02fjnSHHlHltBT0C-a1M"
+    },
+    {
+      id: "VER-100291",
+      name: "Vikram Malhotra",
+      empId: "EMP-98214",
+      email: "v.malhotra@bluepeak.net",
+      employer: "BluePeak Financial",
+      gateway: "ADP Workforce Integration",
+      type: "Income Only",
+      timestamp: "38 mins ago",
+      status: "MANUAL REVIEW",
+      statusBadge: "bg-amber-50 text-amber-800 border border-amber-200",
+      dot: "bg-amber-500",
+      riskLabel: "46 / 100 (MED)",
+      riskColor: "bg-amber-50 text-amber-800",
+      salary: "$185,000.00 (Delta: +18%)",
+      avatar: "https://lh3.googleusercontent.com/aida-public/AB6AXuDWnrKJW5HS764fzmhQNBEJ2qoIKZQ2MQn8JwuRm2CLhCP-rIA0IxS7TO7vDgsr2bIX8Vuf3GgP4zYNlZ8F-rgYfW72KXr2htbc2ATYCASetwzcuXze5XuVknDmN6QI28yZ6Rtvcl81bf16ehuz7aWhORv-TGdHJo_pL9YocpUadKLEkd12UAoi0WFM1ATE56IymO6vmAf-F55rRdcKGUDEpUFQFf3qpVn68A4hkf-Gi6cbWBRUK00"
+    },
+    {
+      id: "VER-100290",
+      name: "Ananya Deshmukh",
+      empId: "EMP-12849",
+      email: "ananya@meridiandigital.com",
+      employer: "Meridian Digital",
+      gateway: "Paychex Automated Connector",
+      type: "Employment + Income",
+      timestamp: "1 hour ago",
+      status: "VERIFIED",
+      statusBadge: "bg-emerald-50 text-emerald-700 border border-emerald-200",
+      dot: "bg-emerald-500",
+      riskLabel: "15 / 100 (LOW)",
+      riskColor: "bg-emerald-50 text-emerald-700",
+      salary: "$128,000.00 / yr"
+    },
+    {
+      id: "VER-100289",
+      name: "Karthik Ramanathan",
+      empId: "EMP-77192",
+      email: "karthik@vertexsolutions.io",
+      employer: "Vertex Solutions",
+      gateway: "Unverified Employer Domain",
+      type: "Employment Only",
+      timestamp: "2 hours ago",
+      status: "FAILED / RISK",
+      statusBadge: "bg-rose-50 text-rose-700 border border-rose-200",
+      dot: "bg-rose-500",
+      riskLabel: "84 / 100 (HIGH)",
+      riskColor: "bg-rose-50 text-rose-700",
+      salary: "Unverified Domain"
+    },
+    {
+      id: "VER-100288",
+      name: "Deepika Sen",
+      empId: "EMP-66281",
+      email: "deepika@infospectra.com",
+      employer: "Infospectra Corp",
+      gateway: "QuickBooks Payroll Bridge",
+      type: "Employment + Income",
+      timestamp: "3 hours ago",
+      status: "PROCESSING",
+      statusBadge: "bg-blue-50 text-blue-700 border border-blue-200",
+      dot: "bg-blue-500 animate-pulse",
+      riskLabel: "PIPELINE QUEUE",
+      riskColor: "bg-slate-100 text-slate-600",
+      salary: "Pending Ingest"
+    }
+  ];
+
+  let currentCategory = 'all';
+  let currentSearch = '';
+  let currentPage = 1;
+  const pageSize = 6;
+  let sortField = null;
+  let sortAsc = true;
+
+  function renderTable() {
+    const tbody = document.getElementById('tableBody');
+    if (!tbody) return;
+
+    let rows = tableData.filter(item => {
+      if (currentCategory === 'Employment + Income' && item.type !== 'Employment + Income') return false;
+      if (currentCategory === 'Income Only' && !item.type.includes('Income')) return false;
+      if (currentCategory === 'High Risk' && !item.riskLabel.includes('HIGH')) return false;
+      if (currentCategory === 'Attention Needed' && item.status === 'VERIFIED') return false;
+
+      if (currentSearch) {
+        const q = currentSearch.toLowerCase();
+        const m = item.name.toLowerCase().includes(q) ||
+                  item.id.toLowerCase().includes(q) ||
+                  item.employer.toLowerCase().includes(q) ||
+                  item.status.toLowerCase().includes(q);
+        if (!m) return false;
+      }
+      return true;
+    });
+
+    if (sortField) {
+      rows.sort((a, b) => {
+        let vA = (a[sortField] || '').toLowerCase();
+        let vB = (b[sortField] || '').toLowerCase();
+        if (vA < vB) return sortAsc ? -1 : 1;
+        if (vA > vB) return sortAsc ? 1 : -1;
+        return 0;
+      });
+    }
+
+    const total = rows.length;
+    document.getElementById('tablePaginationText').textContent = `Showing 1 to ${Math.min(total, pageSize)} of ${total} entries`;
+
+    if (total === 0) {
+      tbody.innerHTML = `<tr><td colspan="8" class="text-center py-8 text-slate-400 font-medium">No verification records match your filters.</td></tr>`;
+      return;
+    }
+
+    tbody.innerHTML = rows.slice(0, pageSize).map(item => `
+      <tr class="hover:bg-slate-50 transition-colors cursor-pointer group" onclick="openDrawer('${item.id}')">
+        <td class="py-3 px-5 font-mono font-semibold text-blue-600">${item.id}</td>
+        <td class="py-3 px-4">
+          <div class="flex items-center gap-2.5">
+            ${item.avatar 
+              ? `<img src="${item.avatar}" class="w-7 h-7 rounded-full object-cover shrink-0" alt="${item.name}"/>` 
+              : `<div class="w-7 h-7 rounded-full bg-blue-100 text-blue-700 font-bold flex items-center justify-center text-xs shrink-0">${item.name.split(' ').map(n=>n[0]).join('')}</div>`}
+            <div>
+              <div class="font-semibold text-slate-800 group-hover:text-blue-600 transition-colors">${item.name}</div>
+              <div class="text-[10px] text-slate-400 font-mono">${item.empId} • ${item.email}</div>
+            </div>
+          </div>
+        </td>
+        <td class="py-3 px-4">
+          <div class="font-medium text-slate-800">${item.employer}</div>
+          <div class="text-[10px] text-slate-400 font-mono">${item.gateway}</div>
+        </td>
+        <td class="py-3 px-4 col-3 font-medium text-slate-600">${item.type}</td>
+        <td class="py-3 px-4 col-4 font-mono text-slate-500">${item.timestamp}</td>
+        <td class="py-3 px-4">
+          <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[11px] font-semibold ${item.statusBadge}">
+            <span class="w-1.5 h-1.5 rounded-full ${item.dot}"></span> ${item.status}
+          </span>
+        </td>
+        <td class="py-3 px-4 col-6">
+          <span class="px-2 py-0.5 rounded text-[10px] font-mono font-semibold ${item.riskColor}">${item.riskLabel}</span>
+        </td>
+        <td class="py-3 px-5 text-right">
+          <button onclick="event.stopPropagation(); openDrawer('${item.id}')" class="px-2.5 py-1 rounded bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-[11px] transition-colors">
+            View
+          </button>
+        </td>
+      </tr>
+    `).join('');
+  }
+
+  // Filter Categories
+  function filterCategory(cat, btn) {
+    currentCategory = cat;
+    document.querySelectorAll('.cat-pill').forEach(b => {
+      b.className = 'cat-pill px-3 py-1 rounded-md text-xs font-medium bg-slate-100 text-slate-600 hover:bg-slate-200/60';
+    });
+    if (btn) {
+      btn.className = 'cat-pill px-3 py-1 rounded-md text-xs font-semibold bg-blue-600 text-white shadow-sm';
+    }
+    renderTable();
+    showToast(`Filter applied: ${cat}`, 'info');
+  }
+
+  function quickFilterStatus(status) {
+    currentSearch = status;
+    document.getElementById('tableSearchInput').value = status;
+    renderTable();
+    showToast(`Filtered by status: ${status}`, 'info');
+  }
+
+  function handleTableSearch(val) {
+    currentSearch = val;
+    renderTable();
+  }
+
+  function sortTable(field) {
+    if (sortField === field) {
+      sortAsc = !sortAsc;
+    } else {
+      sortField = field;
+      sortAsc = true;
+    }
+    renderTable();
+    showToast(`Sorted by ${field} (${sortAsc ? 'asc' : 'desc'})`, 'info');
+  }
+
+  // Toast Notification
+  function showToast(msg, type = 'info') {
+    const c = document.getElementById('toastContainer');
+    const t = document.createElement('div');
+    const color = type === 'success' ? 'bg-emerald-700 text-white' : type === 'error' ? 'bg-rose-700 text-white' : 'bg-slate-800 text-white';
+    t.className = `pointer-events-auto px-4 py-2.5 rounded-xl shadow-2xl text-xs font-medium flex items-center gap-2 border border-white/10 transition-all duration-300 ${color}`;
+    t.innerHTML = `<span class="material-symbols-outlined text-[18px]">${type === 'success' ? 'check_circle' : 'info'}</span> <span>${msg}</span>`;
+    c.appendChild(t);
+    setTimeout(() => {
+      t.style.opacity = '0';
+      setTimeout(() => t.remove(), 300);
+    }, 3000);
+  }
+
+  // Drawer Functions
+  function openDrawer(id) {
+    const item = tableData.find(d => d.id === id) || tableData[0];
+    document.getElementById('dName').textContent = item.name;
+    document.getElementById('dId').textContent = item.id;
+    document.getElementById('dEmployerSub').textContent = `${item.employer} • Verified Applicant`;
+    document.getElementById('dStatus').textContent = item.status;
+    document.getElementById('dEmpId').textContent = item.empId;
+    document.getElementById('dGateway').textContent = item.gateway;
+    document.getElementById('dSalary').textContent = item.salary;
+    document.getElementById('dRiskScore').textContent = item.riskLabel;
+    document.getElementById('dAvatar').textContent = item.name.split(' ').map(n=>n[0]).join('');
+
+    document.getElementById('detailDrawerModal').classList.remove('hidden');
+    document.getElementById('detailDrawerModal').classList.add('flex');
+  }
+
+  function closeDrawer() {
+    document.getElementById('detailDrawerModal').classList.add('hidden');
+    document.getElementById('detailDrawerModal').classList.remove('flex');
+  }
+
+  function switchDrawerTab(tab, btn) {
+    ['overview', 'income', 'risk', 'audit'].forEach(t => {
+      document.getElementById('dTab' + t.charAt(0).toUpperCase() + t.slice(1)).classList.add('hidden');
+    });
+    document.getElementById('dTab' + tab.charAt(0).toUpperCase() + tab.slice(1)).classList.remove('hidden');
+    document.querySelectorAll('.d-tab').forEach(b => {
+      b.className = 'd-tab py-2.5 hover:text-slate-800 border-b-2 border-transparent';
+    });
+    btn.className = 'd-tab py-2.5 text-blue-600 border-b-2 border-blue-600';
+  }
+
+  function rerunVerification() {
+    showToast('Re-dispatching verification webhook to payroll node...', 'info');
+    setTimeout(() => {
+      showToast('Payload cleared and re-verified with SHA-256 seal', 'success');
+    }, 1200);
+  }
+
+  function downloadOfficialReport() {
+    showToast('Official encrypted PDF report generated and downloaded.', 'success');
+  }
+
+  // Wizard logic
+  let wizStep = 1;
+  let selectedPkg = 'Employment + Income';
+
+  function openWizard() {
+    wizStep = 1;
+    updateWizardUI();
+    document.getElementById('wizardModal').classList.remove('hidden');
+    document.getElementById('wizardModal').classList.add('flex');
+  }
+
+  function closeWizard() {
+    document.getElementById('wizardModal').classList.add('hidden');
+    document.getElementById('wizardModal').classList.remove('flex');
+    document.getElementById('wizProgressBox').classList.add('hidden');
+    document.getElementById('wizSummaryBox').classList.remove('hidden');
+    document.getElementById('wizNextBtn').disabled = false;
+  }
+
+  function selectPackage(el, pkg) {
+    selectedPkg = pkg;
+    document.querySelectorAll('.pkg-option').forEach(card => {
+      card.classList.remove('border-blue-600', 'bg-blue-50/50', 'border-2');
+      card.classList.add('border-slate-200', 'border');
+    });
+    el.classList.add('border-blue-600', 'bg-blue-50/50', 'border-2');
+  }
+
+  function nextWizStep() {
+    if (wizStep === 4) {
+      runLiveVerification();
+      return;
+    }
+    wizStep++;
+    updateWizardUI();
+  }
+
+  function prevWizStep() {
+    if (wizStep > 1) {
+      wizStep--;
+      updateWizardUI();
+    }
+  }
+
+  function updateWizardUI() {
+    for (let i = 1; i <= 4; i++) {
+      document.getElementById(`wizStep${i}`).classList.toggle('hidden', i !== wizStep);
+      const ind = document.getElementById(`stepInd${i}`);
+      if (i === wizStep) {
+        ind.className = 'flex items-center gap-1 text-blue-600 font-bold';
+      } else if (i < wizStep) {
+        ind.className = 'flex items-center gap-1 text-emerald-600 font-semibold';
+      } else {
+        ind.className = 'flex items-center gap-1 text-slate-400';
+      }
+    }
+    document.getElementById('wizBackBtn').disabled = wizStep === 1;
+    const nextBtn = document.getElementById('wizNextBtn');
+    if (wizStep === 4) {
+      document.getElementById('sumName').textContent = document.getElementById('wizName').value;
+      document.getElementById('sumEmployer').textContent = document.getElementById('wizEmployer').value;
+      document.getElementById('sumPkg').textContent = selectedPkg;
+      nextBtn.innerHTML = '<span>Run Verification</span><span class="material-symbols-outlined text-[16px]">bolt</span>';
+    } else {
+      nextBtn.innerHTML = '<span>Continue</span><span class="material-symbols-outlined text-[16px]">arrow_forward</span>';
+    }
+  }
+
+  function runLiveVerification() {
+    const nextBtn = document.getElementById('wizNextBtn');
+    nextBtn.disabled = true;
+    document.getElementById('wizSummaryBox').classList.add('hidden');
+    document.getElementById('wizProgressBox').classList.remove('hidden');
+
+    setTimeout(() => {
+      document.getElementById('pStep2').className = 'text-emerald-700 flex items-center gap-1.5';
+      document.getElementById('pStep2').textContent = '✓ 2. Payroll endpoint connected (Gusto API)';
+      document.getElementById('pStep3').className = 'text-blue-700 flex items-center gap-1.5';
+      document.getElementById('pStep3').textContent = '⟳ 3. Ingesting W-2 records...';
+    }, 700);
+
+    setTimeout(() => {
+      document.getElementById('pStep3').className = 'text-emerald-700 flex items-center gap-1.5';
+      document.getElementById('pStep3').textContent = '✓ 3. 24 paystubs validated';
+      document.getElementById('pStep4').className = 'text-emerald-700 flex items-center gap-1.5';
+      document.getElementById('pStep4').textContent = '✓ 4. Verified with Low Risk score (14/100)';
+
+      const newId = `VER-${Math.floor(100294 + Math.random() * 800)}`;
+      const newRec = {
+        id: newId,
+        name: document.getElementById('wizName').value || "Maya Chen",
+        empId: document.getElementById('wizEmpId').value || "EMP-88402",
+        email: document.getElementById('wizEmail').value || "maya.chen@apex-labs.org",
+        employer: document.getElementById('wizEmployer').value || "Apex Innovations Lab",
+        gateway: document.getElementById('wizGateway').value,
+        type: selectedPkg,
+        timestamp: "Just now",
+        status: "VERIFIED",
+        statusBadge: "bg-emerald-50 text-emerald-700 border border-emerald-200",
+        dot: "bg-emerald-500",
+        riskLabel: "14 / 100 (LOW)",
+        riskColor: "bg-emerald-50 text-emerald-700",
+        salary: "$152,000.00 / yr"
+      };
+      tableData.unshift(newRec);
+      renderTable();
+      closeWizard();
+      showToast(`Verification ${newId} completed & verified!`, 'success');
+      openDrawer(newId);
+    }, 1600);
+  }
+
+  // Command Palette
+  function openCommandPalette() {
+    document.getElementById('cmdPalette').classList.remove('hidden');
+    document.getElementById('cmdPalette').classList.add('flex');
+    document.getElementById('paletteInput').focus();
+  }
+
+  function closePalette() {
+    document.getElementById('cmdPalette').classList.add('hidden');
+    document.getElementById('cmdPalette').classList.remove('flex');
+  }
+
+  function filterPalette(val) {
+    // Basic filter simulation
+  }
+
+  // Keyboard shortcut ⌘K / Ctrl+K and ESC
+  window.addEventListener('keydown', (e) => {
+    if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+      e.preventDefault();
+      openCommandPalette();
+    }
+    if (e.key === 'Escape') {
+      closePalette();
+      closeWizard();
+      closeDrawer();
+      closeComplianceModal();
+      document.getElementById('profileDropdown').classList.add('hidden');
+      document.getElementById('notifPanel').classList.add('hidden');
+      document.getElementById('colMenu').classList.add('hidden');
+    }
+  });
+
+  // Timeframe switch
+  function setTimeframe(tf, btn) {
+    document.querySelectorAll('.tf-btn').forEach(b => {
+      b.className = 'tf-btn px-2.5 py-1 rounded-md transition-colors hover:text-slate-900';
+    });
+    btn.className = 'tf-btn px-2.5 py-1 rounded-md bg-white text-slate-900 shadow-sm';
+    
+    if (tf === '24h') {
+      document.getElementById('kpiTotal').textContent = '142';
+      document.getElementById('kpiVerified').textContent = '128';
+      document.getElementById('kpiPending').textContent = '11';
+      document.getElementById('kpiFailed').textContent = '3';
+    } else if (tf === '7d') {
+      document.getElementById('kpiTotal').textContent = '486';
+      document.getElementById('kpiVerified').textContent = '432';
+      document.getElementById('kpiPending').textContent = '38';
+      document.getElementById('kpiFailed').textContent = '16';
+    } else {
+      document.getElementById('kpiTotal').textContent = '1,248';
+      document.getElementById('kpiVerified').textContent = '1,102';
+      document.getElementById('kpiPending').textContent = '94';
+      document.getElementById('kpiFailed').textContent = '52';
+    }
+    showToast(`Timeframe adjusted to ${tf.toUpperCase()}`, 'info');
+  }
+
+  // Chart view filter
+  function filterChartLayer(layer, btn) {
+    document.querySelectorAll('.chart-btn').forEach(b => {
+      b.className = 'chart-btn px-2.5 py-1 rounded hover:text-slate-900';
+    });
+    btn.className = 'chart-btn px-2.5 py-1 rounded bg-white text-slate-900 shadow-sm';
+    showToast(`Chart volume view: ${layer.toUpperCase()}`, 'info');
+  }
+
+  // Notifications & Profile
+  function toggleNotifications() {
+    document.getElementById('notifPanel').classList.toggle('hidden');
+  }
+
+  function markAllNotificationsRead() {
+    document.getElementById('notifBadge').classList.add('hidden');
+    document.getElementById('notifList').innerHTML = `<div class="p-4 text-center text-slate-400">All notifications caught up!</div>`;
+    showToast('All notifications marked as read', 'info');
+  }
+
+  function toggleProfileMenu() {
+    document.getElementById('profileDropdown').classList.toggle('hidden');
+  }
+
+  function switchOrg(org) {
+    showToast(`Switched organization context to: ${org}`, 'success');
+    toggleProfileMenu();
+  }
+
+  // Columns & Export
+  function toggleColMenu() {
+    document.getElementById('colMenu').classList.toggle('hidden');
+  }
+
+  function toggleTableCol(colIdx, checked) {
+    document.querySelectorAll(`.col-${colIdx}`).forEach(el => {
+      el.style.display = checked ? '' : 'none';
+    });
+  }
+
+  function exportTableData() {
+    const csvContent = "data:text/csv;charset=utf-8,Request_ID,Applicant,Employer,Type,Status,Risk\n" +
+      tableData.map(e => `${e.id},"${e.name}","${e.employer}","${e.type}","${e.status}","${e.riskLabel}"`).join("\n");
+    const encodedUri = encodeURI(csvContent);
+    const link = document.createElement("a");
+    link.setAttribute("href", encodedUri);
+    link.setAttribute("download", `the_work_code_verifications_${Date.now()}.csv`);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    showToast('Export CSV generated and downloaded successfully.', 'success');
+  }
+
+  // Compliance modal
+  function openAuditModal() {
+    document.getElementById('complianceModalTitle').textContent = 'Cryptographic Audit Registry (FCRA Immutable)';
+    document.getElementById('complianceModal').classList.remove('hidden');
+    document.getElementById('complianceModal').classList.add('flex');
+  }
+
+  function openSecurityReportsModal() {
+    document.getElementById('complianceModalTitle').textContent = 'SOC2 Type II & Security Posture Reports';
+    document.getElementById('complianceModal').classList.remove('hidden');
+    document.getElementById('complianceModal').classList.add('flex');
+  }
+
+  function closeComplianceModal() {
+    document.getElementById('complianceModal').classList.add('hidden');
+    document.getElementById('complianceModal').classList.remove('flex');
+  }
+
+  // Initial table render
+  renderTable();
+</script>
+
+</body>
+</html>

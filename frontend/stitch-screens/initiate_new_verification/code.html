@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"on-secondary-fixed":"#00201d","outline":"#737686","on-primary-fixed-variant":"#003ea8","secondary-fixed":"#89f5e7","on-secondary":"#ffffff","error":"#ba1a1a","primary":"#004ac6","on-primary-container":"#eeefff","inverse-primary":"#b4c5ff","on-tertiary-fixed":"#0e1c2f","surface-dim":"#cbdbf5","on-tertiary":"#ffffff","surface-container":"#e5eeff","tertiary-fixed-dim":"#bac7e1","inverse-surface":"#213145","secondary-container":"#86f2e4","surface-container-high":"#dce9ff","on-tertiary-fixed-variant":"#3a475c","error-container":"#ffdad6","on-secondary-fixed-variant":"#005049","on-primary-fixed":"#00174b","primary-fixed":"#dbe1ff","surface-container-low":"#eff4ff","tertiary-container":"#616e85","secondary-fixed-dim":"#6bd8cb","on-primary":"#ffffff","surface-bright":"#f8f9ff","on-surface-variant":"#434655","on-tertiary-container":"#ebf1ff","on-background":"#0b1c30","tertiary-fixed":"#d6e3fe","tertiary":"#49566c","surface-tint":"#0053db","on-secondary-container":"#006f66","surface-container-lowest":"#ffffff","primary-fixed-dim":"#b4c5ff","surface-container-highest":"#d3e4fe","background":"#f8f9ff","primary-container":"#2563eb","outline-variant":"#c3c6d7","surface":"#f8f9ff","on-surface":"#0b1c30","on-error":"#ffffff","on-error-container":"#93000a","secondary":"#006a61","surface-variant":"#d3e4fe","inverse-on-surface":"#eaf1ff"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"space-xs":"0.25rem","margin-lg":"2rem","space-lg":"1rem","gutter":"1rem","space-md":"0.75rem","space-sm":"0.5rem","margin":"1rem","gutter-lg":"1.5rem","space-xl":"1.5rem","margin-md":"1.5rem"},"fontFamily":{"headline-sm":["Inter"],"display-lg-mobile":["Inter"],"headline-lg":["Inter"],"headline-md":["Inter"],"body-sm":["Inter"],"display-lg":["Inter"],"body-lg":["Inter"],"data-mono-md":["IBM Plex Sans"],"label-md":["IBM Plex Sans"],"label-sm":["IBM Plex Sans"],"data-mono-sm":["IBM Plex Sans"],"body-md":["Inter"]},"fontSize":{"headline-sm":["16px",{"lineHeight":"24px","letterSpacing":"-0.01em","fontWeight":"600"}],"display-lg-mobile":["28px",{"lineHeight":"36px","letterSpacing":"-0.02em","fontWeight":"600"}],"headline-lg":["24px",{"lineHeight":"32px","letterSpacing":"-0.02em","fontWeight":"600"}],"headline-md":["20px",{"lineHeight":"28px","letterSpacing":"-0.015em","fontWeight":"600"}],"body-sm":["12px",{"lineHeight":"16px","letterSpacing":"0.005em","fontWeight":"400"}],"display-lg":["36px",{"lineHeight":"44px","letterSpacing":"-0.025em","fontWeight":"600"}],"body-lg":["16px",{"lineHeight":"24px","letterSpacing":"-0.005em","fontWeight":"400"}],"data-mono-md":["13px",{"lineHeight":"18px","letterSpacing":"-0.01em","fontWeight":"500"}],"label-md":["13px",{"lineHeight":"18px","letterSpacing":"0.01em","fontWeight":"500"}],"label-sm":["11px",{"lineHeight":"14px","letterSpacing":"0.04em","fontWeight":"600"}],"data-mono-sm":["11px",{"lineHeight":"16px","letterSpacing":"0em","fontWeight":"500"}],"body-md":["14px",{"lineHeight":"20px","letterSpacing":"0em","fontWeight":"400"}]}}}}</script></head><body class="bg-background font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-screen w-72 bg-surface-container-lowest border-r border-outline-variant/50 z-50 flex flex-col justify-between select-none"><div class="flex flex-col h-full overflow-hidden"><div class="px-space-lg py-space-md border-b border-outline-variant/40 flex items-center justify-between"><div class="flex items-center gap-space-sm"><img alt="The Work Code Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1XGDMsVXqPxe-nL8-njVmB_WxV1XGloz0NAGX4QvV_fXr1RmO-sgUEUl9mqafztIxxGNVBx_07CorpFml3oURNU_xr4NhV_fCG9sKqjsOqb-fDTg-JWlVbNt5PqcRJ_nH9pQoCIMIcZe0o683R5jZByhcRgp8ocVbV4bjRpndYi2LuBn5uXJ5nytHN6dQ-B_2tBYOZLqM9600K4wLxTGgj1wW3v8-XL_-bX0xvCTaHmhf9I4u9pv_nFaA"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-on-surface leading-tight">The Work Code</span><span class="font-label-sm text-label-sm text-on-surface-variant">VERIFY INFRASTRUCTURE</span></div></div><div class="flex items-center gap-1.5 px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-data-mono-sm text-data-mono-sm border border-outline-variant/40"><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>PROD v2.4</div></div><div class="flex-1 overflow-y-auto px-space-md py-space-sm space-y-space-md"><nav class="space-y-space-xs" data-active-classes="bg-primary-container text-on-primary-container font-headline-sm"><div class="px-space-sm py-1 font-label-sm text-label-sm text-tertiary uppercase tracking-wider">Overview</div><a aria-current="page" class="flex items-center justify-between px-space-sm py-1.5 rounded transition-colors bg-primary-container text-on-primary-container font-headline-sm" data-path="dashboard" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">grid_view</span><span class="font-body-md text-body-md">Dashboard</span></div></a><div class="pt-space-xs px-space-sm py-1 font-label-sm text-label-sm text-tertiary uppercase tracking-wider">Verification</div><a class="flex items-center justify-between px-space-sm py-1.5 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="new-verification" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">add_task</span><span class="font-body-md text-body-md">New Verification</span></div><span class="px-1.5 py-0.2 rounded bg-surface-container-high text-primary font-label-sm text-label-sm">+</span></a><a class="flex items-center justify-between px-space-sm py-1.5 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="verification-requests" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">inbox</span><span class="font-body-md text-body-md">Verification Requests</span></div><span class="px-2 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-data-mono-sm text-data-mono-sm">12</span></a><a class="flex items-center justify-between px-space-sm py-1.5 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="employees-directory" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">badge</span><span class="font-body-md text-body-md">Employees Directory</span></div></a><a class="flex items-center justify-between px-space-sm py-1.5 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="employers-network" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">domain</span><span class="font-body-md text-body-md">Employers Network</span></div></a><div class="pt-space-xs px-space-sm py-1 font-label-sm text-label-sm text-tertiary uppercase tracking-wider">Data &amp; Reports</div><a class="flex items-center justify-between px-space-sm py-1.5 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="income-verification" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">payments</span><span class="font-body-md text-body-md">Income Verification</span></div></a><a class="flex items-center justify-between px-space-sm py-1.5 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="verification-reports" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">description</span><span class="font-body-md text-body-md">Verification Reports</span></div></a><div class="pt-space-xs px-space-sm py-1 font-label-sm text-label-sm text-tertiary uppercase tracking-wider">Risk &amp; Fraud</div><a class="flex items-center justify-between px-space-sm py-1.5 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="risk-fraud-analytics" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">shield</span><span class="font-body-md text-body-md">Risk &amp; Fraud Analytics</span></div><span class="w-2 h-2 rounded-full bg-error" title="Active risk alerts"></span></a><a class="flex items-center justify-between px-space-sm py-1.5 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="anomalies" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">warning</span><span class="font-body-md text-body-md">Anomalies</span></div></a><div class="pt-space-xs px-space-sm py-1 font-label-sm text-label-sm text-tertiary uppercase tracking-wider">Developer</div><a class="flex items-center justify-between px-space-sm py-1.5 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="api-keys-logs" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">key</span><span class="font-body-md text-body-md">API Keys &amp; Logs</span></div></a><a class="flex items-center justify-between px-space-sm py-1.5 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="webhooks" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">webhook</span><span class="font-body-md text-body-md">Webhooks</span></div></a><div class="pt-space-xs px-space-sm py-1 font-label-sm text-label-sm text-tertiary uppercase tracking-wider">Compliance</div><a class="flex items-center justify-between px-space-sm py-1.5 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="audit-logs" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">history_edu</span><span class="font-body-md text-body-md">Audit Logs</span></div><span class="px-1.5 py-0.5 rounded text-[10px] uppercase font-data-mono-sm tracking-widest bg-surface-container-high text-on-surface-variant border border-outline-variant/40">IMMUTABLE</span></a><a class="flex items-center justify-between px-space-sm py-1.5 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="security-center" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">verified_user</span><span class="font-body-md text-body-md">Security Center</span></div></a></nav></div><div class="border-t border-outline-variant/40 p-space-sm bg-surface-container-lowest space-y-space-xs"><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="documentation-support" href="#"><span class="material-symbols-outlined text-[18px]">help_outline</span><span>Documentation &amp; Support</span></a><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="organization-settings" href="#"><span class="material-symbols-outlined text-[18px]">settings</span><span>Organization Settings</span></a><div class="mt-space-xs p-space-sm rounded bg-surface-container-low border border-outline-variant/40 flex items-center justify-between"><div class="flex items-center gap-space-sm overflow-hidden"><img alt="Profile" class="w-8 h-8 rounded-full object-cover shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD78qhL42V3IVENEtRMaVlSoVdiVkyyIVL6pC0w2-TkZrTsiL7vtjOjMxmBfcTWxIq-KXQdxfZnX1AXt3MXDZY3AtLTUO6rOg882pVVt187aUCTSQaO6n4gzDPTdtUBy3hGDFIwBd8nBQiqh6W8_VfYpvYpkjTQwCEGT9V10XXzVENLn3VXNUQfGNBHxYW29Kpg7IRIBKg6aC-1B8VPq8oxbkjho_KQeobx_Cl3TdSlqeq6YIOvw3k"/><div class="truncate"><div class="font-headline-sm text-body-md text-on-surface leading-snug truncate">Alex Morgan</div><div class="font-label-sm text-label-sm text-on-surface-variant truncate">Chief Verification Officer</div><div class="font-data-mono-sm text-data-mono-sm text-tertiary truncate">ORG-8821</div></div></div><button class="text-outline hover:text-on-surface p-1 rounded hover:bg-surface-container-high"><span class="material-symbols-outlined text-[18px]">unfold_more</span></button></div></div></div></aside><div class="pl-72 flex flex-col min-h-screen"><header class="fixed top-0 left-72 right-0 h-16 bg-surface-container-lowest/95 backdrop-blur-md border-b border-outline-variant/40 z-40 px-gutter-lg flex items-center justify-between"><div class="flex items-center gap-space-lg flex-1 max-w-xl"><div class="relative w-full flex items-center"><span class="material-symbols-outlined absolute left-3 text-outline text-[18px]">search</span><input class="w-full h-9 pl-9 pr-12 rounded bg-surface-container-low border border-outline-variant/50 font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/20" placeholder="Search applicants, verification ID (VER-...), employers..." type="text"/><div class="absolute right-2 px-1.5 py-0.5 rounded bg-surface-container-high border border-outline-variant/40 font-data-mono-sm text-data-mono-sm text-on-surface-variant">⌘K</div></div></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-2 px-space-sm py-1 rounded-full bg-surface-container-low border border-outline-variant/40"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span></span><span class="font-data-mono-sm text-data-mono-sm text-on-surface">Status: 99.98% Operational</span></div><a audit="" class="p-2 rounded text-outline hover:text-on-surface hover:bg-surface-container-low transition-colors title=" data-path="audit-logs" href="#" quicklink"=""><span class="material-symbols-outlined text-[20px]">receipt_long</span></a><div class="relative"><button class="relative p-2 rounded text-outline hover:text-on-surface hover:bg-surface-container-low transition-colors"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1.5 right-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-error text-on-error font-data-mono-sm text-[10px]">3</span></button></div><a class="inline-flex items-center gap-1.5 px-space-md h-9 bg-primary text-on-primary rounded font-label-md text-label-md hover:bg-primary-container hover:text-on-primary-container transition-colors shadow-sm" data-path="new-verification" href="#"><span class="material-symbols-outlined text-[16px]">add</span><span>New Verification</span></a></div></header><main class="flex-1 pt-16 bg-background w-full px-gutter-lg py-margin-md"><div class="flex flex-col w-full">
+<!-- Top Context Breadcrumbs & Header Bar -->
+<div class="flex flex-col gap-space-sm pb-space-lg">
+<!-- Breadcrumb & Draft Status -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-tertiary uppercase tracking-wider">Verification</span>
+<span class="material-symbols-outlined text-[14px] text-outline">chevron_right</span>
+<span class="font-label-sm text-label-sm text-primary font-semibold uppercase tracking-wider">New Verification Request</span>
+<span class="mx-1 h-3 w-px bg-outline-variant/60"></span>
+<span class="font-data-mono-sm text-data-mono-sm px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-medium">SESSION: WIZ-2026-9904</span>
+</div>
+<div class="flex items-center gap-space-sm">
+<div class="flex items-center gap-1.5 px-space-sm py-1 rounded bg-surface-container-low text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px] text-secondary">cloud_done</span>
+<span class="font-data-mono-sm text-data-mono-sm">Draft Auto-Saved (2m ago)</span>
+</div>
+<button class="flex items-center gap-1 px-space-sm py-1 rounded text-outline hover:text-error hover:bg-error-container/40 transition-colors font-label-sm text-label-sm" id="clearFormBtn">
+<span class="material-symbols-outlined text-[15px]">restart_alt</span>
+<span>Clear Form</span>
+</button>
+</div>
+</div>
+<!-- Title & Quick Template Selection -->
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md pt-space-xs">
+<div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Initiate Workforce Verification</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-0.5">Configure real-time employment and income verification queries across 14,200+ connected payroll gateways.</p>
+</div>
+<!-- Quick Template Selector -->
+<div class="flex items-center gap-2 bg-surface-container-low p-1.5 rounded-xl shadow-sm">
+<div class="flex items-center gap-1.5 pl-2 pr-1 text-tertiary">
+<span class="material-symbols-outlined text-[18px]">tune</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider whitespace-nowrap">Template:</span>
+</div>
+<div class="relative">
+<select class="appearance-none bg-surface-container-lowest text-on-surface font-label-md text-label-md py-1.5 pl-3 pr-8 rounded shadow-sm focus:outline-none focus:bg-surface-container-high cursor-pointer" id="templatePicker">
+<option value="screening">Standard Pre-Employment Screening</option>
+<option value="underwriting">Lender Loan Underwriting (Mortgage/Auto)</option>
+<option value="executive">Executive C-Suite Deep Audit</option>
+<option value="custom">Custom Configuration</option>
+</select>
+<span class="material-symbols-outlined absolute right-2 top-2 text-[18px] pointer-events-none text-outline">arrow_drop_down</span>
+</div>
+<button class="flex items-center gap-1 px-2.5 py-1.5 rounded bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm hover:bg-primary-container hover:text-on-primary-container transition-colors shadow-sm" id="quickFillBtn" title="Quick-fill realistic data for evaluation">
+<span class="material-symbols-outlined text-[14px]">bolt</span>
+<span>Fill Demo Candidate</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Interactive 5-Step Progress Stepper -->
+<div class="w-full bg-surface-container-lowest rounded-xl shadow-sm p-space-md mb-space-lg">
+<div class="grid grid-cols-1 md:grid-cols-5 gap-space-sm relative">
+<!-- Step 1 (Completed) -->
+<div class="flex items-center gap-space-sm p-2 rounded bg-surface-container-low cursor-pointer transition-colors">
+<div class="flex items-center justify-center w-7 h-7 rounded-full bg-secondary text-on-secondary shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[16px] font-bold">check</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-label-sm text-secondary font-semibold uppercase tracking-wider">Step 1 • Completed</span>
+<span class="font-headline-sm text-body-md text-on-surface truncate">Package Scope</span>
+<span class="font-data-mono-sm text-data-mono-sm text-tertiary truncate">Income + Tenure</span>
+</div>
+</div>
+<!-- Step 2 (Active) -->
+<div class="flex items-center gap-space-sm p-2 rounded bg-primary-fixed/60 shadow-sm relative overflow-hidden">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-primary"></div>
+<div class="flex items-center justify-center w-7 h-7 rounded-full bg-primary text-on-primary shrink-0 shadow-sm">
+<span class="font-data-mono-md text-data-mono-md font-bold">2</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-label-sm text-label-sm text-primary font-bold uppercase tracking-wider">Step 2</span>
+<span class="px-1.5 py-0.2 rounded-full bg-primary text-on-primary font-data-mono-sm text-[10px] tracking-wide">ACTIVE</span>
+</div>
+<span class="font-headline-sm text-body-md text-on-surface font-semibold truncate">Candidate Identity</span>
+<span class="font-data-mono-sm text-data-mono-sm text-on-surface-variant truncate">SSN, PII &amp; Permissible</span>
+</div>
+</div>
+<!-- Step 3 (Pending) -->
+<div class="flex items-center gap-space-sm p-2 rounded hover:bg-surface-container-low cursor-pointer transition-colors">
+<div class="flex items-center justify-center w-7 h-7 rounded-full bg-surface-container-high text-outline shrink-0">
+<span class="font-data-mono-md text-data-mono-md">3</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-label-sm text-tertiary uppercase tracking-wider">Step 3</span>
+<span class="font-headline-sm text-body-md text-outline truncate">Payroll Routing</span>
+<span class="font-data-mono-sm text-data-mono-sm text-outline truncate">Gusto, Workday, OCR</span>
+</div>
+</div>
+<!-- Step 4 (Pending) -->
+<div class="flex items-center gap-space-sm p-2 rounded hover:bg-surface-container-low cursor-pointer transition-colors">
+<div class="flex items-center justify-center w-7 h-7 rounded-full bg-surface-container-high text-outline shrink-0">
+<span class="font-data-mono-md text-data-mono-md">4</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-label-sm text-tertiary uppercase tracking-wider">Step 4</span>
+<span class="font-headline-sm text-body-md text-outline truncate">Rules &amp; Thresholds</span>
+<span class="font-data-mono-sm text-data-mono-sm text-outline truncate">Anomaly safeguards</span>
+</div>
+</div>
+<!-- Step 5 (Pending) -->
+<div class="flex items-center gap-space-sm p-2 rounded hover:bg-surface-container-low cursor-pointer transition-colors">
+<div class="flex items-center justify-center w-7 h-7 rounded-full bg-surface-container-high text-outline shrink-0">
+<span class="font-data-mono-md text-data-mono-md">5</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-label-sm text-tertiary uppercase tracking-wider">Step 5</span>
+<span class="font-headline-sm text-body-md text-outline truncate">Review &amp; Dispatch</span>
+<span class="font-data-mono-sm text-data-mono-sm text-outline truncate">FCRA consent seal</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Main Content Grid: 65% Wizard Form / 35% Live Intelligence Drawer -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-lg items-start">
+<!-- LEFT COLUMN: Active Multi-Step Wizard Configuration (8 cols) -->
+<div class="lg:col-span-8 flex flex-col gap-space-lg">
+<!-- SECTION 1: Verification Scope Selection Cards -->
+<section class="bg-surface-container-lowest rounded-xl shadow-sm p-space-lg flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="flex items-center justify-center w-6 h-6 rounded bg-surface-container-high text-primary font-data-mono-sm">01</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">Verification Scope &amp; Package</h2>
+</div>
+<span class="font-label-sm text-label-sm text-tertiary">Real-time Gateway Routing</span>
+</div>
+<!-- 4 Grid Cards -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-sm" id="packageCardContainer">
+<!-- Card 1: Employment Only -->
+<div class="package-card relative p-space-md rounded-xl bg-surface-container-lowest hover:bg-surface-container-low cursor-pointer transition-all shadow-sm" data-confidence="99.1" data-fee="4.50" data-time="18s">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline text-[22px]">badge</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">Employment Only</span>
+</div>
+<span class="font-data-mono-md text-data-mono-md font-semibold text-on-surface">$4.50</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-2">Job title, tenure dates, current employment standing, and documented separation codes.</p>
+<div class="flex items-center justify-between mt-3 pt-2 text-tertiary">
+<span class="font-data-mono-sm text-data-mono-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">timer</span> avg 18s SLA
+              </span>
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-surface-container-high text-on-surface-variant">Standard</span>
+</div>
+</div>
+<!-- Card 2: Employment + Income (Recommended / Selected) -->
+<div class="package-card relative p-space-md rounded-xl bg-surface-container-lowest hover:bg-surface-container-low cursor-pointer transition-all shadow-md active-package" data-confidence="98.4" data-fee="9.20" data-time="42s">
+<div class="absolute -top-2.5 right-4 px-2 py-0.5 rounded-full bg-primary text-on-primary font-label-sm text-[10px] tracking-wider uppercase font-bold shadow-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">star</span> RECOMMENDED
+            </div>
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[22px]">payments</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Employment + Income</span>
+</div>
+<span class="font-data-mono-md text-data-mono-md font-bold text-primary">$9.20</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-2">Tenure history, verified W-2/1099 payroll sync, YTD gross/net earnings, overtime &amp; bonus breakdown.</p>
+<div class="flex items-center justify-between mt-3 pt-2 text-tertiary">
+<span class="font-data-mono-sm text-data-mono-sm flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-[14px]">bolt</span> avg 42s SLA
+              </span>
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-secondary-container text-on-secondary-container font-semibold">Instant Gateway</span>
+</div>
+</div>
+<!-- Card 3: Historical Employment (3 Years) -->
+<div class="package-card relative p-space-md rounded-xl bg-surface-container-lowest hover:bg-surface-container-low cursor-pointer transition-all shadow-sm" data-confidence="96.8" data-fee="14.00" data-time="65s">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline text-[22px]">history</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">Historical (3 Years)</span>
+</div>
+<span class="font-data-mono-md text-data-mono-md font-semibold text-on-surface">$14.00</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-2">Full chronological cross-stitch across up to 5 preceding employers with gap analysis and tenure reconciliation.</p>
+<div class="flex items-center justify-between mt-3 pt-2 text-tertiary">
+<span class="font-data-mono-sm text-data-mono-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">timer</span> avg 65s SLA
+              </span>
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-surface-container-high text-on-surface-variant">Multi-Employer</span>
+</div>
+</div>
+<!-- Card 4: Custom Executive Underwriting -->
+<div class="package-card relative p-space-md rounded-xl bg-surface-container-lowest hover:bg-surface-container-low cursor-pointer transition-all shadow-sm" data-confidence="99.9" data-fee="28.50" data-time="4h">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline text-[22px]">workspace_premium</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">Executive Underwriting</span>
+</div>
+<span class="font-data-mono-md text-data-mono-md font-semibold text-on-surface">$28.50</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-2">Comprehensive C-Suite review including direct HR telephone fallback, equity grants audit &amp; corporate filings.</p>
+<div class="flex items-center justify-between mt-3 pt-2 text-tertiary">
+<span class="font-data-mono-sm text-data-mono-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">support_agent</span> 4h SLA (Specialist)
+              </span>
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-tertiary-fixed text-on-tertiary-fixed font-semibold">Concierge</span>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 2: Applicant & Candidate Details Form -->
+<section class="bg-surface-container-lowest rounded-xl shadow-sm p-space-lg flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="flex items-center justify-center w-6 h-6 rounded bg-primary text-on-primary font-data-mono-sm">02</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">Applicant &amp; Candidate Information</h2>
+</div>
+<div class="flex items-center gap-1.5 text-secondary">
+<span class="material-symbols-outlined text-[16px]">lock</span>
+<span class="font-data-mono-sm text-data-mono-sm font-semibold uppercase tracking-wider">AWS KMS 256-Bit HSM</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-space-md">
+<!-- Legal First Name -->
+<div class="md:col-span-4 flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-tertiary uppercase tracking-wider">Legal First Name <span class="text-error">*</span></label>
+<input class="h-9 px-3 rounded bg-surface-container-low text-on-surface font-body-md text-body-md placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest shadow-sm" id="candidateFirstName" placeholder="e.g. Marcus" type="text" value="Marcus"/>
+</div>
+<!-- Middle Name -->
+<div class="md:col-span-3 flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-tertiary uppercase tracking-wider">Middle (Optional)</label>
+<input class="h-9 px-3 rounded bg-surface-container-low text-on-surface font-body-md text-body-md placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest shadow-sm" id="candidateMiddleName" placeholder="e.g. A." type="text" value="Anthony"/>
+</div>
+<!-- Legal Last Name -->
+<div class="md:col-span-5 flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-tertiary uppercase tracking-wider">Legal Last Name <span class="text-error">*</span></label>
+<input class="h-9 px-3 rounded bg-surface-container-low text-on-surface font-body-md text-body-md placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest shadow-sm" id="candidateLastName" placeholder="e.g. Vance" type="text" value="Vance"/>
+</div>
+<!-- SSN with Masking Toggle -->
+<div class="md:col-span-6 flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<label class="font-label-sm text-label-sm text-tertiary uppercase tracking-wider">SSN / National Tax ID <span class="text-error">*</span></label>
+<span class="font-data-mono-sm text-data-mono-sm text-secondary flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> Tokenized
+              </span>
+</div>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-2.5 text-outline text-[18px]">vpn_key</span>
+<input class="w-full h-9 pl-9 pr-16 rounded bg-surface-container-low text-on-surface font-data-mono-md text-data-mono-md tracking-wider placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest shadow-sm" id="candidateSSN" type="password" value="482918492"/>
+<button class="absolute right-2 px-2 py-0.5 rounded text-outline hover:text-on-surface text-label-sm font-label-sm bg-surface-container-high transition-colors" id="toggleSSNBtn" type="button">
+                Show
+              </button>
+</div>
+</div>
+<!-- Date of Birth -->
+<div class="md:col-span-6 flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-tertiary uppercase tracking-wider">Date of Birth (MM/DD/YYYY) <span class="text-error">*</span></label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-2.5 text-outline text-[18px]">calendar_today</span>
+<input class="w-full h-9 pl-9 pr-3 rounded bg-surface-container-low text-on-surface font-data-mono-md text-data-mono-md placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest shadow-sm" id="candidateDOB" placeholder="04/18/1988" type="text" value="04/18/1988"/>
+</div>
+</div>
+<!-- Work Email -->
+<div class="md:col-span-6 flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-tertiary uppercase tracking-wider">Candidate Work Email</label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-2.5 text-outline text-[18px]">alternate_email</span>
+<input class="w-full h-9 pl-9 pr-3 rounded bg-surface-container-low text-on-surface font-body-md text-body-md placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest shadow-sm" id="candidateWorkEmail" placeholder="m.vance@acmetech.io" type="email" value="m.vance@acmetech.io"/>
+</div>
+</div>
+<!-- Personal Email -->
+<div class="md:col-span-6 flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-tertiary uppercase tracking-wider">Personal Email (Direct Consent Delivery) <span class="text-error">*</span></label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-2.5 text-outline text-[18px]">mail</span>
+<input class="w-full h-9 pl-9 pr-3 rounded bg-surface-container-low text-on-surface font-body-md text-body-md placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest shadow-sm" id="candidatePersonalEmail" placeholder="marcus.vance88@gmail.com" type="email" value="marcus.vance88@gmail.com"/>
+</div>
+</div>
+<!-- Mobile Phone -->
+<div class="md:col-span-6 flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<label class="font-label-sm text-label-sm text-tertiary uppercase tracking-wider">Mobile Phone (SMS Authorization)</label>
+<span class="font-label-sm text-label-sm text-primary">Instant OTP Active</span>
+</div>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-2.5 text-outline text-[18px]">smartphone</span>
+<input class="w-full h-9 pl-9 pr-3 rounded bg-surface-container-low text-on-surface font-data-mono-md text-data-mono-md placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest shadow-sm" id="candidatePhone" placeholder="+1 (415) 882-9014" type="tel" value="+1 (415) 882-9014"/>
+</div>
+</div>
+<!-- Residential Address Street -->
+<div class="md:col-span-6 flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-tertiary uppercase tracking-wider">Street Address <span class="text-error">*</span></label>
+<input class="h-9 px-3 rounded bg-surface-container-low text-on-surface font-body-md text-body-md placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest shadow-sm" id="candidateAddress" placeholder="742 Evergreen Terrace" type="text" value="382 Montgomery St, Apt 14B"/>
+</div>
+<!-- City, State, ZIP -->
+<div class="md:col-span-5 flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-tertiary uppercase tracking-wider">City</label>
+<input class="h-9 px-3 rounded bg-surface-container-low text-on-surface font-body-md text-body-md placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest shadow-sm" id="candidateCity" placeholder="San Francisco" type="text" value="San Francisco"/>
+</div>
+<div class="md:col-span-3 flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-tertiary uppercase tracking-wider">State</label>
+<input class="h-9 px-3 rounded bg-surface-container-low text-on-surface font-body-md text-body-md uppercase placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest shadow-sm" id="candidateState" placeholder="CA" type="text" value="CA"/>
+</div>
+<div class="md:col-span-4 flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-tertiary uppercase tracking-wider">ZIP Code</label>
+<input class="h-9 px-3 rounded bg-surface-container-low text-on-surface font-data-mono-md text-data-mono-md placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest shadow-sm" id="candidateZip" placeholder="94104" type="text" value="94104"/>
+</div>
+</div>
+</section>
+<!-- SECTION 3: Employer & Direct Payroll Connection Routing -->
+<section class="bg-surface-container-lowest rounded-xl shadow-sm p-space-lg flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="flex items-center justify-center w-6 h-6 rounded bg-surface-container-high text-on-surface font-data-mono-sm">03</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">Employer &amp; Payroll Provider Direct Routing</h2>
+</div>
+<span class="font-data-mono-sm text-data-mono-sm px-2 py-0.5 rounded bg-secondary-container text-on-secondary-container font-semibold">14,218 Live Gateways</span>
+</div>
+<div class="flex flex-col gap-space-sm">
+<!-- Autocomplete Target Employer -->
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-tertiary uppercase tracking-wider">Target Employer Name <span class="text-error">*</span></label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-2 text-outline text-[20px]">domain</span>
+<input class="w-full h-10 pl-10 pr-28 rounded bg-surface-container-low text-on-surface font-headline-sm text-body-md placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest shadow-sm" id="employerSearchInput" type="text" value="Acme Technologies Inc."/>
+<div class="absolute right-2.5 top-2 flex items-center gap-1.5 px-2 py-0.5 rounded bg-secondary text-on-secondary font-data-mono-sm text-[11px] shadow-sm">
+<span class="material-symbols-outlined text-[13px]">verified</span> Direct API Sync
+              </div>
+</div>
+<!-- Real-time Gateway Match Preview Pill -->
+<div class="mt-1 p-2.5 rounded bg-surface-container-low flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+<span class="font-body-sm text-body-sm text-on-surface font-medium">Matched: Acme Technologies Inc. (FEIN: 94-2819201)</span>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant font-data-mono-sm text-data-mono-sm">
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant">Workday v39.2</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant">Gusto Integrated</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md pt-1">
+<!-- Staff ID -->
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<label class="font-label-sm text-label-sm text-tertiary uppercase tracking-wider">Employee ID / Staff Code</label>
+<span class="font-data-mono-sm text-data-mono-sm text-secondary font-semibold">+14.2% match accuracy</span>
+</div>
+<input class="h-9 px-3 rounded bg-surface-container-low text-on-surface font-data-mono-md text-data-mono-md placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest shadow-sm" id="employeeId" placeholder="e.g. ACM-90214" type="text" value="ACM-90214"/>
+</div>
+<!-- Department -->
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-tertiary uppercase tracking-wider">Division / Operating Unit</label>
+<input class="h-9 px-3 rounded bg-surface-container-low text-on-surface font-body-md text-body-md placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest shadow-sm" id="departmentInput" placeholder="e.g. Enterprise Cloud Operations" type="text" value="Enterprise Platform Engineering"/>
+</div>
+</div>
+<!-- Fallback OCR Toggle -->
+<div class="mt-2 p-space-md rounded-xl bg-surface-container-low flex items-start gap-space-md shadow-sm">
+<div class="pt-0.5">
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" id="ocrFallbackToggle" type="checkbox"/>
+<div class="w-11 h-6 bg-outline-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-body-md text-on-surface font-semibold">Automatic Digital W-2 / Paystub OCR Fallback</span>
+<span class="px-1.5 py-0.2 rounded bg-primary-fixed text-on-primary-fixed font-data-mono-sm text-[10px] uppercase font-bold">Smart Retry</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">If the payroll API returns a soft-match or requires manual authorization, automatically send the candidate a secure mobile portal link for encrypted document upload with real-time OCR tamper verification.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 4: Regulatory & Permissible Purpose Attestation -->
+<section class="bg-surface-container-lowest rounded-xl shadow-sm p-space-lg flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="flex items-center justify-center w-6 h-6 rounded bg-surface-container-high text-on-surface font-data-mono-sm">04</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">Regulatory &amp; Permissible Purpose Attestation</h2>
+</div>
+<span class="font-data-mono-sm text-data-mono-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-secondary">gavel</span> 15 U.S.C. § 1681b
+          </span>
+</div>
+<div class="flex flex-col gap-space-md">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-space-md">
+<!-- Permissible Purpose dropdown -->
+<div class="md:col-span-7 flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-tertiary uppercase tracking-wider">Certified Permissible Purpose <span class="text-error">*</span></label>
+<div class="relative">
+<select class="w-full appearance-none h-9 pl-3 pr-8 rounded bg-surface-container-low text-on-surface font-body-md text-body-md focus:outline-none focus:bg-surface-container-lowest shadow-sm" id="fcraPurposeSelect">
+<option selected="" value="screening">Pre-Employment Screening (§ 604(a)(3)(B))</option>
+<option value="credit">Credit / Loan Underwriting (§ 604(a)(3)(A))</option>
+<option value="tenant">Tenant Lease Eligibility Background (§ 604(a)(3)(F))</option>
+<option value="security">Executive Security &amp; Asset Clearance (§ 604(a)(3)(D))</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-2 text-[18px] pointer-events-none text-outline">arrow_drop_down</span>
+</div>
+</div>
+<!-- Application Reference ID -->
+<div class="md:col-span-5 flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-tertiary uppercase tracking-wider">Internal Reference / Loan APP ID <span class="text-error">*</span></label>
+<input class="h-9 px-3 rounded bg-surface-container-low text-on-surface font-data-mono-md text-data-mono-md placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest shadow-sm" id="internalRefId" type="text" value="APP-2026-89412"/>
+</div>
+</div>
+<!-- FCRA Certification Box -->
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col gap-space-sm">
+<div class="flex items-start gap-3">
+<input checked="" class="mt-1 h-4 w-4 rounded accent-primary text-primary focus:ring-0 cursor-pointer" id="fcraConsentCheck" type="checkbox"/>
+<label class="font-body-sm text-body-sm text-on-surface leading-snug cursor-pointer" for="fcraConsentCheck">
+<strong class="font-semibold text-on-surface">Mandatory FCRA Attestation:</strong> I hereby certify under penalty of perjury that this verification inquiry is requested solely for the permissible purpose designated above in compliance with the Fair Credit Reporting Act (FCRA) and GLBA regulations. Valid applicant written consent has been acquired, archived in compliance repository <span class="font-data-mono-sm text-primary">#DOC-CONSENT-9912</span>, and will be preserved for the statutory retention period.
+              </label>
+</div>
+<div class="flex flex-wrap items-center justify-between gap-2 pt-2 text-on-surface-variant font-data-mono-sm text-[11px]">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-secondary">verified_user</span> Certifier: Alex Morgan (CVO #ORG-8821)
+              </span>
+<span>Timestamp: 2026-03-30 14:48:12 UTC</span>
+<span class="text-secondary font-semibold">IP: 198.51.100.42 (US-EAST-1)</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Bottom Step Navigation Buttons -->
+<div class="flex items-center justify-between p-space-md bg-surface-container-lowest rounded-xl shadow-sm">
+<button class="px-space-md h-9 bg-surface-container text-on-surface rounded font-label-md text-label-md hover:bg-surface-container-high transition-colors flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">arrow_back</span>
+<span>Previous Step</span>
+</button>
+<div class="flex items-center gap-space-sm">
+<button class="px-space-md h-9 bg-surface-container text-on-surface rounded font-label-md text-label-md hover:bg-surface-container-high transition-colors">
+            Save Draft
+          </button>
+<button class="px-space-md h-9 bg-primary text-on-primary rounded font-label-md text-label-md hover:bg-primary-container hover:text-on-primary-container transition-colors shadow-sm flex items-center gap-1.5" id="stepForwardBtn">
+<span>Continue to Threshold Rules</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- RIGHT COLUMN: Sticky Intelligence & Regulatory Preview Sidebar (4 cols) -->
+<div class="lg:col-span-4 flex flex-col gap-space-md sticky top-20">
+<!-- Live Cost & SLA Summary Widget -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-lg flex flex-col gap-space-md relative overflow-hidden">
+<!-- Visual Accent Arc (Inline SVG Chart under 2KB) -->
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-tertiary uppercase tracking-wider">Estimated Pipeline Run</span>
+<h3 class="font-headline-md text-headline-md text-on-surface">Execution Summary</h3>
+</div>
+<div class="relative w-12 h-12 flex items-center justify-center">
+<svg class="w-12 h-12 -rotate-90 transform" viewbox="0 0 36 36">
+<path class="text-surface-container-high" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3.5"></path>
+<path class="text-secondary" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" id="slaProgressCircle" stroke="currentColor" stroke-dasharray="98.4, 100" stroke-linecap="round" stroke-width="3.5"></path>
+</svg>
+<span class="absolute font-data-mono-sm text-[10px] font-bold text-on-surface">98%</span>
+</div>
+</div>
+<!-- Key Financial Metrics -->
+<div class="grid grid-cols-2 gap-space-sm p-space-sm rounded-xl bg-surface-container-low">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-tertiary uppercase">Query Fee</span>
+<span class="font-display-lg text-[26px] leading-tight font-bold text-on-surface tracking-tight" id="summaryFee">$9.20</span>
+<span class="font-data-mono-sm text-data-mono-sm text-on-surface-variant">Post-paid billing</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-tertiary uppercase">Est. Turnaround</span>
+<span class="font-display-lg text-[26px] leading-tight font-bold text-primary tracking-tight" id="summaryTime">35-50s</span>
+<span class="font-data-mono-sm text-data-mono-sm text-secondary flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[13px]">speed</span> Realtime Sync
+            </span>
+</div>
+</div>
+<!-- Metric Details Breakdown Rail -->
+<div class="flex flex-col gap-2 pt-1 text-body-sm text-body-sm">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span>Historical Depth</span>
+<span class="font-data-mono-sm text-data-mono-sm font-semibold text-on-surface">Past 24 Months</span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant">
+<span>Income Verification Method</span>
+<span class="font-data-mono-sm text-data-mono-sm font-semibold text-on-surface">Direct Payroll API</span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant">
+<span>Match Confidence Score</span>
+<span class="font-data-mono-sm text-data-mono-sm font-bold text-secondary" id="summaryConfidence">98.4% Highly Probable</span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant">
+<span>FCRA Permissible Purpose</span>
+<span class="font-data-mono-sm text-data-mono-sm font-semibold text-primary truncate max-w-[170px]" id="summaryPurpose">Pre-Employment §604</span>
+</div>
+</div>
+<!-- Live Gateway Status Box -->
+<div class="p-space-sm rounded bg-surface-container-low flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-tertiary uppercase tracking-wider">Direct Gateway Node</span>
+<span class="flex items-center gap-1 font-data-mono-sm text-data-mono-sm text-secondary font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> 100% HEALTHY
+            </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface leading-snug">
+<strong class="font-semibold">Acme Technologies payroll gateway</strong> is currently online with direct Workday / Gusto streaming response latency &lt; 240ms.
+          </p>
+</div>
+<!-- Big Launch Dispatch Button -->
+<div class="flex flex-col gap-2 pt-space-xs">
+<button class="w-full h-11 bg-primary text-on-primary rounded font-headline-sm text-headline-sm hover:bg-primary-container hover:text-on-primary-container transition-all shadow-md flex items-center justify-center gap-2 group" id="dispatchVerificationBtn">
+<span class="material-symbols-outlined text-[20px] group-hover:rotate-12 transition-transform">bolt</span>
+<span>Launch Verification Query</span>
+</button>
+<div class="grid grid-cols-2 gap-2">
+<button class="h-8 rounded bg-surface-container text-on-surface font-label-sm text-label-sm hover:bg-surface-container-high transition-colors flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-[15px]">bookmark</span>
+<span>Save Preset</span>
+</button>
+<button class="h-8 rounded bg-surface-container text-on-surface font-label-sm text-label-sm hover:bg-surface-container-high transition-colors flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-[15px]">visibility</span>
+<span>Simulate Paystub</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Compliance & Regulatory Armor Card -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-md flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-tertiary uppercase tracking-wider">Compliance Framework</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-data-mono-sm text-[10px] font-bold">SOC-2 TYPE II</span>
+</div>
+<div class="flex flex-col gap-2.5">
+<div class="flex items-start gap-2 text-body-sm text-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px] text-secondary shrink-0">shield_lock</span>
+<div>
+<span class="font-semibold text-on-surface">FCRA § 604 Hardened Gate</span>
+<p class="text-body-sm text-on-surface-variant text-[11px] leading-tight">Query cannot be triggered without active employee authorization match.</p>
+</div>
+</div>
+<div class="flex items-start gap-2 text-body-sm text-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px] text-primary shrink-0">history_edu</span>
+<div>
+<span class="font-semibold text-on-surface">WORM Immutable Log</span>
+<p class="text-body-sm text-on-surface-variant text-[11px] leading-tight">Write-Once-Read-Many tamper-proof hash committed to the audit ledger.</p>
+</div>
+</div>
+<div class="flex items-start gap-2 text-body-sm text-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px] text-secondary shrink-0">enhanced_encryption</span>
+<div>
+<span class="font-semibold text-on-surface">Zero Plaintext Data Persistence</span>
+<p class="text-body-sm text-on-surface-variant text-[11px] leading-tight">SSN and financial tokens are scrubbed upon underwriter verdict issuance.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Quick Fill Demo Profiles Mini-Drawer -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-md flex flex-col gap-space-xs">
+<span class="font-label-sm text-label-sm text-tertiary uppercase tracking-wider">Quick Testing Presets</span>
+<div class="flex flex-col gap-1.5 pt-1">
+<button class="w-full text-left p-2 rounded bg-surface-container-low hover:bg-surface-container transition-colors flex items-center justify-between" id="presetDemoRahul">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Rahul Sharma (Fintech Eng)</span>
+<span class="font-data-mono-sm text-data-mono-sm text-tertiary">Acme Tech • 99.8% Match Rate</span>
+</div>
+<span class="material-symbols-outlined text-outline text-[16px]">add_circle</span>
+</button>
+<button class="w-full text-left p-2 rounded bg-surface-container-low hover:bg-surface-container transition-colors flex items-center justify-between" id="presetDemoElena">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Elena Rostova (VP Finance)</span>
+<span class="font-data-mono-sm text-data-mono-sm text-tertiary">Global Logistics • Historical Sync</span>
+</div>
+<span class="material-symbols-outlined text-outline text-[16px]">add_circle</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Dispatch Modal Overlay (Hidden by Default) -->
+<div class="fixed inset-0 z-50 flex items-center justify-center bg-inverse-surface/40 backdrop-blur-sm hidden p-4" id="dispatchSuccessModal">
+<div class="bg-surface-container-lowest rounded-xl shadow-xl max-w-lg w-full p-space-lg flex flex-col gap-space-md transform transition-all">
+<div class="flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[28px]">task_alt</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-secondary font-bold uppercase tracking-wider">Pipeline Stream Initialized</span>
+<h3 class="font-headline-lg text-headline-lg text-on-surface">Verification VER-2026-9401 Dispatched</h3>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+        The workforce query for <strong class="text-on-surface" id="modalCandidateName">Marcus Vance</strong> has been securely routed to <strong class="text-on-surface" id="modalEmployer">Acme Technologies Inc.</strong> via direct payroll node. Initial payload receipt anticipated within 42 seconds.
+      </p>
+<!-- Live Stream Pipeline Step Preview -->
+<div class="p-space-sm rounded bg-surface-container-low flex flex-col gap-2 font-data-mono-sm text-data-mono-sm">
+<div class="flex items-center justify-between text-secondary font-semibold">
+<span class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-secondary animate-ping"></span> 1. Payroll Gateway Handshake (Workday)
+          </span>
+<span>SUCCESS [200 OK]</span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant">
+<span>2. SSN / Identity Token De-obfuscation</span>
+<span class="text-primary font-bold">STREAMING...</span>
+</div>
+<div class="flex items-center justify-between text-tertiary">
+<span>3. Compensation Ledger Synthesis</span>
+<span>QUEUED</span>
+</div>
+</div>
+<div class="flex items-center justify-end gap-space-sm pt-2">
+<button class="px-space-md h-9 bg-surface-container text-on-surface rounded font-label-md text-label-md hover:bg-surface-container-high transition-colors" id="modalDismissBtn">
+          Dismiss
+        </button>
+<button class="px-space-md h-9 bg-primary text-on-primary rounded font-label-md text-label-md hover:bg-primary-container transition-colors shadow-sm flex items-center gap-1" id="modalTrackBtn">
+<span>Inspect Live Stream in Requests</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<script>
+  (function initVerificationWizard() {
+    // Interactive Package Card Selection
+    const packageCards = document.querySelectorAll('.package-card');
+    const summaryFee = document.getElementById('summaryFee');
+    const summaryTime = document.getElementById('summaryTime');
+    const summaryConfidence = document.getElementById('summaryConfidence');
+    const slaProgressCircle = document.getElementById('slaProgressCircle');
+
+    packageCards.forEach(card => {
+      card.addEventListener('click', () => {
+        packageCards.forEach(c => {
+          c.classList.remove('active-package', 'shadow-md', 'bg-surface-container-lowest');
+          c.classList.add('shadow-sm');
+          // remove active borders
+          c.style.boxShadow = '';
+        });
+        card.classList.add('active-package', 'shadow-md');
+        card.style.boxShadow = '0 0 0 2px #004ac6';
+
+        // Update summaries
+        const fee = card.getAttribute('data-fee');
+        const time = card.getAttribute('data-time');
+        const conf = card.getAttribute('data-confidence');
+
+        if (summaryFee) summaryFee.textContent = '$' + fee;
+        if (summaryTime) summaryTime.textContent = time;
+        if (summaryConfidence) summaryConfidence.textContent = conf + '% High Confidence';
+        if (slaProgressCircle) {
+          slaProgressCircle.setAttribute('stroke-dasharray', conf + ', 100');
+        }
+      });
+    });
+
+    // Set initial card state
+    const defaultSelected = document.querySelector('.active-package');
+    if (defaultSelected) {
+      defaultSelected.style.boxShadow = '0 0 0 2px #004ac6';
+    }
+
+    // Toggle SSN Masking
+    const ssnInput = document.getElementById('candidateSSN');
+    const toggleSSNBtn = document.getElementById('toggleSSNBtn');
+    if (toggleSSNBtn && ssnInput) {
+      toggleSSNBtn.addEventListener('click', () => {
+        if (ssnInput.type === 'password') {
+          ssnInput.type = 'text';
+          toggleSSNBtn.textContent = 'Hide';
+        } else {
+          ssnInput.type = 'password';
+          toggleSSNBtn.textContent = 'Show';
+        }
+      });
+    }
+
+    // Quick Fill Rahul Sharma Preset
+    const quickFillBtn = document.getElementById('quickFillBtn');
+    const rahulPresetBtn = document.getElementById('presetDemoRahul');
+    const elenaPresetBtn = document.getElementById('presetDemoElena');
+
+    function populateRahul() {
+      document.getElementById('candidateFirstName').value = 'Rahul';
+      document.getElementById('candidateMiddleName').value = 'K.';
+      document.getElementById('candidateLastName').value = 'Sharma';
+      document.getElementById('candidateSSN').value = '983419024';
+      document.getElementById('candidateDOB').value = '11/04/1991';
+      document.getElementById('candidateWorkEmail').value = 'r.sharma@acmetech.io';
+      document.getElementById('candidatePersonalEmail').value = 'rahul.sharma.tech@gmail.com';
+      document.getElementById('candidatePhone').value = '+1 (415) 304-9921';
+      document.getElementById('candidateAddress').value = '550 Battery St, Suite 1900';
+      document.getElementById('candidateCity').value = 'San Francisco';
+      document.getElementById('candidateState').value = 'CA';
+      document.getElementById('candidateZip').value = '94111';
+      document.getElementById('employerSearchInput').value = 'Acme Technologies Inc.';
+      document.getElementById('employeeId').value = 'ACM-77402';
+      document.getElementById('departmentInput').value = 'Core Infrastructure & Scale';
+      document.getElementById('internalRefId').value = 'APP-2026-99014';
+    }
+
+    function populateElena() {
+      document.getElementById('candidateFirstName').value = 'Elena';
+      document.getElementById('candidateMiddleName').value = 'V.';
+      document.getElementById('candidateLastName').value = 'Rostova';
+      document.getElementById('candidateSSN').value = '672049921';
+      document.getElementById('candidateDOB').value = '08/23/1984';
+      document.getElementById('candidateWorkEmail').value = 'elena.rostova@globallogistics.com';
+      document.getElementById('candidatePersonalEmail').value = 'e.rostova.ny@outlook.com';
+      document.getElementById('candidatePhone').value = '+1 (212) 555-0193';
+      document.getElementById('candidateAddress').value = '450 Lexington Ave, Fl 32';
+      document.getElementById('candidateCity').value = 'New York';
+      document.getElementById('candidateState').value = 'NY';
+      document.getElementById('candidateZip').value = '10017';
+      document.getElementById('employerSearchInput').value = 'Global Logistics Network Corp';
+      document.getElementById('employeeId').value = 'GLN-00381';
+      document.getElementById('departmentInput').value = 'Strategic Treasury & Finance';
+      document.getElementById('internalRefId').value = 'APP-EXEC-8419';
+    }
+
+    if (quickFillBtn) quickFillBtn.addEventListener('click', populateRahul);
+    if (rahulPresetBtn) rahulPresetBtn.addEventListener('click', populateRahul);
+    if (elenaPresetBtn) elenaPresetBtn.addEventListener('click', populateElena);
+
+    // Template Picker Sync
+    const templatePicker = document.getElementById('templatePicker');
+    if (templatePicker) {
+      templatePicker.addEventListener('change', (e) => {
+        const val = e.target.value;
+        const purposeSelect = document.getElementById('fcraPurposeSelect');
+        if (val === 'screening') {
+          if (purposeSelect) purposeSelect.value = 'screening';
+          packageCards[1]?.click();
+        } else if (val === 'underwriting') {
+          if (purposeSelect) purposeSelect.value = 'credit';
+          packageCards[1]?.click();
+        } else if (val === 'executive') {
+          if (purposeSelect) purposeSelect.value = 'security';
+          packageCards[3]?.click();
+        }
+      });
+    }
+
+    // Modal Interactions
+    const dispatchBtn = document.getElementById('dispatchVerificationBtn');
+    const modal = document.getElementById('dispatchSuccessModal');
+    const modalDismiss = document.getElementById('modalDismissBtn');
+    const modalCandidateName = document.getElementById('modalCandidateName');
+    const modalEmployer = document.getElementById('modalEmployer');
+
+    if (dispatchBtn && modal) {
+      dispatchBtn.addEventListener('click', () => {
+        const fname = document.getElementById('candidateFirstName')?.value || 'Candidate';
+        const lname = document.getElementById('candidateLastName')?.value || '';
+        const emp = document.getElementById('employerSearchInput')?.value || 'Target Gateway';
+
+        if (modalCandidateName) modalCandidateName.textContent = fname + ' ' + lname;
+        if (modalEmployer) modalEmployer.textContent = emp;
+
+        modal.classList.remove('hidden');
+      });
+    }
+
+    if (modalDismiss && modal) {
+      modalDismiss.addEventListener('click', () => {
+        modal.classList.add('hidden');
+      });
+    }
+
+    // Clear form interaction
+    const clearFormBtn = document.getElementById('clearFormBtn');
+    if (clearFormBtn) {
+      clearFormBtn.addEventListener('click', () => {
+        document.querySelectorAll('input[type="text"], input[type="email"], input[type="tel"]').forEach(i => i.value = '');
+        document.getElementById('candidateSSN').value = '';
+      });
+    }
+  })();
+</script></main></div></body></html>

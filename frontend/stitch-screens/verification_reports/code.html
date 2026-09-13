@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"on-secondary-fixed":"#00201d","outline":"#737686","on-primary-fixed-variant":"#003ea8","secondary-fixed":"#89f5e7","on-secondary":"#ffffff","error":"#ba1a1a","primary":"#004ac6","on-primary-container":"#eeefff","inverse-primary":"#b4c5ff","on-tertiary-fixed":"#0e1c2f","surface-dim":"#cbdbf5","on-tertiary":"#ffffff","surface-container":"#e5eeff","tertiary-fixed-dim":"#bac7e1","inverse-surface":"#213145","secondary-container":"#86f2e4","surface-container-high":"#dce9ff","on-tertiary-fixed-variant":"#3a475c","error-container":"#ffdad6","on-secondary-fixed-variant":"#005049","on-primary-fixed":"#00174b","primary-fixed":"#dbe1ff","surface-container-low":"#eff4ff","tertiary-container":"#616e85","secondary-fixed-dim":"#6bd8cb","on-primary":"#ffffff","surface-bright":"#f8f9ff","on-surface-variant":"#434655","on-tertiary-container":"#ebf1ff","on-background":"#0b1c30","tertiary-fixed":"#d6e3fe","tertiary":"#49566c","surface-tint":"#0053db","on-secondary-container":"#006f66","surface-container-lowest":"#ffffff","primary-fixed-dim":"#b4c5ff","surface-container-highest":"#d3e4fe","background":"#f8f9ff","primary-container":"#2563eb","outline-variant":"#c3c6d7","surface":"#f8f9ff","on-surface":"#0b1c30","on-error":"#ffffff","on-error-container":"#93000a","secondary":"#006a61","surface-variant":"#d3e4fe","inverse-on-surface":"#eaf1ff"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"space-xs":"0.25rem","margin-lg":"2rem","space-lg":"1rem","gutter":"1rem","space-md":"0.75rem","space-sm":"0.5rem","margin":"1rem","gutter-lg":"1.5rem","space-xl":"1.5rem","margin-md":"1.5rem"},"fontFamily":{"headline-sm":["Inter"],"display-lg-mobile":["Inter"],"headline-lg":["Inter"],"headline-md":["Inter"],"body-sm":["Inter"],"display-lg":["Inter"],"body-lg":["Inter"],"data-mono-md":["IBM Plex Sans"],"label-md":["IBM Plex Sans"],"label-sm":["IBM Plex Sans"],"data-mono-sm":["IBM Plex Sans"],"body-md":["Inter"]},"fontSize":{"headline-sm":["16px",{"lineHeight":"24px","letterSpacing":"-0.01em","fontWeight":"600"}],"display-lg-mobile":["28px",{"lineHeight":"36px","letterSpacing":"-0.02em","fontWeight":"600"}],"headline-lg":["24px",{"lineHeight":"32px","letterSpacing":"-0.02em","fontWeight":"600"}],"headline-md":["20px",{"lineHeight":"28px","letterSpacing":"-0.015em","fontWeight":"600"}],"body-sm":["12px",{"lineHeight":"16px","letterSpacing":"0.005em","fontWeight":"400"}],"display-lg":["36px",{"lineHeight":"44px","letterSpacing":"-0.025em","fontWeight":"600"}],"body-lg":["16px",{"lineHeight":"24px","letterSpacing":"-0.005em","fontWeight":"400"}],"data-mono-md":["13px",{"lineHeight":"18px","letterSpacing":"-0.01em","fontWeight":"500"}],"label-md":["13px",{"lineHeight":"18px","letterSpacing":"0.01em","fontWeight":"500"}],"label-sm":["11px",{"lineHeight":"14px","letterSpacing":"0.04em","fontWeight":"600"}],"data-mono-sm":["11px",{"lineHeight":"16px","letterSpacing":"0em","fontWeight":"500"}],"body-md":["14px",{"lineHeight":"20px","letterSpacing":"0em","fontWeight":"400"}]}}}}</script></head><body class="bg-background font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-screen w-72 bg-surface-container-lowest border-r border-outline-variant/50 z-50 flex flex-col justify-between select-none"><div class="flex flex-col h-full overflow-hidden"><div class="px-space-lg py-space-md border-b border-outline-variant/40 flex items-center justify-between"><div class="flex items-center gap-space-sm"><img alt="The Work Code Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1XGDMsVXqPxe-nL8-njVmB_WxV1XGloz0NAGX4QvV_fXr1RmO-sgUEUl9mqafztIxxGNVBx_07CorpFml3oURNU_xr4NhV_fCG9sKqjsOqb-fDTg-JWlVbNt5PqcRJ_nH9pQoCIMIcZe0o683R5jZByhcRgp8ocVbV4bjRpndYi2LuBn5uXJ5nytHN6dQ-B_2tBYOZLqM9600K4wLxTGgj1wW3v8-XL_-bX0xvCTaHmhf9I4u9pv_nFaA"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-on-surface leading-tight">The Work Code</span><span class="font-label-sm text-label-sm text-on-surface-variant">VERIFY INFRASTRUCTURE</span></div></div><div class="flex items-center gap-1.5 px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-data-mono-sm text-data-mono-sm border border-outline-variant/40"><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>PROD v2.4</div></div><div class="flex-1 overflow-y-auto px-space-md py-space-sm space-y-space-md"><nav class="space-y-space-xs" data-active-classes="bg-primary-container text-on-primary-container font-headline-sm"><div class="px-space-sm py-1 font-label-sm text-label-sm text-tertiary uppercase tracking-wider">Overview</div><a aria-current="page" class="flex items-center justify-between px-space-sm py-1.5 rounded transition-colors bg-primary-container text-on-primary-container font-headline-sm" data-path="dashboard" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">grid_view</span><span class="font-body-md text-body-md">Dashboard</span></div></a><div class="pt-space-xs px-space-sm py-1 font-label-sm text-label-sm text-tertiary uppercase tracking-wider">Verification</div><a class="flex items-center justify-between px-space-sm py-1.5 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="new-verification" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">add_task</span><span class="font-body-md text-body-md">New Verification</span></div><span class="px-1.5 py-0.2 rounded bg-surface-container-high text-primary font-label-sm text-label-sm">+</span></a><a class="flex items-center justify-between px-space-sm py-1.5 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="verification-requests" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">inbox</span><span class="font-body-md text-body-md">Verification Requests</span></div><span class="px-2 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-data-mono-sm text-data-mono-sm">12</span></a><a class="flex items-center justify-between px-space-sm py-1.5 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="employees-directory" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">badge</span><span class="font-body-md text-body-md">Employees Directory</span></div></a><a class="flex items-center justify-between px-space-sm py-1.5 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="employers-network" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">domain</span><span class="font-body-md text-body-md">Employers Network</span></div></a><div class="pt-space-xs px-space-sm py-1 font-label-sm text-label-sm text-tertiary uppercase tracking-wider">Data &amp; Reports</div><a class="flex items-center justify-between px-space-sm py-1.5 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="income-verification" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">payments</span><span class="font-body-md text-body-md">Income Verification</span></div></a><a class="flex items-center justify-between px-space-sm py-1.5 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="verification-reports" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">description</span><span class="font-body-md text-body-md">Verification Reports</span></div></a><div class="pt-space-xs px-space-sm py-1 font-label-sm text-label-sm text-tertiary uppercase tracking-wider">Risk &amp; Fraud</div><a class="flex items-center justify-between px-space-sm py-1.5 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="risk-fraud-analytics" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">shield</span><span class="font-body-md text-body-md">Risk &amp; Fraud Analytics</span></div><span class="w-2 h-2 rounded-full bg-error" title="Active risk alerts"></span></a><a class="flex items-center justify-between px-space-sm py-1.5 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="anomalies" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">warning</span><span class="font-body-md text-body-md">Anomalies</span></div></a><div class="pt-space-xs px-space-sm py-1 font-label-sm text-label-sm text-tertiary uppercase tracking-wider">Developer</div><a class="flex items-center justify-between px-space-sm py-1.5 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="api-keys-logs" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">key</span><span class="font-body-md text-body-md">API Keys &amp; Logs</span></div></a><a class="flex items-center justify-between px-space-sm py-1.5 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="webhooks" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">webhook</span><span class="font-body-md text-body-md">Webhooks</span></div></a><div class="pt-space-xs px-space-sm py-1 font-label-sm text-label-sm text-tertiary uppercase tracking-wider">Compliance</div><a class="flex items-center justify-between px-space-sm py-1.5 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="audit-logs" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">history_edu</span><span class="font-body-md text-body-md">Audit Logs</span></div><span class="px-1.5 py-0.5 rounded text-[10px] uppercase font-data-mono-sm tracking-widest bg-surface-container-high text-on-surface-variant border border-outline-variant/40">IMMUTABLE</span></a><a class="flex items-center justify-between px-space-sm py-1.5 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="security-center" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">verified_user</span><span class="font-body-md text-body-md">Security Center</span></div></a></nav></div><div class="border-t border-outline-variant/40 p-space-sm bg-surface-container-lowest space-y-space-xs"><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="documentation-support" href="#"><span class="material-symbols-outlined text-[18px]">help_outline</span><span>Documentation &amp; Support</span></a><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="organization-settings" href="#"><span class="material-symbols-outlined text-[18px]">settings</span><span>Organization Settings</span></a><div class="mt-space-xs p-space-sm rounded bg-surface-container-low border border-outline-variant/40 flex items-center justify-between"><div class="flex items-center gap-space-sm overflow-hidden"><img alt="Profile" class="w-8 h-8 rounded-full object-cover shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD78qhL42V3IVENEtRMaVlSoVdiVkyyIVL6pC0w2-TkZrTsiL7vtjOjMxmBfcTWxIq-KXQdxfZnX1AXt3MXDZY3AtLTUO6rOg882pVVt187aUCTSQaO6n4gzDPTdtUBy3hGDFIwBd8nBQiqh6W8_VfYpvYpkjTQwCEGT9V10XXzVENLn3VXNUQfGNBHxYW29Kpg7IRIBKg6aC-1B8VPq8oxbkjho_KQeobx_Cl3TdSlqeq6YIOvw3k"/><div class="truncate"><div class="font-headline-sm text-body-md text-on-surface leading-snug truncate">Alex Morgan</div><div class="font-label-sm text-label-sm text-on-surface-variant truncate">Chief Verification Officer</div><div class="font-data-mono-sm text-data-mono-sm text-tertiary truncate">ORG-8821</div></div></div><button class="text-outline hover:text-on-surface p-1 rounded hover:bg-surface-container-high"><span class="material-symbols-outlined text-[18px]">unfold_more</span></button></div></div></div></aside><div class="pl-72 flex flex-col min-h-screen"><header class="fixed top-0 left-72 right-0 h-16 bg-surface-container-lowest/95 backdrop-blur-md border-b border-outline-variant/40 z-40 px-gutter-lg flex items-center justify-between"><div class="flex items-center gap-space-lg flex-1 max-w-xl"><div class="relative w-full flex items-center"><span class="material-symbols-outlined absolute left-3 text-outline text-[18px]">search</span><input class="w-full h-9 pl-9 pr-12 rounded bg-surface-container-low border border-outline-variant/50 font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/20" placeholder="Search applicants, verification ID (VER-...), employers..." type="text"/><div class="absolute right-2 px-1.5 py-0.5 rounded bg-surface-container-high border border-outline-variant/40 font-data-mono-sm text-data-mono-sm text-on-surface-variant">⌘K</div></div></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-2 px-space-sm py-1 rounded-full bg-surface-container-low border border-outline-variant/40"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span></span><span class="font-data-mono-sm text-data-mono-sm text-on-surface">Status: 99.98% Operational</span></div><a audit="" class="p-2 rounded text-outline hover:text-on-surface hover:bg-surface-container-low transition-colors title=" data-path="audit-logs" href="#" quicklink"=""><span class="material-symbols-outlined text-[20px]">receipt_long</span></a><div class="relative"><button class="relative p-2 rounded text-outline hover:text-on-surface hover:bg-surface-container-low transition-colors"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1.5 right-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-error text-on-error font-data-mono-sm text-[10px]">3</span></button></div><a class="inline-flex items-center gap-1.5 px-space-md h-9 bg-primary text-on-primary rounded font-label-md text-label-md hover:bg-primary-container hover:text-on-primary-container transition-colors shadow-sm" data-path="new-verification" href="#"><span class="material-symbols-outlined text-[16px]">add</span><span>New Verification</span></a></div></header><main class="flex-1 pt-16 bg-background w-full px-gutter-lg py-margin-md"><div class="flex flex-col w-full space-y-space-xl">
+<!-- Active Route Fix in Sidebar via inline JS -->
+<script>
+    (function () {
+      const activeLink = document.querySelector('a[data-path="verification-reports"]');
+      if (activeLink) {
+        activeLink.classList.remove('text-on-surface-variant');
+        activeLink.classList.add('bg-primary-container', 'text-on-primary-container', 'font-headline-sm');
+      }
+    })();
+  </script>
+<!-- Section 1: Header & Control Bar -->
+<div class="flex flex-col gap-space-md lg:flex-row lg:items-end lg:justify-between">
+<div class="space-y-space-xs">
+<div class="flex flex-wrap items-center gap-space-sm font-label-sm text-label-sm text-tertiary">
+<span class="hover:text-on-surface cursor-pointer transition-colors">Organization</span>
+<span class="text-outline-variant">/</span>
+<span class="hover:text-on-surface cursor-pointer transition-colors">Data &amp; Reports</span>
+<span class="text-outline-variant">/</span>
+<span class="text-primary font-semibold">Verification Reports</span>
+<span class="inline-flex items-center gap-1.5 ml-2 px-2.5 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant text-[11px] font-data-mono-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+          FCRA § 604 Hardened Audit Vault • Encrypted Export Active
+        </span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Verification Reports</h1>
+<p class="font-body-md text-body-md text-tertiary max-w-3xl">
+        Aggregate analytical telemetry, turnaround SLA benchmarks, and dispute distribution across all connected enterprise payroll gateways.
+      </p>
+</div>
+<!-- Actions & Filtering -->
+<div class="flex flex-wrap items-center gap-space-sm self-start lg:self-end">
+<!-- Date Range Selector -->
+<div class="relative">
+<button class="h-9 px-3 bg-surface-container-lowest rounded shadow-sm flex items-center gap-2 text-on-surface font-label-md text-label-md hover:bg-surface-container transition-colors" id="dateRangeBtn">
+<span class="material-symbols-outlined text-[18px] text-tertiary">calendar_today</span>
+<span>Jan 1 – Mar 31, 2026</span>
+<span class="material-symbols-outlined text-[16px] text-outline">expand_more</span>
+</button>
+</div>
+<!-- Schedule Modal / Trigger -->
+<button class="h-9 px-3 bg-surface-container-lowest rounded shadow-sm flex items-center gap-1.5 text-on-surface font-label-md text-label-md hover:bg-surface-container transition-colors" title="Configure Automated Delivery">
+<span class="material-symbols-outlined text-[18px] text-tertiary">schedule_send</span>
+<span>Schedule Report</span>
+</button>
+<!-- Export Dropdown -->
+<div class="relative">
+<button class="h-9 px-3.5 bg-primary text-on-primary rounded font-label-md text-label-md hover:bg-primary-container hover:text-on-primary-container shadow-sm flex items-center gap-1.5 transition-all" id="exportDropdownBtn" onclick="document.getElementById('exportMenu').classList.toggle('hidden')">
+<span class="material-symbols-outlined text-[18px]">download</span>
+<span>Export</span>
+<span class="material-symbols-outlined text-[16px]">expand_more</span>
+</button>
+<div class="hidden absolute right-0 mt-1 w-44 bg-surface-container-lowest rounded shadow-xl py-1 z-30 font-label-md text-label-md" id="exportMenu">
+<a class="flex items-center gap-2 px-3 py-2 text-on-surface hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined text-[18px] text-primary">picture_as_pdf</span>
+            Audit PDF Summary
+          </a>
+<a class="flex items-center gap-2 px-3 py-2 text-on-surface hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined text-[18px] text-secondary">table_chart</span>
+            Tabular CSV (.csv)
+          </a>
+<a class="flex items-center gap-2 px-3 py-2 text-on-surface hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined text-[18px] text-tertiary">code</span>
+            Raw Ledger JSON
+          </a>
+</div>
+</div>
+</div>
+</div>
+<!-- Section 2: Four Prebuilt Report Bento Cards -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- Card 1: Volume -->
+<div class="group bg-surface-container-lowest p-space-lg rounded shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+<div class="space-y-space-sm">
+<div class="flex items-center justify-between">
+<div class="w-9 h-9 rounded bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">trending_up</span>
+</div>
+<span class="font-data-mono-sm text-data-mono-sm px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant">REP-VOL</span>
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Volume</h2>
+<p class="font-body-sm text-body-sm text-tertiary mt-1">
+            Total verification throughput, query run-rates, and multi-gateway volume distributions.
+          </p>
+</div>
+</div>
+<div class="mt-space-md pt-space-sm bg-surface-container-lowest">
+<div class="font-data-mono-sm text-data-mono-sm font-semibold text-on-surface">
+          12,480 queries <span class="text-secondary font-medium">• +14.2% MoM</span>
+</div>
+<a class="inline-flex items-center gap-1 font-label-md text-label-md text-primary hover:text-primary-container font-semibold mt-2 transition-colors" href="#table-breakdown">
+          View Report <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Card 2: Turnaround -->
+<div class="group bg-surface-container-lowest p-space-lg rounded shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+<div class="space-y-space-sm">
+<div class="flex items-center justify-between">
+<div class="w-9 h-9 rounded bg-surface-container-high flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined text-[20px]">timer</span>
+</div>
+<span class="font-data-mono-sm text-data-mono-sm px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant">SLA-RT</span>
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Turnaround</h2>
+<p class="font-body-sm text-body-sm text-tertiary mt-1">
+            Gateway response latency, underwriter review duration, and automated instant match SLAs.
+          </p>
+</div>
+</div>
+<div class="mt-space-md pt-space-sm bg-surface-container-lowest">
+<div class="font-data-mono-sm text-data-mono-sm font-semibold text-on-surface">
+          Avg 34.6s instant <span class="text-secondary font-medium">• 99.4% &lt; 1m</span>
+</div>
+<a class="inline-flex items-center gap-1 font-label-md text-label-md text-primary hover:text-primary-container font-semibold mt-2 transition-colors" href="#table-breakdown">
+          View Report <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Card 3: Outcomes -->
+<div class="group bg-surface-container-lowest p-space-lg rounded shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+<div class="space-y-space-sm">
+<div class="flex items-center justify-between">
+<div class="w-9 h-9 rounded bg-secondary-fixed flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[20px]">verified</span>
+</div>
+<span class="font-data-mono-sm text-data-mono-sm px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant">SLA-OUT</span>
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Outcomes</h2>
+<p class="font-body-sm text-body-sm text-tertiary mt-1">
+            Status breakdown across verified, partial matches, unverified candidates, and contested items.
+          </p>
+</div>
+</div>
+<div class="mt-space-md pt-space-sm bg-surface-container-lowest">
+<div class="font-data-mono-sm text-data-mono-sm font-semibold text-on-surface">
+          89.2% full match <span class="text-tertiary font-medium">• 1.4% disputed</span>
+</div>
+<a class="inline-flex items-center gap-1 font-label-md text-label-md text-primary hover:text-primary-container font-semibold mt-2 transition-colors" href="#table-breakdown">
+          View Report <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Card 4: Income distribution -->
+<div class="group bg-surface-container-lowest p-space-lg rounded shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+<div class="space-y-space-sm">
+<div class="flex items-center justify-between">
+<div class="w-9 h-9 rounded bg-surface-container-high flex items-center justify-center text-on-surface">
+<span class="material-symbols-outlined text-[20px]">payments</span>
+</div>
+<span class="font-data-mono-sm text-data-mono-sm px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant">TAX-W2</span>
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Income distribution</h2>
+<p class="font-body-sm text-body-sm text-tertiary mt-1">
+            Audited salary bands, base vs overtime reconciliation, and compensation variance analysis.
+          </p>
+</div>
+</div>
+<div class="mt-space-md pt-space-sm bg-surface-container-lowest">
+<div class="font-data-mono-sm text-data-mono-sm font-semibold text-on-surface">
+          $114k median <span class="text-secondary font-medium">• 98.1% tax matched</span>
+</div>
+<a class="inline-flex items-center gap-1 font-label-md text-label-md text-primary hover:text-primary-container font-semibold mt-2 transition-colors" href="#table-breakdown">
+          View Report <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Section 3: Main Verification Outcomes Analytics Canvas -->
+<div class="bg-surface-container-lowest rounded shadow-sm overflow-hidden">
+<!-- Header of large report canvas -->
+<div class="p-space-lg flex flex-col md:flex-row md:items-center md:justify-between gap-space-md bg-surface-container-low/40">
+<div>
+<div class="flex items-center gap-2">
+<h2 class="font-headline-md text-headline-md text-on-surface">Verification outcomes</h2>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container-high text-primary font-semibold uppercase">Real-Time Data</span>
+</div>
+<p class="font-body-sm text-body-sm text-tertiary mt-0.5">
+          Monthly disposition breakdown across all submitted verification batches and network endpoints.
+        </p>
+</div>
+<!-- Controls: Chart/Table view toggle & granularity -->
+<div class="flex flex-wrap items-center gap-space-sm">
+<!-- Granularity switch -->
+<div class="flex items-center bg-surface-container-high rounded p-0.5 text-on-surface-variant font-label-md text-label-md">
+<button class="px-2.5 py-1 rounded bg-surface-container-lowest text-on-surface font-medium shadow-sm transition-all">Monthly</button>
+<button class="px-2.5 py-1 rounded text-tertiary hover:text-on-surface transition-colors">Quarterly</button>
+<button class="px-2.5 py-1 rounded text-tertiary hover:text-on-surface transition-colors">Weekly</button>
+</div>
+<!-- View mode toggle -->
+<div class="flex items-center bg-surface-container-high rounded p-0.5 text-on-surface-variant font-label-md text-label-md">
+<button class="flex items-center gap-1 px-2.5 py-1 rounded bg-surface-container-lowest text-primary font-medium shadow-sm transition-all" id="viewChartBtn">
+<span class="material-symbols-outlined text-[16px]">bar_chart</span>
+<span>Chart</span>
+</button>
+<button class="flex items-center gap-1 px-2.5 py-1 rounded text-tertiary hover:text-on-surface transition-colors" id="viewTableBtn">
+<span class="material-symbols-outlined text-[16px]">table_rows</span>
+<span>Table</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Sub-header Legend & Summary metrics bar -->
+<div class="px-space-lg py-space-sm bg-surface-container-lowest flex flex-wrap items-center justify-between gap-space-md">
+<!-- Categorical Status Indicators -->
+<div class="flex flex-wrap items-center gap-space-lg">
+<div class="flex items-center gap-1.5">
+<span class="w-3 h-3 rounded-sm bg-primary"></span>
+<span class="font-label-sm text-label-sm text-on-surface font-medium">Verified (Instant &amp; Doc)</span>
+<span class="font-data-mono-sm text-data-mono-sm text-tertiary ml-0.5">88.6%</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-3 h-3 rounded-sm bg-tertiary"></span>
+<span class="font-label-sm text-label-sm text-on-surface font-medium">Partial Match</span>
+<span class="font-data-mono-sm text-data-mono-sm text-tertiary ml-0.5">6.8%</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-3 h-3 rounded-sm bg-error-container"></span>
+<span class="font-label-sm text-label-sm text-on-surface font-medium">Unable to Verify</span>
+<span class="font-data-mono-sm text-data-mono-sm text-tertiary ml-0.5">3.2%</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-3 h-3 rounded-sm bg-error"></span>
+<span class="font-label-sm text-label-sm text-on-surface font-medium">Disputed</span>
+<span class="font-data-mono-sm text-data-mono-sm text-tertiary ml-0.5">1.4%</span>
+</div>
+</div>
+<!-- Quick KPI Spark Summary -->
+<div class="flex items-center gap-4 font-data-mono-sm text-data-mono-sm text-tertiary">
+<span>Peak Throughput: <strong class="text-on-surface font-semibold">2,840 / mo</strong></span>
+<span>Resolution Rate: <strong class="text-secondary font-semibold">95.4%</strong></span>
+</div>
+</div>
+<!-- Stacked Bar Chart Presentation -->
+<div class="p-space-lg">
+<div class="relative w-full h-72 flex flex-col justify-end pt-6">
+<!-- SVG Canvas Graphic for precision axes & stacked bar telemetry -->
+<svg class="w-full h-full" preserveaspectratio="none" viewbox="0 0 880 230">
+<!-- Background guideline levels -->
+<line opacity="0.4" stroke="#c3c6d7" stroke-dasharray="3,3" stroke-width="0.75" x1="40" x2="860" y1="20" y2="20"></line>
+<text fill="#737686" font-family="IBM Plex Sans" font-size="10" text-anchor="end" x="32" y="24">3k</text>
+<line opacity="0.4" stroke="#c3c6d7" stroke-dasharray="3,3" stroke-width="0.75" x1="40" x2="860" y1="75" y2="75"></line>
+<text fill="#737686" font-family="IBM Plex Sans" font-size="10" text-anchor="end" x="32" y="79">2k</text>
+<line opacity="0.4" stroke="#c3c6d7" stroke-dasharray="3,3" stroke-width="0.75" x1="40" x2="860" y1="130" y2="130"></line>
+<text fill="#737686" font-family="IBM Plex Sans" font-size="10" text-anchor="end" x="32" y="134">1k</text>
+<line opacity="0.6" stroke="#c3c6d7" stroke-width="1" x1="40" x2="860" y1="185" y2="185"></line>
+<text fill="#737686" font-family="IBM Plex Sans" font-size="10" text-anchor="end" x="32" y="188">0</text>
+<!-- Month 1: Oct 2025 (Total: 1,820) -->
+<g class="cursor-pointer transition-opacity hover:opacity-85">
+<!-- Verified (1,595 -> 87.6%) -->
+<rect fill="#004ac6" height="99" rx="1" width="56" x="85" y="86"></rect>
+<!-- Partial (120 -> 6.6%) -->
+<rect fill="#49566c" height="7" rx="1" width="56" x="85" y="79"></rect>
+<!-- Unable (78 -> 4.3%) -->
+<rect fill="#ffdad6" height="5" rx="1" width="56" x="85" y="74"></rect>
+<!-- Disputed (27 -> 1.5%) -->
+<rect fill="#ba1a1a" height="2" rx="1" width="56" x="85" y="72"></rect>
+<text fill="#0b1c30" font-family="IBM Plex Sans" font-size="10" font-weight="600" text-anchor="middle" x="113" y="65">1,820</text>
+<text fill="#434655" font-family="IBM Plex Sans" font-size="11" text-anchor="middle" x="113" y="204">Oct 2025</text>
+</g>
+<!-- Month 2: Nov 2025 (Total: 2,050) -->
+<g class="cursor-pointer transition-opacity hover:opacity-85">
+<!-- Verified (1,815) -->
+<rect fill="#004ac6" height="111" rx="1" width="56" x="215" y="74"></rect>
+<!-- Partial (142) -->
+<rect fill="#49566c" height="9" rx="1" width="56" x="215" y="65"></rect>
+<!-- Unable (64) -->
+<rect fill="#ffdad6" height="4" rx="1" width="56" x="215" y="61"></rect>
+<!-- Disputed (29) -->
+<rect fill="#ba1a1a" height="2" rx="1" width="56" x="215" y="59"></rect>
+<text fill="#0b1c30" font-family="IBM Plex Sans" font-size="10" font-weight="600" text-anchor="middle" x="243" y="52">2,050</text>
+<text fill="#434655" font-family="IBM Plex Sans" font-size="11" text-anchor="middle" x="243" y="204">Nov 2025</text>
+</g>
+<!-- Month 3: Dec 2025 (Total: 2,210) -->
+<g class="cursor-pointer transition-opacity hover:opacity-85">
+<!-- Verified (1,960) -->
+<rect fill="#004ac6" height="121" rx="1" width="56" x="345" y="64"></rect>
+<!-- Partial (155) -->
+<rect fill="#49566c" height="10" rx="1" width="56" x="345" y="54"></rect>
+<!-- Unable (65) -->
+<rect fill="#ffdad6" height="4" rx="1" width="56" x="345" y="50"></rect>
+<!-- Disputed (30) -->
+<rect fill="#ba1a1a" height="2" rx="1" width="56" x="345" y="48"></rect>
+<text fill="#0b1c30" font-family="IBM Plex Sans" font-size="10" font-weight="600" text-anchor="middle" x="373" y="41">2,210</text>
+<text fill="#434655" font-family="IBM Plex Sans" font-size="11" text-anchor="middle" x="373" y="204">Dec 2025</text>
+</g>
+<!-- Month 4: Jan 2026 (Total: 2,410) -->
+<g class="cursor-pointer transition-opacity hover:opacity-85">
+<!-- Verified (2,145) -->
+<rect fill="#004ac6" height="132" rx="1" width="56" x="475" y="53"></rect>
+<!-- Partial (161) -->
+<rect fill="#49566c" height="10" rx="1" width="56" x="475" y="43"></rect>
+<!-- Unable (71) -->
+<rect fill="#ffdad6" height="4" rx="1" width="56" x="475" y="39"></rect>
+<!-- Disputed (33) -->
+<rect fill="#ba1a1a" height="2" rx="1" width="56" x="475" y="37"></rect>
+<text fill="#0b1c30" font-family="IBM Plex Sans" font-size="10" font-weight="600" text-anchor="middle" x="503" y="30">2,410</text>
+<text fill="#434655" font-family="IBM Plex Sans" font-size="11" text-anchor="middle" x="503" y="204">Jan 2026</text>
+</g>
+<!-- Month 5: Feb 2026 (Total: 2,640) -->
+<g class="cursor-pointer transition-opacity hover:opacity-85">
+<!-- Verified (2,352) -->
+<rect fill="#004ac6" height="145" rx="1" width="56" x="605" y="40"></rect>
+<!-- Partial (178) -->
+<rect fill="#49566c" height="11" rx="1" width="56" x="605" y="29"></rect>
+<!-- Unable (76) -->
+<rect fill="#ffdad6" height="5" rx="1" width="56" x="605" y="24"></rect>
+<!-- Disputed (34) -->
+<rect fill="#ba1a1a" height="2" rx="1" width="56" x="605" y="22"></rect>
+<text fill="#0b1c30" font-family="IBM Plex Sans" font-size="10" font-weight="600" text-anchor="middle" x="633" y="15">2,640</text>
+<text fill="#434655" font-family="IBM Plex Sans" font-size="11" text-anchor="middle" x="633" y="204">Feb 2026</text>
+</g>
+<!-- Month 6: Mar 2026 (Total: 2,840) -->
+<g class="cursor-pointer transition-opacity hover:opacity-85">
+<!-- Verified (2,482) -->
+<rect fill="#004ac6" height="157" rx="1" width="56" x="735" y="28"></rect>
+<!-- Partial (214) -->
+<rect fill="#49566c" height="13" rx="1" width="56" x="735" y="15"></rect>
+<!-- Unable (108) -->
+<rect fill="#ffdad6" height="7" rx="1" width="56" x="735" y="8"></rect>
+<!-- Disputed (36) -->
+<rect fill="#ba1a1a" height="2" rx="1" width="56" x="735" y="6"></rect>
+<text fill="#004ac6" font-family="IBM Plex Sans" font-size="11" font-weight="700" text-anchor="middle" x="763" y="2">2,840 ★</text>
+<text fill="#004ac6" font-family="IBM Plex Sans" font-size="11" font-weight="600" text-anchor="middle" x="763" y="204">Mar 2026</text>
+</g>
+</svg>
+</div>
+</div>
+<!-- Section 4: Compact Tabular Breakdown -->
+<div class="overflow-x-auto" id="table-breakdown">
+<table class="w-full text-left font-body-sm text-body-sm">
+<thead class="bg-surface-container-low/70 font-label-sm text-label-sm text-tertiary uppercase tracking-wider">
+<tr>
+<th class="py-2.5 px-space-lg">Month</th>
+<th class="py-2.5 px-space-md text-right">Total Queries</th>
+<th class="py-2.5 px-space-md text-right">Verified</th>
+<th class="py-2.5 px-space-md text-right">Partial Match</th>
+<th class="py-2.5 px-space-md text-right">Unable to Verify</th>
+<th class="py-2.5 px-space-md text-right">Disputed</th>
+<th class="py-2.5 px-space-md text-right">Dispute Rate</th>
+<th class="py-2.5 px-space-lg text-center">Status / Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y-0 text-on-surface">
+<!-- Mar 2026 -->
+<tr class="hover:bg-surface-container-low transition-colors font-data-mono-sm text-data-mono-sm">
+<td class="py-3 px-space-lg font-headline-sm text-body-md text-on-surface">
+              Mar 2026 <span class="ml-1.5 px-1.5 py-0.5 rounded bg-surface-container-high text-primary font-data-mono-sm text-[10px] font-semibold">LATEST</span>
+</td>
+<td class="py-3 px-space-md text-right font-semibold text-on-surface">2,840</td>
+<td class="py-3 px-space-md text-right text-primary font-medium">2,482 <span class="text-tertiary font-normal">(87.4%)</span></td>
+<td class="py-3 px-space-md text-right text-on-surface">214 <span class="text-tertiary font-normal">(7.5%)</span></td>
+<td class="py-3 px-space-md text-right text-tertiary">108 <span class="text-tertiary font-normal">(3.8%)</span></td>
+<td class="py-3 px-space-md text-right text-error font-medium">36 <span class="text-tertiary font-normal">(1.3%)</span></td>
+<td class="py-3 px-space-md text-right">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-data-mono-sm text-[11px]">1.27%</span>
+</td>
+<td class="py-3 px-space-lg text-center">
+<div class="inline-flex items-center gap-1.5">
+<button class="p-1 rounded text-outline hover:text-primary hover:bg-surface-container-high transition-colors" title="Download Monthly Bundle">
+<span class="material-symbols-outlined text-[18px]">download</span>
+</button>
+<button class="p-1 rounded text-outline hover:text-on-surface hover:bg-surface-container-high transition-colors" title="Inspect Telemetry Ledger">
+<span class="material-symbols-outlined text-[18px]">read_more</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Feb 2026 -->
+<tr class="hover:bg-surface-container-low transition-colors font-data-mono-sm text-data-mono-sm">
+<td class="py-3 px-space-lg font-headline-sm text-body-md text-on-surface">Feb 2026</td>
+<td class="py-3 px-space-md text-right font-semibold text-on-surface">2,640</td>
+<td class="py-3 px-space-md text-right text-primary font-medium">2,352 <span class="text-tertiary font-normal">(89.1%)</span></td>
+<td class="py-3 px-space-md text-right text-on-surface">178 <span class="text-tertiary font-normal">(6.7%)</span></td>
+<td class="py-3 px-space-md text-right text-tertiary">76 <span class="text-tertiary font-normal">(2.9%)</span></td>
+<td class="py-3 px-space-md text-right text-error font-medium">34 <span class="text-tertiary font-normal">(1.3%)</span></td>
+<td class="py-3 px-space-md text-right">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-data-mono-sm text-[11px]">1.29%</span>
+</td>
+<td class="py-3 px-space-lg text-center">
+<div class="inline-flex items-center gap-1.5">
+<button class="p-1 rounded text-outline hover:text-primary hover:bg-surface-container-high transition-colors" title="Download Monthly Bundle">
+<span class="material-symbols-outlined text-[18px]">download</span>
+</button>
+<button class="p-1 rounded text-outline hover:text-on-surface hover:bg-surface-container-high transition-colors" title="Inspect Telemetry Ledger">
+<span class="material-symbols-outlined text-[18px]">read_more</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Jan 2026 -->
+<tr class="hover:bg-surface-container-low transition-colors font-data-mono-sm text-data-mono-sm">
+<td class="py-3 px-space-lg font-headline-sm text-body-md text-on-surface">Jan 2026</td>
+<td class="py-3 px-space-md text-right font-semibold text-on-surface">2,410</td>
+<td class="py-3 px-space-md text-right text-primary font-medium">2,145 <span class="text-tertiary font-normal">(89.0%)</span></td>
+<td class="py-3 px-space-md text-right text-on-surface">161 <span class="text-tertiary font-normal">(6.7%)</span></td>
+<td class="py-3 px-space-md text-right text-tertiary">71 <span class="text-tertiary font-normal">(2.9%)</span></td>
+<td class="py-3 px-space-md text-right text-error font-medium">33 <span class="text-tertiary font-normal">(1.4%)</span></td>
+<td class="py-3 px-space-md text-right">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-data-mono-sm text-[11px]">1.37%</span>
+</td>
+<td class="py-3 px-space-lg text-center">
+<div class="inline-flex items-center gap-1.5">
+<button class="p-1 rounded text-outline hover:text-primary hover:bg-surface-container-high transition-colors" title="Download Monthly Bundle">
+<span class="material-symbols-outlined text-[18px]">download</span>
+</button>
+<button class="p-1 rounded text-outline hover:text-on-surface hover:bg-surface-container-high transition-colors" title="Inspect Telemetry Ledger">
+<span class="material-symbols-outlined text-[18px]">read_more</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Dec 2025 -->
+<tr class="hover:bg-surface-container-low transition-colors font-data-mono-sm text-data-mono-sm">
+<td class="py-3 px-space-lg font-headline-sm text-body-md text-on-surface">Dec 2025</td>
+<td class="py-3 px-space-md text-right font-semibold text-on-surface">2,210</td>
+<td class="py-3 px-space-md text-right text-primary font-medium">1,960 <span class="text-tertiary font-normal">(88.7%)</span></td>
+<td class="py-3 px-space-md text-right text-on-surface">155 <span class="text-tertiary font-normal">(7.0%)</span></td>
+<td class="py-3 px-space-md text-right text-tertiary">65 <span class="text-tertiary font-normal">(2.9%)</span></td>
+<td class="py-3 px-space-md text-right text-error font-medium">30 <span class="text-tertiary font-normal">(1.4%)</span></td>
+<td class="py-3 px-space-md text-right">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-data-mono-sm text-[11px]">1.36%</span>
+</td>
+<td class="py-3 px-space-lg text-center">
+<div class="inline-flex items-center gap-1.5">
+<button class="p-1 rounded text-outline hover:text-primary hover:bg-surface-container-high transition-colors" title="Download Monthly Bundle">
+<span class="material-symbols-outlined text-[18px]">download</span>
+</button>
+<button class="p-1 rounded text-outline hover:text-on-surface hover:bg-surface-container-high transition-colors" title="Inspect Telemetry Ledger">
+<span class="material-symbols-outlined text-[18px]">read_more</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Nov 2025 -->
+<tr class="hover:bg-surface-container-low transition-colors font-data-mono-sm text-data-mono-sm">
+<td class="py-3 px-space-lg font-headline-sm text-body-md text-on-surface">Nov 2025</td>
+<td class="py-3 px-space-md text-right font-semibold text-on-surface">2,050</td>
+<td class="py-3 px-space-md text-right text-primary font-medium">1,815 <span class="text-tertiary font-normal">(88.5%)</span></td>
+<td class="py-3 px-space-md text-right text-on-surface">142 <span class="text-tertiary font-normal">(6.9%)</span></td>
+<td class="py-3 px-space-md text-right text-tertiary">64 <span class="text-tertiary font-normal">(3.1%)</span></td>
+<td class="py-3 px-space-md text-right text-error font-medium">29 <span class="text-tertiary font-normal">(1.4%)</span></td>
+<td class="py-3 px-space-md text-right">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-data-mono-sm text-[11px]">1.41%</span>
+</td>
+<td class="py-3 px-space-lg text-center">
+<div class="inline-flex items-center gap-1.5">
+<button class="p-1 rounded text-outline hover:text-primary hover:bg-surface-container-high transition-colors" title="Download Monthly Bundle">
+<span class="material-symbols-outlined text-[18px]">download</span>
+</button>
+<button class="p-1 rounded text-outline hover:text-on-surface hover:bg-surface-container-high transition-colors" title="Inspect Telemetry Ledger">
+<span class="material-symbols-outlined text-[18px]">read_more</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Oct 2025 -->
+<tr class="hover:bg-surface-container-low transition-colors font-data-mono-sm text-data-mono-sm">
+<td class="py-3 px-space-lg font-headline-sm text-body-md text-on-surface">Oct 2025</td>
+<td class="py-3 px-space-md text-right font-semibold text-on-surface">1,820</td>
+<td class="py-3 px-space-md text-right text-primary font-medium">1,595 <span class="text-tertiary font-normal">(87.6%)</span></td>
+<td class="py-3 px-space-md text-right text-on-surface">120 <span class="text-tertiary font-normal">(6.6%)</span></td>
+<td class="py-3 px-space-md text-right text-tertiary">78 <span class="text-tertiary font-normal">(4.3%)</span></td>
+<td class="py-3 px-space-md text-right text-error font-medium">27 <span class="text-tertiary font-normal">(1.5%)</span></td>
+<td class="py-3 px-space-md text-right">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-data-mono-sm text-[11px]">1.48%</span>
+</td>
+<td class="py-3 px-space-lg text-center">
+<div class="inline-flex items-center gap-1.5">
+<button class="p-1 rounded text-outline hover:text-primary hover:bg-surface-container-high transition-colors" title="Download Monthly Bundle">
+<span class="material-symbols-outlined text-[18px]">download</span>
+</button>
+<button class="p-1 rounded text-outline hover:text-on-surface hover:bg-surface-container-high transition-colors" title="Inspect Telemetry Ledger">
+<span class="material-symbols-outlined text-[18px]">read_more</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+<!-- Aggregate Summary Footer -->
+<tfoot class="bg-surface-container-low/90 font-data-mono-sm text-data-mono-sm text-on-surface font-semibold">
+<tr>
+<td class="py-3 px-space-lg text-on-surface">Q1 2026 Aggregate Summary</td>
+<td class="py-3 px-space-md text-right">7,890</td>
+<td class="py-3 px-space-md text-right text-primary">6,979 (88.5%)</td>
+<td class="py-3 px-space-md text-right">553 (7.0%)</td>
+<td class="py-3 px-space-md text-right text-tertiary">255 (3.2%)</td>
+<td class="py-3 px-space-md text-right text-error">103 (1.3%)</td>
+<td class="py-3 px-space-md text-right">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-data-mono-sm text-[11px]">1.31% SLA</span>
+</td>
+<td class="py-3 px-space-lg text-center font-label-sm text-label-sm text-tertiary">
+              IMMUTABLE AUDITED
+            </td>
+</tr>
+</tfoot>
+</table>
+</div>
+</div>
+<!-- Section 5: Secondary Technical Metrics Rail -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Card A: Source Gateway Mix -->
+<div class="bg-surface-container-lowest p-space-lg rounded shadow-sm space-y-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-primary">hub</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Gateway Distribution</h3>
+</div>
+<span class="font-data-mono-sm text-data-mono-sm text-tertiary">Q1 LIVE</span>
+</div>
+<div class="space-y-space-sm font-label-md text-label-md">
+<div class="space-y-1">
+<div class="flex justify-between text-body-sm">
+<span class="text-on-surface">Instant API Gateways (Workday, ADP, Gusto)</span>
+<span class="font-data-mono-sm text-on-surface font-semibold">73.4%</span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-1.5 overflow-hidden">
+<div class="bg-primary h-full" style="width: 73.4%"></div>
+</div>
+</div>
+<div class="space-y-1">
+<div class="flex justify-between text-body-sm">
+<span class="text-on-surface">Direct Employer Payroll Portals</span>
+<span class="font-data-mono-sm text-on-surface font-semibold">18.2%</span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-1.5 overflow-hidden">
+<div class="bg-secondary h-full" style="width: 18.2%"></div>
+</div>
+</div>
+<div class="space-y-1">
+<div class="flex justify-between text-body-sm">
+<span class="text-on-surface">W-2 / Paystub OCR Extraction</span>
+<span class="font-data-mono-sm text-on-surface font-semibold">8.4%</span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-1.5 overflow-hidden">
+<div class="bg-tertiary h-full" style="width: 8.4%"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Card B: SLA Latency Quantiles -->
+<div class="bg-surface-container-lowest p-space-lg rounded shadow-sm space-y-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-primary">speed</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Latency Quantiles</h3>
+</div>
+<span class="font-data-mono-sm text-data-mono-sm text-secondary font-semibold">PASS SLA</span>
+</div>
+<div class="grid grid-cols-3 gap-2 text-center pt-2">
+<div class="bg-surface-container-low p-2.5 rounded">
+<div class="font-data-mono-sm text-[11px] text-tertiary uppercase">p50 Instant</div>
+<div class="font-headline-md text-headline-md text-primary mt-0.5">8.2s</div>
+<div class="font-label-sm text-[10px] text-secondary">Target &lt; 15s</div>
+</div>
+<div class="bg-surface-container-low p-2.5 rounded">
+<div class="font-data-mono-sm text-[11px] text-tertiary uppercase">p95 Auto</div>
+<div class="font-headline-md text-headline-md text-on-surface mt-0.5">42.1s</div>
+<div class="font-label-sm text-[10px] text-secondary">Target &lt; 60s</div>
+</div>
+<div class="bg-surface-container-low p-2.5 rounded">
+<div class="font-data-mono-sm text-[11px] text-tertiary uppercase">p99 Manual</div>
+<div class="font-headline-md text-headline-md text-tertiary mt-0.5">4.8h</div>
+<div class="font-label-sm text-[10px] text-secondary">Target &lt; 24h</div>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-tertiary">
+        Zero downtime recorded during March maintenance cycles. Failover routed across 3 active availability zones.
+      </p>
+</div>
+<!-- Card C: Dispute Resolution Metrics -->
+<div class="bg-surface-container-lowest p-space-lg rounded shadow-sm space-y-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-error">gavel</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Dispute Audit Trail</h3>
+</div>
+<span class="font-data-mono-sm text-data-mono-sm px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-medium">FCRA § 611</span>
+</div>
+<div class="space-y-space-xs font-body-sm text-body-sm">
+<div class="flex justify-between py-1 border-b border-surface-container-high/40">
+<span class="text-tertiary">Open Contested Records</span>
+<span class="font-data-mono-sm text-data-mono-sm font-semibold text-on-surface">14 claims</span>
+</div>
+<div class="flex justify-between py-1 border-b border-surface-container-high/40">
+<span class="text-tertiary">Avg Time to Resolution</span>
+<span class="font-data-mono-sm text-data-mono-sm font-semibold text-on-surface">3.2 days (SLA &lt; 30d)</span>
+</div>
+<div class="flex justify-between py-1 border-b border-surface-container-high/40">
+<span class="text-tertiary">Applicant Cure Success Rate</span>
+<span class="font-data-mono-sm text-data-mono-sm font-semibold text-secondary">78.6%</span>
+</div>
+<div class="flex justify-between py-1">
+<span class="text-tertiary">Fraud / Shell Disclosures</span>
+<span class="font-data-mono-sm text-data-mono-sm font-semibold text-error">3 items flagged</span>
+</div>
+</div>
+</div>
+</div>
+</div></main></div></body></html>
