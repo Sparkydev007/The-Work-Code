@@ -1220,4 +1220,104 @@
       document.getElementById('columns-popover')?.classList.add('hidden');
     }
   });
+</script>
+
+<!-- The Work Code boot: session guard + persona + navigation + live KPIs -->
+<script src="/assets/js/twc-api.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  // ---- 1. Session guard: bounce to sign-in when unauthenticated ----
+  if (window.TWC && !TWC.token()) {
+    window.location.replace('/stitch-screens/sign_in_the_work_code/code.html');
+    return;
+  }
+
+  // ---- 2. Persona from the authenticated session ----
+  var ROLE_TITLES = {
+    ADMIN: 'Chief Verification Officer',
+    ANALYST: 'Verification Analyst',
+    DEVELOPER: 'Platform Developer',
+    VIEWER: 'Read-only Observer'
+  };
+  var user = window.TWC ? TWC.user() : null;
+  if (user) {
+    var personaDivs = document.querySelectorAll('aside .truncate > div');
+    if (personaDivs.length >= 3) {
+      personaDivs[0].textContent = user.name || 'Demo User';
+      personaDivs[1].textContent = ROLE_TITLES[user.role] || (user.role || 'Member');
+      personaDivs[2].textContent = user.org || 'ORG-8821';
+    }
+  }
+
+  // ---- 3. Sidebar navigation to real screens ----
+  var SCREENS = {
+    'dashboard': 'main_operations_dashboard',
+    'new-verification': 'initiate_new_verification',
+    'verification-requests': 'verification_requests',
+    'employees-directory': 'employees_directory',
+    'income-verification': 'income_verification',
+    'verification-reports': 'verification_reports',
+    'risk-fraud-analytics': 'risk_fraud_analytics',
+    'anomalies': 'anomalies',
+    'api-keys-logs': 'api_keys_logs',
+    'webhooks': 'webhooks',
+    'audit-logs': 'audit_logs',
+    'security-center': 'security_center',
+    'documentation-support': 'api_docs'
+  };
+  var MISSING = { 'employers-network': 'Employers Network', 'organization-settings': 'Organization Settings' };
+
+  document.querySelectorAll('[data-path]').forEach(function (el) {
+    var path = el.getAttribute('data-path');
+    if (el.tagName !== 'A' || !path) { return; }
+    el.addEventListener('click', function (ev) {
+      ev.preventDefault();
+      if (SCREENS[path]) {
+        window.location.href = '/stitch-screens/' + SCREENS[path] + '/code.html';
+      } else if (MISSING[path]) {
+        if (window.TWC && TWC.showToast) { TWC.showToast(MISSING[path] + ' screen is not part of the demo set yet.', 'info'); }
+      }
+    });
+  });
+
+  // ---- 4. Sign out (sidebar persona button) ----
+  var personaCardBtn = document.querySelector('aside .truncate ~ button');
+  if (personaCardBtn) {
+    personaCardBtn.addEventListener('click', function (ev) {
+      ev.stopPropagation();
+      if (window.TWC) { TWC.logout(); }
+      window.location.href = '/stitch-screens/sign_in_the_work_code/code.html';
+    });
+  }
+
+  // ---- 5. Live KPI counts from the gateway (falls back to static values) ----
+  function setKpi(index, value) {
+    var spans = document.querySelectorAll('span.font-display-lg.text-display-lg');
+    if (spans.length > index) { spans[index].textContent = value; }
+  }
+  function setStatusPill(text) {
+    var pill = document.querySelector('header .font-data-mono-sm.text-data-mono-sm');
+    if (pill && text) { pill.textContent = text; }
+  }
+
+  if (window.TWC) {
+    Promise.all([
+      TWC.get('/api/v1/verifications?size=1', { silent: true }).catch(function () { return null; }),
+      TWC.get('/api/v1/verifications?status=COMPLETED&size=1', { silent: true }).catch(function () { return null; }),
+      TWC.get('/api/v1/verifications?status=PENDING&size=1', { silent: true }).catch(function () { return null; }),
+      TWC.get('/api/v1/verifications?status=REVIEW_REQUIRED&size=1', { silent: true }).catch(function () { return null; })
+    ]).then(function (r) {
+      if (!r[0]) { return; } // backend down: keep Stitch static values
+      setKpi(0, (r[0].totalElements || 0).toLocaleString());
+      setKpi(1, (r[1] ? r[1].totalElements : 0).toLocaleString());
+      setKpi(2, (r[2] ? r[2].totalElements : 0).toLocaleString());
+      setKpi(3, (r[3] ? r[3].totalElements : 0).toLocaleString());
+      var total = r[0].totalElements || 0;
+      var done = r[1] ? r[1].totalElements : 0;
+      setStatusPill('Status: ' + (total ? Math.round(100 * done / total) : 100) + '% Verified | ' + total + ' requests');
+    });
+  }
+})();
 </script></body></html>

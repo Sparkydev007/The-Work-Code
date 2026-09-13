@@ -119,7 +119,10 @@
       if (!persona) { return Promise.reject({ message: 'Unknown persona' }); }
       return this.post('/api/v1/auth/login', { username: persona.username }, { silent: true })
         .then(function (data) {
-          setSession(data.token, data.user || persona);
+          var u = data.user || persona;
+          // Gateway returns organizationId; the UI reads org. Normalize both.
+          if (u && !u.org && u.organizationId) { u.org = u.organizationId; }
+          setSession(data.token, u);
           return data;
         })
         .catch(function (err) {

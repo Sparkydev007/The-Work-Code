@@ -324,6 +324,9 @@
               <span>Sign in</span>
               <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
             </button>
+
+            <!-- Sign-in error (shown on failed auth) -->
+            <p id="signin-error" role="alert" style="display:none;" class="text-xs font-medium text-red-600 bg-red-50 border border-red-100 rounded-lg px-3 py-2"></p>
           </form>
 
           <!-- Security Badge & Footer line inside or right beneath -->
@@ -353,6 +356,9 @@
     </div>
 
   </main>
+
+  <!-- API client (real auth against the gateway, demo fallback offline) -->
+  <script src="/assets/js/twc-api.js"></script>
 
   <!-- Interactive Demo Script -->
   <script>
@@ -390,10 +396,33 @@
       });
     }
 
-    // 3. Form Submit Feedback Simulation
+    // 3. Real sign-in: authenticate against the gateway, store the session
+    //    token, then continue to the operations dashboard.
+    const DEMO_PERSONAS = {
+      admin: { username: 'admin', name: 'Alex Morgan' },
+      analyst: { username: 'analyst', name: 'Sam Whitfield' },
+      developer: { username: 'developer', name: 'Devon Park' },
+      viewer: { username: 'viewer', name: 'Riley Chen' }
+    };
+
+    function personaFromEmail(email) {
+      const v = (email || '').toLowerCase();
+      if (/analyst|sam\.|whitfield/.test(v)) return 'analyst';
+      if (/dev(eloper)?\.|devon|park@/.test(v)) return 'developer';
+      if (/viewer|riley|chen@/.test(v)) return 'viewer';
+      return 'admin';
+    }
+
     function handleSignIn() {
       const btn = document.getElementById('submit-btn');
+      const emailInput = document.getElementById('email');
+      const errEl = document.getElementById('signin-error');
+      const personaKey = personaFromEmail(emailInput ? emailInput.value : '');
+      const persona = DEMO_PERSONAS[personaKey];
+
+      if (errEl) { errEl.style.display = 'none'; }
       if (btn) {
+        btn.disabled = true;
         btn.innerHTML = `
           <svg class="animate-spin -ml-1 mr-2 h-4 w-4 text-white" fill="none" viewBox="0 0 24 24">
             <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
@@ -401,16 +430,61 @@
           </svg>
           <span>Authenticating...</span>
         `;
-        setTimeout(() => {
+      }
+
+      const finish = () => {
+        if (btn) {
           btn.innerHTML = `
             <span class="material-symbols-outlined text-[18px]">check_circle</span>
             <span>Authenticated</span>
           `;
           btn.classList.remove('bg-teal-brand', 'hover:bg-teal-hover');
           btn.classList.add('bg-emerald-600');
-        }, 800);
-      }
+        }
+        setTimeout(() => {
+          window.location.href = '/stitch-screens/main_operations_dashboard/code.html';
+        }, 500);
+      };
+
+      const fail = (msg) => {
+        if (btn) {
+          btn.disabled = false;
+          btn.innerHTML = `<span>Sign in</span><span class="material-symbols-outlined text-[18px]">arrow_forward</span>`;
+        }
+        if (errEl) {
+          errEl.textContent = msg || 'Sign-in failed. Verify the API gateway is running on :8080.';
+          errEl.style.display = 'block';
+        }
+      };
+
+      // No API client loaded (opened as a raw file): continue in demo mode.
+      if (!window.TWC) { setTimeout(finish, 800); return; }
+
+      TWC.loginPersona(personaKey)
+        .then((data) => {
+          // demoFallback = backend unreachable but demo mode keeps session alive.
+          finish();
+        })
+        .catch((err) => {
+          fail(window.TWC.errorMessage ? TWC.errorMessage(err) : 'Sign-in failed.');
+        });
     }
+
+    // SSO buttons: demo shortcuts — Okta→admin, Entra→analyst, Google→developer.
+    window.addEventListener('DOMContentLoaded', () => {
+      const ssoButtons = Array.from(document.querySelectorAll('button[type="button"]'));
+      const personaFor = (label) =>
+        /okta/i.test(label) ? 'admin' : /entra|microsoft/i.test(label) ? 'analyst' : /google/i.test(label) ? 'developer' : null;
+      ssoButtons.forEach((b) => {
+        const persona = personaFor(b.textContent || '');
+        if (!persona) { return; }
+        b.addEventListener('click', () => {
+          const emailInput = document.getElementById('email');
+          if (emailInput) { emailInput.value = persona + '@workcode-verify.internal'; }
+          handleSignIn();
+        });
+      });
+    });
   </script>
 </body>
 </html>
