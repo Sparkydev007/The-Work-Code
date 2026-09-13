@@ -188,8 +188,17 @@ public final class DemoDataFactory {
                 employee.jobTitle(), employee.department(), employee.status(), employee.employmentType(),
                 currentStart, employee.terminationDate(), employee.workLocation(), source, confidence));
 
-        // ~35% of employees have one or two prior tenures that end before currentStart
-        int priorJobs = rnd.chance(35) ? (rnd.chance(30) ? 2 : 1) : 0;
+        // ~65% of employees have one to three prior tenures that end before currentStart
+        int priorJobs = 0;
+        if (rnd.chance(65)) {
+            priorJobs = 1;
+            if (rnd.chance(50)) {
+                priorJobs = 2;
+                if (rnd.chance(25)) {
+                    priorJobs = 3;
+                }
+            }
+        }
         LocalDate cursor = currentStart.minusDays(1);
         for (int i = 0; i < priorJobs && cursor.isAfter(LocalDate.of(2014, 1, 1)); i++) {
             DemoEmployer prior = pick(rnd, employers);
