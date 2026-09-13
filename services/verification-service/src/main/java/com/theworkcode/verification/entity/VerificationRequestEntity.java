@@ -114,7 +114,7 @@ public class VerificationRequestEntity {
     @Column(name = "failure_reason")
     private String failureReason;
 
-    @Column(name = "attributes", columnDefinition = "jsonb")
+    @Column(name = "attributes", columnDefinition = "text")
     private String attributes;
 
     @Column(name = "created_at", nullable = false, updatable = false)

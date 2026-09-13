@@ -16,7 +16,13 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.client.SimpleClientHttpRequestFactory;
 import org.springframework.stereotype.Component;
+import org.springframework.http.HttpRequest;
+import org.springframework.http.client.ClientHttpRequestExecution;
+import org.springframework.http.client.ClientHttpRequestInterceptor;
+import org.springframework.http.client.ClientHttpResponse;
 import org.springframework.web.client.RestClient;
+
+import com.theworkcode.common.security.RoleGuard;
 
 /**
  * Demo provider: resolves the candidate synthetic record(s) from
@@ -48,7 +54,20 @@ public class DemoIdentityProvider implements IdentityVerificationProvider {
         this.employeeClient = RestClient.builder()
                 .baseUrl(employeeServiceUrl)
                 .requestFactory(factory)
+                .requestInterceptor(serviceIdentity())
                 .build();
+    }
+
+    /**
+     * Internal service identity: peer services authorize on forwarded identity
+     * headers; internal callers present a service identity the same way.
+     */
+    private static ClientHttpRequestInterceptor serviceIdentity() {
+        return (HttpRequest request, byte[] body, ClientHttpRequestExecution execution) -> {
+            request.getHeaders().set(RoleGuard.HEADER_USER, "svc-identity");
+            request.getHeaders().set(RoleGuard.HEADER_ROLE, "ADMIN");
+            return execution.execute(request, body);
+        };
     }
 
     @Override

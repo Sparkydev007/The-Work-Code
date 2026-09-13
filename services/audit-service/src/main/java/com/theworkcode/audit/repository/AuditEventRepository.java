@@ -14,9 +14,9 @@ public interface AuditEventRepository extends JpaRepository<AuditEventEntity, UU
 
     @Query("""
             SELECT a FROM AuditEventEntity a
-            WHERE (:action IS NULL OR a.action = :action)
-              AND (:actor IS NULL OR a.actor = :actor)
-              AND (:resourceId IS NULL OR a.resourceId = :resourceId)
+            WHERE (CAST(:action AS string) IS NULL OR a.action = :action)
+              AND (CAST(:actor AS string) IS NULL OR a.actor = :actor)
+              AND (CAST(:resourceId AS string) IS NULL OR a.resourceId = :resourceId)
             """)
     Page<AuditEventEntity> search(@Param("action") String action,
                                   @Param("actor") String actor,

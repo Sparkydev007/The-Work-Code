@@ -56,13 +56,15 @@ public class ReportEntity {
     @Column(name = "generated_at", nullable = false)
     private OffsetDateTime generatedAt;
 
-    @Lob
+    // NOTE: no @Lob — Hibernate 6 + Postgres binds @Lob byte[] as an OID
+    // locator (bigint), which fails against a bytea column. A plain byte[]
+    // maps directly to bytea.
     @Column(name = "pdf_bytes", columnDefinition = "bytea")
     private byte[] pdfBytes;
 
     @Column(name = "access_count", nullable = false)
     private Integer accessCount;
 
-    @Column(name = "content", columnDefinition = "jsonb")
+    @Column(name = "content", columnDefinition = "text")
     private String content;
 }

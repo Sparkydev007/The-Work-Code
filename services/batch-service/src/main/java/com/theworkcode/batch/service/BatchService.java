@@ -25,6 +25,8 @@ import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
 
+import org.springframework.data.domain.Sort;
+
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -121,6 +123,12 @@ public class BatchService {
 
         log.info("batch_uploaded code={} rows={} invalid={}", job.getBatchCode(), rows.size(), errors.size());
         return new UploadResult(job.getBatchCode(), rows.size(), rows.size() - errors.size(), errors.size(), errors);
+    }
+
+    /** All batch jobs, newest first — drives the Batch History screen. */
+    @Transactional(readOnly = true)
+    public List<BatchJobEntity> history() {
+        return jobRepository.findAll(Sort.by(Sort.Direction.DESC, "createdAt"));
     }
 
     /** Submit a validated batch for asynchronous demo processing. */

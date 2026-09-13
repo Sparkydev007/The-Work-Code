@@ -10,6 +10,7 @@ import java.util.UUID;
 
 import com.theworkcode.common.api.ApiException;
 import com.theworkcode.common.api.ErrorCode;
+import com.theworkcode.common.security.RoleGuard;
 import com.theworkcode.verification.dto.VerificationDtos.VerificationDetail;
 import com.theworkcode.verification.dto.VerificationDtos.VerificationPageResponse;
 import com.theworkcode.verification.dto.VerificationDtos.VerificationSummary;
@@ -25,6 +26,10 @@ import lombok.extern.slf4j.Slf4j;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.client.SimpleClientHttpRequestFactory;
+import org.springframework.http.HttpRequest;
+import org.springframework.http.client.ClientHttpRequestExecution;
+import org.springframework.http.client.ClientHttpRequestInterceptor;
+import org.springframework.http.client.ClientHttpResponse;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.client.RestClient;
@@ -67,14 +72,34 @@ public class VerificationOrchestrator {
         this.employmentClient = buildClient(employmentUrl);
         this.incomeClient = buildClient(incomeUrl);
         this.riskClient = buildClient(riskUrl);
-        this.reportClient = buildClient(reportUrl);
+        this.reportClient = buildClient(reportUrl, Duration.ofSeconds(20));
     }
 
     private static RestClient buildClient(String baseUrl) {
+        return buildClient(baseUrl, Duration.ofSeconds(6));
+    }
+
+    private static RestClient buildClient(String baseUrl, Duration readTimeout) {
         SimpleClientHttpRequestFactory factory = new SimpleClientHttpRequestFactory();
         factory.setConnectTimeout(Duration.ofSeconds(2));
-        factory.setReadTimeout(Duration.ofSeconds(6));
-        return RestClient.builder().baseUrl(baseUrl).requestFactory(factory).build();
+        factory.setReadTimeout(readTimeout);
+        return RestClient.builder().baseUrl(baseUrl).requestFactory(factory)
+                .requestInterceptor(serviceIdentityInterceptor())
+                .build();
+    }
+
+    /**
+     * Internal service identity: downstream services authorize on the forwarded
+     * identity headers set by the gateway; the orchestrator presents its own
+     * service identity the same way. Direct callers are localhost-only in demo.
+     */
+    private static ClientHttpRequestInterceptor serviceIdentityInterceptor() {
+        return (HttpRequest request, byte[] body, ClientHttpRequestExecution execution) -> {
+            request.getHeaders().set(RoleGuard.HEADER_USER, "svc-verification");
+            request.getHeaders().set(RoleGuard.HEADER_ROLE, "ADMIN");
+            request.getHeaders().set("X-Forwarded-User-Name", "Verification Orchestrator");
+            return execution.execute(request, body);
+        };
     }
 
     // ------------------------------------------------------------------
@@ -276,6 +301,7 @@ public class VerificationOrchestrator {
         event.setStep(stepName);
         event.setStatus(status);
         event.setDetail(detail);
+        event.setOccurredAt(OffsetDateTime.now());
         eventRepository.save(event);
     }
 
@@ -407,11 +433,22 @@ public class VerificationOrchestrator {
     // ------------------------------------------------------------------
 
     @Transactional(readOnly = true)
-    public VerificationDetail get(UUID id) {
-        VerificationRequestEntity e = repository.findById(id)
-                .orElseThrow(() -> new ApiException(ErrorCode.VERIFICATION_NOT_FOUND,
-                        "Verification '" + id + "' was not found."));
+    public VerificationDetail get(String idOrCode) {
+        VerificationRequestEntity e = findByIdOrCode(idOrCode);
         return toDetail(e);
+    }
+
+    private VerificationRequestEntity findByIdOrCode(String idOrCode) {
+        try {
+            UUID id = UUID.fromString(idOrCode);
+            return repository.findById(id)
+                    .orElseThrow(() -> new ApiException(ErrorCode.VERIFICATION_NOT_FOUND,
+                            "Verification '" + idOrCode + "' was not found."));
+        } catch (IllegalArgumentException notAUuid) {
+            return repository.findByVerificationCode(idOrCode)
+                    .orElseThrow(() -> new ApiException(ErrorCode.VERIFICATION_NOT_FOUND,
+                            "Verification '" + idOrCode + "' was not found."));
+        }
     }
 
     @Transactional(readOnly = true)
@@ -432,9 +469,7 @@ public class VerificationOrchestrator {
 
     @Transactional
     public CreateVerificationResponse rerun(UUID id) {
-        VerificationRequestEntity e = repository.findById(id)
-                .orElseThrow(() -> new ApiException(ErrorCode.VERIFICATION_NOT_FOUND,
-                        "Verification '" + id + "' was not found."));
+        VerificationRequestEntity e = findByIdOrCode(id.toString());
         e.setStatus(VerificationRequestEntity.CREATED);
         e.setFailureReason(null);
         repository.save(e);

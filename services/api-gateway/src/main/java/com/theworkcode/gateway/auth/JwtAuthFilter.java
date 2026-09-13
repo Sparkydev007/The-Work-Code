@@ -130,7 +130,8 @@ public class JwtAuthFilter implements GlobalFilter, Ordered {
                 .map(dataBuffers -> {
                     byte[] bytes = toByteArray(dataBuffers);
                     String body = new String(bytes, StandardCharsets.UTF_8);
-                    return extractJsonString(body, "username");
+                    String username = extractJsonString(body, "username");
+                    return username == null ? "" : username;
                 })
                 .flatMap(username -> {
                     DemoUser user = DEMO_USERS.get(username == null ? "" : username.toLowerCase());

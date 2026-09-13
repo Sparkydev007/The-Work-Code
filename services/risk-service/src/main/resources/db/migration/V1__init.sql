@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS risk_assessments (
     employer_name    VARCHAR(200),
     score            INTEGER     NOT NULL,
     band             VARCHAR(10) NOT NULL, -- LOW | MEDIUM | HIGH | CRITICAL
-    signals          JSONB,
+    signals          TEXT,
     created_at       TIMESTAMPTZ NOT NULL DEFAULT now(),
     updated_at       TIMESTAMPTZ NOT NULL DEFAULT now()
 );

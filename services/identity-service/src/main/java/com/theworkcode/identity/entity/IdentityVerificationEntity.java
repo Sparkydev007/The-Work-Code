@@ -64,7 +64,7 @@ public class IdentityVerificationEntity {
     @Column(name = "matched_employee_number")
     private String matchedEmployeeNumber;
 
-    @Column(name = "breakdown", columnDefinition = "jsonb")
+    @Column(name = "breakdown", columnDefinition = "text")
     private String breakdown;
 
     @Column(name = "request_id")

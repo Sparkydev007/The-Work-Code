@@ -31,7 +31,7 @@ public class WebhookDeliveryEntity {
     @Column(name = "event_type", nullable = false)
     private String eventType;
 
-    @Column(name = "payload", columnDefinition = "jsonb")
+    @Column(name = "payload", columnDefinition = "text")
     private String payload;
 
     @Column(name = "status", nullable = false)

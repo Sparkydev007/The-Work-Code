@@ -86,11 +86,12 @@ public class WebhookService {
         if (!"ACTIVE".equals(webhook.getStatus())) {
             throw new ApiException(ErrorCode.CONFLICT, "Webhook is not active.");
         }
-        boolean success = !simulateFailure && Math.abs(id.hashCode() + eventType.hashCode()) % 10 != 2;
+        String resolvedEvent = eventType == null || eventType.isBlank() ? "verification.completed" : eventType;
+        boolean success = !simulateFailure && Math.abs(id.hashCode() + resolvedEvent.hashCode()) % 10 != 2;
 
         WebhookDeliveryEntity delivery = new WebhookDeliveryEntity();
         delivery.setWebhookId(id);
-        delivery.setEventType(eventType == null ? "verification.completed" : eventType);
+        delivery.setEventType(resolvedEvent);
         delivery.setPayload(writeJson(Map.of(
                 "event", delivery.getEventType(),
                 "webhookId", String.valueOf(id),

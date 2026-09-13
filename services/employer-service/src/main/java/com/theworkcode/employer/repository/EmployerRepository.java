@@ -17,10 +17,10 @@ public interface EmployerRepository extends JpaRepository<EmployerEntity, UUID> 
 
     @Query("""
             SELECT e FROM EmployerEntity e
-            WHERE (:search IS NULL OR LOWER(e.name) LIKE LOWER(CONCAT('%', :search, '%'))
-                   OR LOWER(e.employerCode) LIKE LOWER(CONCAT('%', :search, '%')))
-              AND (:industry IS NULL OR e.industry = :industry)
-              AND (:trustStatus IS NULL OR e.trustStatus = :trustStatus)
+            WHERE (CAST(:search AS string) IS NULL OR LOWER(e.name) LIKE LOWER(CONCAT('%', CAST(:search AS string), '%'))
+                   OR LOWER(e.employerCode) LIKE LOWER(CONCAT('%', CAST(:search AS string), '%')))
+              AND (CAST(:industry AS string) IS NULL OR e.industry = :industry)
+              AND (CAST(:trustStatus AS string) IS NULL OR e.trustStatus = :trustStatus)
             """)
     Page<EmployerEntity> search(@Param("search") String search,
                                 @Param("industry") String industry,

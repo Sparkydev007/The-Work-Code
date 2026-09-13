@@ -77,11 +77,21 @@ public class ReportService {
 
     @Transactional
     public ReportEntity get(String reportCode) {
-        ReportEntity e = repository.findByReportCode(reportCode)
-                .orElseThrow(() -> new ApiException(ErrorCode.REPORT_NOT_FOUND,
-                        "Report '" + reportCode + "' was not found."));
+        ReportEntity e = lookup(reportCode);
         e.setAccessCount(e.getAccessCount() + 1);
         return repository.save(e);
+    }
+
+    /**
+     * Reports are addressable by their own code (RPT-...) or by the
+     * verification code (VER-...) that produced them — the UI links from a
+     * verification row directly to its report.
+     */
+    private ReportEntity lookup(String code) {
+        return repository.findByReportCode(code)
+                .or(() -> repository.findFirstByVerificationCodeOrderByGeneratedAtDesc(code))
+                .orElseThrow(() -> new ApiException(ErrorCode.REPORT_NOT_FOUND,
+                        "Report '" + code + "' was not found."));
     }
 
     @Transactional
@@ -91,9 +101,7 @@ public class ReportService {
 
     @Transactional
     public Map<String, Object> regenerate(String reportCode, String generatedBy) {
-        ReportEntity e = repository.findByReportCode(reportCode)
-                .orElseThrow(() -> new ApiException(ErrorCode.REPORT_NOT_FOUND,
-                        "Report '" + reportCode + "' was not found."));
+        ReportEntity e = lookup(reportCode);
         Map<String, Object> model = readJson(e.getContent());
         model.put("reportCode", e.getReportCode());
         model.put("generatedAt", DateTimeFormatter.ISO_OFFSET_DATE_TIME.format(OffsetDateTime.now()));

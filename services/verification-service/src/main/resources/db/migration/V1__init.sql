@@ -22,8 +22,8 @@ CREATE TABLE IF NOT EXISTS verification_requests (
     employment_ref       VARCHAR(64),
     income_ref           VARCHAR(64),
     report_ref           VARCHAR(64),
-    failure_reason       VARCHAR(300),
-    attributes           JSONB,
+    failure_reason       TEXT,
+    attributes           TEXT,
     created_at           TIMESTAMPTZ  NOT NULL DEFAULT now(),
     updated_at           TIMESTAMPTZ  NOT NULL DEFAULT now(),
     completed_at         TIMESTAMPTZ
@@ -73,7 +73,7 @@ CREATE TABLE IF NOT EXISTS manual_verifications (
     assigned_analyst VARCHAR(120),
     employer_contact VARCHAR(200),
     contact_method   VARCHAR(40),
-    requested_attributes JSONB,
+    requested_attributes TEXT,
     notes            VARCHAR(1000),
     status           VARCHAR(30) NOT NULL, -- PENDING | IN_PROGRESS | AWAITING_RESPONSE | COMPLETED | FAILED
     created_at       TIMESTAMPTZ NOT NULL DEFAULT now(),
@@ -84,7 +84,8 @@ CREATE TABLE IF NOT EXISTS manual_verifications (
 CREATE INDEX IF NOT EXISTS idx_manual_status ON manual_verifications (status);
 
 CREATE TABLE IF NOT EXISTS organization_credentialing (
-    organization_id   VARCHAR(40) PRIMARY KEY,
+    id                UUID PRIMARY KEY,
+    organization_id   VARCHAR(40) NOT NULL UNIQUE,
     organization_name VARCHAR(200) NOT NULL,
     verification_purpose VARCHAR(200),
     credential_status VARCHAR(40) NOT NULL, -- PENDING_CREDENTIALING | CREDENTIALED | SUSPENDED

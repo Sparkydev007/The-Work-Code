@@ -6,8 +6,8 @@ spring:
     name: api-gateway
   cloud:
     gateway:
-      default-filters:
-        - RemoveRequestHeader=X-Forwarded-User-Role
+      # NOTE: identity headers (X-Forwarded-User-*) are set/overwritten by JwtAuthFilter
+      # from the validated JWT - client-supplied values never survive.
       routes:
         # ---------- Auth (public) ----------
         - id: auth
@@ -84,11 +84,8 @@ spring:
 workcode:
   gateway:
     jwt-secret: ${JWT_SECRET:demo-secret-key-change-me-0123456789abcdef}
-    # Public paths that skip JWT validation
-    public-paths:
-      - /api/v1/auth
-      - /api/health
-      - /actuator
+    # Public paths that skip JWT validation (comma-separated for relaxed binding)
+    public-paths: /api/v1/auth,/api/health,/actuator
 
 management:
   endpoints:

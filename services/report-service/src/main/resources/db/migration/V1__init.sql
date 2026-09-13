@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS reports (
     generated_at      TIMESTAMPTZ  NOT NULL DEFAULT now(),
     pdf_bytes         BYTEA,
     access_count      INTEGER      NOT NULL DEFAULT 0,
-    content           JSONB
+    content           TEXT
 );
 
 CREATE INDEX IF NOT EXISTS idx_reports_verification ON reports (verification_id);

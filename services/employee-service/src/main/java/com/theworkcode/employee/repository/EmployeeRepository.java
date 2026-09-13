@@ -17,12 +17,12 @@ public interface EmployeeRepository extends JpaRepository<EmployeeEntity, UUID> 
 
     @Query("""
             SELECT e FROM EmployeeEntity e
-            WHERE (:search IS NULL OR LOWER(e.name) LIKE LOWER(CONCAT('%', :search, '%'))
-                   OR LOWER(e.employeeNumber) LIKE LOWER(CONCAT('%', :search, '%'))
-                   OR LOWER(e.email) LIKE LOWER(CONCAT('%', :search, '%')))
-              AND (:status IS NULL OR e.status = :status)
-              AND (:employerCode IS NULL OR e.employerCode = :employerCode)
-              AND (:department IS NULL OR e.department = :department)
+            WHERE (CAST(:search AS string) IS NULL OR LOWER(e.name) LIKE LOWER(CONCAT('%', CAST(:search AS string), '%'))
+                   OR LOWER(e.employeeNumber) LIKE LOWER(CONCAT('%', CAST(:search AS string), '%'))
+                   OR LOWER(e.email) LIKE LOWER(CONCAT('%', CAST(:search AS string), '%')))
+              AND (CAST(:status AS string) IS NULL OR e.status = :status)
+              AND (CAST(:employerCode AS string) IS NULL OR e.employerCode = :employerCode)
+              AND (CAST(:department AS string) IS NULL OR e.department = :department)
             """)
     Page<EmployeeEntity> search(@Param("search") String search,
                                 @Param("status") String status,

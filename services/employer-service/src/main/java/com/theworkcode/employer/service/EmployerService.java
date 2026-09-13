@@ -13,7 +13,6 @@ import com.theworkcode.employer.dto.EmployerDtos.PageResponse;
 import com.theworkcode.employer.entity.EmployerEntity;
 import com.theworkcode.employer.repository.EmployerRepository;
 
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -33,7 +32,6 @@ import org.springframework.web.client.RestClient;
  */
 @Slf4j
 @Service
-@RequiredArgsConstructor
 public class EmployerService {
 
     private final EmployerRepository repository;

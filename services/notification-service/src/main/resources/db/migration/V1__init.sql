@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS webhook_deliveries (
     id          UUID PRIMARY KEY,
     webhook_id  UUID        NOT NULL,
     event_type  VARCHAR(60) NOT NULL,
-    payload     JSONB,
+    payload     TEXT,
     status      VARCHAR(20) NOT NULL, -- SUCCESS | FAILED | RETRYING
     attempt     INTEGER     NOT NULL DEFAULT 1,
     response_code INTEGER,

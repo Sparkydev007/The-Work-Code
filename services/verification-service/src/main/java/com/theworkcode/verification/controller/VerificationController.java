@@ -41,10 +41,10 @@ public class VerificationController {
         return ApiResponse.ok(orchestrator.create(createRequest, user, org, simulate));
     }
 
-    @GetMapping("/{id}")
-    public ApiResponse<VerificationDetail> get(@PathVariable UUID id, HttpServletRequest request) {
+    @GetMapping("/{idOrCode}")
+    public ApiResponse<VerificationDetail> get(@PathVariable String idOrCode, HttpServletRequest request) {
         RoleGuard.require(request, "verification:read");
-        return ApiResponse.ok(orchestrator.get(id));
+        return ApiResponse.ok(orchestrator.get(idOrCode));
     }
 
     @GetMapping

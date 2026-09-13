@@ -56,7 +56,7 @@ public class ManualVerificationEntity {
     @Column(name = "contact_method")
     private String contactMethod;
 
-    @Column(name = "requested_attributes", columnDefinition = "jsonb")
+    @Column(name = "requested_attributes", columnDefinition = "text")
     private String requestedAttributes;
 
     @Column(name = "notes")

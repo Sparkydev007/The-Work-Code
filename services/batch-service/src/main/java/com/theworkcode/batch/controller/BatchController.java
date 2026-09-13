@@ -38,6 +38,12 @@ public class BatchController {
         return ApiResponse.ok(batchService.upload(file, RoleGuard.currentUser(request)));
     }
 
+    @GetMapping("/api/v1/batches")
+    public ApiResponse<List<BatchJobEntity>> history(HttpServletRequest request) {
+        RoleGuard.require(request, "batch");
+        return ApiResponse.ok(batchService.history());
+    }
+
     @PostMapping("/api/v1/batches/{batchCode}/submit")
     public ApiResponse<Map<String, Object>> submit(@PathVariable String batchCode, HttpServletRequest request) {
         RoleGuard.require(request, "batch");

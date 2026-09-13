@@ -51,7 +51,7 @@ CREATE TABLE IF NOT EXISTS income_verifications (
     annualized_income BIGINT,
     monthly_income    BIGINT,
     pay_frequency     VARCHAR(20),
-    details           JSONB,
+    details           TEXT,
     request_id        VARCHAR(64),
     created_at        TIMESTAMPTZ NOT NULL DEFAULT now(),
     updated_at        TIMESTAMPTZ NOT NULL DEFAULT now()

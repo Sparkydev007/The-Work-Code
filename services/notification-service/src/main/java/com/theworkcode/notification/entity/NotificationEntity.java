@@ -42,4 +42,11 @@ public class NotificationEntity {
 
     @Column(name = "created_at", nullable = false)
     private OffsetDateTime createdAt;
+
+    @jakarta.persistence.PrePersist
+    void onCreate() {
+        if (createdAt == null) {
+            createdAt = OffsetDateTime.now();
+        }
+    }
 }

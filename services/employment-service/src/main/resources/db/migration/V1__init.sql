@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS employment_verifications (
     result            VARCHAR(20)  NOT NULL, -- VERIFIED | REVIEW | NOT_VERIFIED | NO_RECORD
     confidence        NUMERIC(5,2) NOT NULL,
     lookback_months   INTEGER,
-    details           JSONB,
+    details           TEXT,
     request_id        VARCHAR(64),
     created_at        TIMESTAMPTZ  NOT NULL DEFAULT now(),
     updated_at        TIMESTAMPTZ  NOT NULL DEFAULT now()

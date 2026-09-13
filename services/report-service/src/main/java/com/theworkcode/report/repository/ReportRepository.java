@@ -13,5 +13,7 @@ public interface ReportRepository extends JpaRepository<ReportEntity, UUID> {
 
     Optional<ReportEntity> findByReportCode(String reportCode);
 
+    Optional<ReportEntity> findFirstByVerificationCodeOrderByGeneratedAtDesc(String verificationCode);
+
     Page<ReportEntity> findAllByOrderByGeneratedAtDesc(Pageable pageable);
 }

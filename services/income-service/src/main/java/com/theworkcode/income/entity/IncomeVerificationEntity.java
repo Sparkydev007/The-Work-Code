@@ -51,7 +51,7 @@ public class IncomeVerificationEntity {
     @Column(name = "pay_frequency")
     private String payFrequency;
 
-    @Column(name = "details", columnDefinition = "jsonb")
+    @Column(name = "details", columnDefinition = "text")
     private String details;
 
     @Column(name = "request_id")

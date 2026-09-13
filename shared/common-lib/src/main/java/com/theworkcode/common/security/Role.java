@@ -22,6 +22,12 @@ public enum Role {
     }
 
     public boolean has(String capability) {
-        return capabilities.contains("*") || capabilities.contains(capability);
+        if (capabilities.contains("*") || capabilities.contains(capability)) {
+            return true;
+        }
+        // Owning a capability implies read access to it (e.g. 'verification'
+        // grants 'verification:read'); viewer-style roles list ':read' directly.
+        int readSuffix = capability.indexOf(":read");
+        return readSuffix > 0 && capabilities.contains(capability.substring(0, readSuffix));
     }
 }

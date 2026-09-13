@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS identity_verifications (
     employee_id_score       NUMERIC(5,2),
     email_score             NUMERIC(5,2),
     matched_employee_number VARCHAR(64),
-    breakdown               JSONB,
+    breakdown               TEXT,
     request_id              VARCHAR(64),
     created_at              TIMESTAMPTZ  NOT NULL DEFAULT now(),
     updated_at              TIMESTAMPTZ  NOT NULL DEFAULT now()

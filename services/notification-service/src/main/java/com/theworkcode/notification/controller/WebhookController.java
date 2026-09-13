@@ -30,13 +30,31 @@ public class WebhookController {
 
     private final WebhookService webhookService;
 
-    public record CreateWebhookRequest(String url, String description, List<String> events) {
+    public record CreateWebhookRequest(String url, String description, Object events) {
+    }
+
+    /** Accepts either a JSON array of event names or a comma-separated string. */
+    private static List<String> toEvents(Object events) {
+        if (events == null) {
+            return List.of();
+        }
+        if (events instanceof java.util.Collection<?> collection) {
+            return collection.stream().map(String::valueOf).toList();
+        }
+        String raw = String.valueOf(events);
+        if (raw.isBlank()) {
+            return List.of();
+        }
+        return java.util.Arrays.stream(raw.split(","))
+                .map(String::trim)
+                .filter(s -> !s.isEmpty())
+                .toList();
     }
 
     @PostMapping
     public ApiResponse<WebhookEntity> create(@RequestBody CreateWebhookRequest body, HttpServletRequest request) {
         RoleGuard.require(request, "webhooks");
-        return ApiResponse.ok(webhookService.create(body.url(), body.description(), body.events()));
+        return ApiResponse.ok(webhookService.create(body.url(), body.description(), toEvents(body.events())));
     }
 
     @GetMapping

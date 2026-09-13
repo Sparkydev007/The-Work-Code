@@ -58,7 +58,7 @@ public class EmploymentVerificationEntity {
     @Column(name = "lookback_months")
     private Integer lookbackMonths;
 
-    @Column(name = "details", columnDefinition = "jsonb")
+    @Column(name = "details", columnDefinition = "text")
     private String details;
 
     @Column(name = "request_id")

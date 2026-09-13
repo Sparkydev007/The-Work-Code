@@ -45,7 +45,7 @@ public class RiskAssessmentEntity {
     @Column(name = "band", nullable = false)
     private String band;
 
-    @Column(name = "signals", columnDefinition = "jsonb")
+    @Column(name = "signals", columnDefinition = "text")
     private String signals;
 
     @Column(name = "created_at", nullable = false, updatable = false)
