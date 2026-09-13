@@ -1,0 +1,97 @@
+server:
+  port: ${SERVER_PORT:8080}
+
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      default-filters:
+        - RemoveRequestHeader=X-Forwarded-User-Role
+      routes:
+        # ---------- Auth (public) ----------
+        - id: auth
+          uri: ${GATEWAY_AUTH_TARGET:http://localhost:8086}
+          predicates:
+            - Path=/api/v1/auth/**
+
+        # ---------- Verification orchestrator ----------
+        - id: verifications
+          uri: ${GATEWAY_VERIFICATION_TARGET:http://localhost:8086}
+          predicates:
+            - Path=/api/v1/verifications/**,/api/v1/analytics/**,/api/v1/disputes/**,/api/v1/manual-verification/**
+
+        # ---------- Identity ----------
+        - id: identity
+          uri: ${GATEWAY_IDENTITY_TARGET:http://localhost:8081}
+          predicates:
+            - Path=/api/v1/identity/**
+
+        # ---------- Employees ----------
+        - id: employees
+          uri: ${GATEWAY_EMPLOYEE_TARGET:http://localhost:8082}
+          predicates:
+            - Path=/api/v1/employees/**
+
+        # ---------- Employers ----------
+        - id: employers
+          uri: ${GATEWAY_EMPLOYER_TARGET:http://localhost:8083}
+          predicates:
+            - Path=/api/v1/employers/**
+
+        # ---------- Employment ----------
+        - id: employment
+          uri: ${GATEWAY_EMPLOYMENT_TARGET:http://localhost:8084}
+          predicates:
+            - Path=/api/v1/employment/**
+
+        # ---------- Income ----------
+        - id: income
+          uri: ${GATEWAY_INCOME_TARGET:http://localhost:8085}
+          predicates:
+            - Path=/api/v1/income/**
+
+        # ---------- Risk ----------
+        - id: risk
+          uri: ${GATEWAY_RISK_TARGET:http://localhost:8087}
+          predicates:
+            - Path=/api/v1/risk/**
+
+        # ---------- Reports ----------
+        - id: reports
+          uri: ${GATEWAY_REPORT_TARGET:http://localhost:8088}
+          predicates:
+            - Path=/api/v1/reports/**
+
+        # ---------- Batch ----------
+        - id: batch
+          uri: ${GATEWAY_BATCH_TARGET:http://localhost:8090}
+          predicates:
+            - Path=/api/v1/batches/**
+
+        # ---------- Audit ----------
+        - id: audit
+          uri: ${GATEWAY_AUDIT_TARGET:http://localhost:8089}
+          predicates:
+            - Path=/api/v1/audit/**
+
+        # ---------- Webhooks / notifications ----------
+        - id: webhooks
+          uri: ${GATEWAY_NOTIFICATION_TARGET:http://localhost:8091}
+          predicates:
+            - Path=/api/v1/webhooks/**
+
+workcode:
+  gateway:
+    jwt-secret: ${JWT_SECRET:demo-secret-key-change-me-0123456789abcdef}
+    # Public paths that skip JWT validation
+    public-paths:
+      - /api/v1/auth
+      - /api/health
+      - /actuator
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,gateway
