@@ -1,0 +1,20 @@
+# Shared Dockerfile for every Spring Boot service.
+# Build context must be the repository root; pass SERVICE_DIR as the build arg.
+FROM maven:3.9-eclipse-temurin-17 AS build
+ARG SERVICE_DIR
+WORKDIR /build
+COPY pom.xml .
+COPY shared/common-lib/pom.xml shared/common-lib/pom.xml
+COPY services/${SERVICE_DIR}/pom.xml services/${SERVICE_DIR}/pom.xml
+RUN mvn -q -pl services/${SERVICE_DIR} -am dependency:go-offline -DskipTests || true
+COPY shared shared
+COPY services/${SERVICE_DIR}/src services/${SERVICE_DIR}/src
+RUN mvn -q -pl services/${SERVICE_DIR} -am package -DskipTests
+
+FROM eclipse-temurin:17-jre-alpine
+ARG SERVICE_DIR
+RUN addgroup -S workcode && adduser -S workcode -G workcode
+USER workcode
+COPY --from=build /build/services/${SERVICE_DIR}/target/*.jar /app/app.jar
+EXPOSE 8080
+ENTRYPOINT ["java", "-XX:MaxRAMPercentage=75", "-jar", "/app/app.jar"]

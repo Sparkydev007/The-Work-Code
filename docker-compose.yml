@@ -1,0 +1,228 @@
+version: "3.9"
+
+# The Work Code - local demo stack
+# Usage: docker compose up --build
+# UI:    http://localhost:3000  (Stitch screens)
+# API:   http://localhost:8080  (gateway)
+# Health: http://localhost:8080/api/health
+
+x-service-base: &service-base
+  build:
+    context: .
+    dockerfile: Dockerfile.service
+  environment: &service-env
+    SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/workcode
+    SPRING_DATASOURCE_USERNAME: workcode
+    SPRING_DATASOURCE_PASSWORD: workcode
+    DEMO_MODE: "true"
+    SEED_DEMO_DATA: "true"
+    JWT_SECRET: demo-secret-key-change-me-0123456789abcdef
+    # service discovery inside the compose network
+    WORKCODE_IDENTITY_SERVICE_URL: http://identity-service:8081
+    WORKCODE_EMPLOYEE_SERVICE_URL: http://employee-service:8082
+    WORKCODE_EMPLOYMENT_SERVICE_URL: http://employment-service:8084
+    WORKCODE_INCOME_SERVICE_URL: http://income-service:8085
+    WORKCODE_RISK_SERVICE_URL: http://risk-service:8087
+    WORKCODE_REPORT_SERVICE_URL: http://report-service:8088
+  depends_on:
+    postgres:
+      condition: service_healthy
+  restart: unless-stopped
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: workcode
+      POSTGRES_USER: workcode
+      POSTGRES_PASSWORD: workcode
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U workcode -d workcode"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  identity-service:
+    <<: *service-base
+    build:
+      context: .
+      dockerfile: Dockerfile.service
+      args:
+        SERVICE_DIR: identity-service
+    environment:
+      <<: *service-env
+      SERVER_PORT: 8081
+    ports:
+      - "8081:8081"
+
+  employee-service:
+    <<: *service-base
+    build:
+      context: .
+      dockerfile: Dockerfile.service
+      args:
+        SERVICE_DIR: employee-service
+    environment:
+      <<: *service-env
+      SERVER_PORT: 8082
+    ports:
+      - "8082:8082"
+
+  employer-service:
+    <<: *service-base
+    build:
+      context: .
+      dockerfile: Dockerfile.service
+      args:
+        SERVICE_DIR: employer-service
+    environment:
+      <<: *service-env
+      SERVER_PORT: 8083
+    ports:
+      - "8083:8083"
+
+  employment-service:
+    <<: *service-base
+    build:
+      context: .
+      dockerfile: Dockerfile.service
+      args:
+        SERVICE_DIR: employment-service
+    environment:
+      <<: *service-env
+      SERVER_PORT: 8084
+    ports:
+      - "8084:8084"
+
+  income-service:
+    <<: *service-base
+    build:
+      context: .
+      dockerfile: Dockerfile.service
+      args:
+        SERVICE_DIR: income-service
+    environment:
+      <<: *service-env
+      SERVER_PORT: 8085
+    ports:
+      - "8085:8085"
+
+  verification-service:
+    <<: *service-base
+    build:
+      context: .
+      dockerfile: Dockerfile.service
+      args:
+        SERVICE_DIR: verification-service
+    environment:
+      <<: *service-env
+      SERVER_PORT: 8086
+    ports:
+      - "8086:8086"
+
+  risk-service:
+    <<: *service-base
+    build:
+      context: .
+      dockerfile: Dockerfile.service
+      args:
+        SERVICE_DIR: risk-service
+    environment:
+      <<: *service-env
+      SERVER_PORT: 8087
+    ports:
+      - "8087:8087"
+
+  report-service:
+    <<: *service-base
+    build:
+      context: .
+      dockerfile: Dockerfile.service
+      args:
+        SERVICE_DIR: report-service
+    environment:
+      <<: *service-env
+      SERVER_PORT: 8088
+    ports:
+      - "8088:8088"
+
+  audit-service:
+    <<: *service-base
+    build:
+      context: .
+      dockerfile: Dockerfile.service
+      args:
+        SERVICE_DIR: audit-service
+    environment:
+      <<: *service-env
+      SERVER_PORT: 8089
+    ports:
+      - "8089:8089"
+
+  batch-service:
+    <<: *service-base
+    build:
+      context: .
+      dockerfile: Dockerfile.service
+      args:
+        SERVICE_DIR: batch-service
+    environment:
+      <<: *service-env
+      SERVER_PORT: 8090
+    ports:
+      - "8090:8090"
+
+  notification-service:
+    <<: *service-base
+    build:
+      context: .
+      dockerfile: Dockerfile.service
+      args:
+        SERVICE_DIR: notification-service
+    environment:
+      <<: *service-env
+      SERVER_PORT: 8091
+    ports:
+      - "8091:8091"
+
+  gateway:
+    <<: *service-base
+    build:
+      context: .
+      dockerfile: services/api-gateway/Dockerfile
+    environment:
+      SERVER_PORT: 8080
+      JWT_SECRET: demo-secret-key-change-me-0123456789abcdef
+      GATEWAY_IDENTITY_TARGET: http://identity-service:8081
+      GATEWAY_EMPLOYEE_TARGET: http://employee-service:8082
+      GATEWAY_EMPLOYER_TARGET: http://employer-service:8083
+      GATEWAY_EMPLOYMENT_TARGET: http://employment-service:8084
+      GATEWAY_INCOME_TARGET: http://income-service:8085
+      GATEWAY_VERIFICATION_TARGET: http://verification-service:8086
+      GATEWAY_RISK_TARGET: http://risk-service:8087
+      GATEWAY_REPORT_TARGET: http://report-service:8088
+      GATEWAY_AUDIT_TARGET: http://audit-service:8089
+      GATEWAY_BATCH_TARGET: http://batch-service:8090
+      GATEWAY_NOTIFICATION_TARGET: http://notification-service:8091
+    ports:
+      - "8080:8080"
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  frontend:
+    image: nginx:alpine
+    volumes:
+      - ./frontend:/usr/share/nginx/html:ro
+      - ./frontend/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    ports:
+      - "3000:3000"
+    depends_on:
+      - gateway
+
+volumes:
+  pgdata:
